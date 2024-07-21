@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6589bebdd0f89a4c8f52de2b3204fca, type: 3}
+  m_Name: Pet Item
+  m_EditorClassIdentifier: 
+  _itemId: 0
+  _icon: {fileID: 21300000, guid: 4798a85b38e7b784b9f0de3a13def78c, type: 3}
+  _ruLabel: "\u041A\u043E\u0448\u043A\u0430"
+  _enLabel: Cat
+  _prefab: {fileID: 622294684391249168, guid: 63e06e7a03603bb46bb9552a51e44626, type: 3}
