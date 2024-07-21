@@ -1,0 +1,42 @@
+{
+    "idSave": 678,
+    "isFirstSession": false,
+    "language": "en",
+    "promptDone": false,
+    "money": 0,
+    "digPower": 10,
+    "bagUpgradesBought": 0,
+    "pickaxeDropOrderCurrentId": 0,
+    "petDropOrderCurrentId": 0,
+    "openedSkins": [
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+    ],
+    "petInventoryItems": [
+        0
+    ],
+    "pickaxeInventoryItems": [
+        0
+    ],
+    "shopPrices": [
+        3000,
+        0
+    ],
+    "educationPassedCount": 3,
+    "skinStoreToastEducationShowed": false,
+    "storeToastEducationShowed": false,
+    "lastSkinId": 0
+}
