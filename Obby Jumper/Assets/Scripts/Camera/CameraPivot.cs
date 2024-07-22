@@ -44,6 +44,16 @@ public class CameraPivot : MonoBehaviour
         _camera.m_XAxis.m_MaxSpeed = 0;
     }
 
+    public void SetDamping(float value)
+    {
+        for(int i = 0; i < 3; i++) 
+        {
+            _camera.GetRig(i).GetCinemachineComponent<CinemachineTransposer>().m_XDamping = value;
+            _camera.GetRig(i).GetCinemachineComponent<CinemachineTransposer>().m_YDamping = value;
+            _camera.GetRig(i).GetCinemachineComponent<CinemachineTransposer>().m_ZDamping = value;
+        }
+    }
+
     private void Update()
     {
         if (_locked)

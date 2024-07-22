@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3955119813487091092}
   - component: {fileID: 1913487028773292460}
   m_Layer: 5
-  m_Name: PowerIncreaseEffect
+  m_Name: IncreaseEffectMoney
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f18e06603f2c947469c1c48a2feefd20, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ded229614c6ea174bad0a21a58e1a539, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

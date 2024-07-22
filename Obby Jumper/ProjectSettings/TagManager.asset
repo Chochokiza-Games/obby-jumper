@@ -7,6 +7,7 @@ TagManager:
   - PickaxeInventory
   - PetInventory
   - Bot
+  - PlayerSkin
   layers:
   - Default
   - TransparentFX

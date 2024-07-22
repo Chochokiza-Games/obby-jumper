@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private CharacterController _characterController;
     [SerializeField] private PlayerSkin _skin;
     [SerializeField] private PlayerAnimator _animator; 
+    [SerializeField] private Animator _a;
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpForce;
     [Range(1f, 3f)]
@@ -57,25 +58,63 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawWireCube(transform.position + transform.up / 2, _boxcastSize);
     }
 
-    private void Update()
+    public void MoveToObject(Transform target, float speedFactor = 1f)
     {
-        if (_locked)
+        _locked = true;
+        StartCoroutine(MoveToObjectRoutine(target, speedFactor));
+    }
+
+    private IEnumerator MoveToObjectRoutine(Transform target, float speedFactor)
+    {
+        float oldSpeed = _a.speed;
+        _a.speed = speedFactor / 2;
+        while(Vector3.Distance(transform.position, target.position) > .2f)
         {
-            return;
+            Vector3 dir = (target.position - transform.position).normalized * _speed * speedFactor;
+            dir.y = transform.position.y;
+            Debug.DrawLine(transform.position, target.transform.position);
+            if (dir != Vector3.zero)
+            {
+                _skin.PlayerMovementDirection = dir.normalized;
+
+                if (_isGrounded)
+                {
+                    _animator.PlayState(PlayerAnimator.States.Running);
+                }
+            }
+
+            _characterController.Move(dir * Time.deltaTime);
+            yield return new WaitForFixedUpdate();
         }
 
+        _a.speed = oldSpeed;
+    }
+
+    private void Update()
+    {
         if (!_characterController.enabled)
         {
             return;
         }
 
-        _isGrounded = Physics.BoxCast(transform.position + transform.up / 2, _boxcastSize / 2, -transform.up, transform.rotation, _groundCheckDistance, ~(LayerMask.GetMask("Trigger") + LayerMask.GetMask("Coin") + LayerMask.GetMask("PlayerSkin")));
-
-        //Debug.Log(_isGrounded);
         if (_isGrounded && _playerVelocity.y < 0)
         {
             _playerVelocity.y = 0f;
         }
+
+        _playerVelocity.y += (Physics.gravity.y * _gravityFactor) * Time.deltaTime;
+        _characterController.Move(_playerVelocity * Time.deltaTime);
+
+        _isGrounded = Physics.BoxCast(transform.position + transform.up / 2, _boxcastSize / 2, -transform.up, transform.rotation, _groundCheckDistance, ~(LayerMask.GetMask("Trigger") + LayerMask.GetMask("Coin") + LayerMask.GetMask("PlayerSkin") + LayerMask.GetMask("PlayerSkinSkeleton")));
+
+        if (_locked)
+        {
+            return;
+        }
+
+        
+
+        //Debug.Log(_isGrounded);
 
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
@@ -117,8 +156,6 @@ public class PlayerMovement : MonoBehaviour
             _playerVelocity.y += Mathf.Sqrt(_jumpForce * -3.0f * (Physics.gravity.y * _gravityFactor));
         }
 
-        _playerVelocity.y += (Physics.gravity.y * _gravityFactor) * Time.deltaTime;
-        _characterController.Move(_playerVelocity * Time.deltaTime);
     }
 
     public void OnJump()

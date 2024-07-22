@@ -21,9 +21,8 @@ namespace YG
 
         // Ваши сохранения
         public int money = 0;
-        public int digPower = 10;
+        public int power = 10;
         public int bagUpgradesBought = 0;
-        public int pickaxeDropOrderCurrentId = 0;
         public int petDropOrderCurrentId = 0;
         public bool[] openedSkins = new bool[0];
         public int[] petInventoryItems = new int[0];

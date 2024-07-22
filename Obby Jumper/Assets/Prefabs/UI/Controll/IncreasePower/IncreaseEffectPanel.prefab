@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6155452128203155499}
   - component: {fileID: 5631177558297007984}
   m_Layer: 5
-  m_Name: PowerIncreasePanel
+  m_Name: IncreaseEffectPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,12 +45,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 402736868930174924}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f627a05b062fd7fd91e6a0b913d6ce4, type: 3}
+  m_Script: {fileID: 11500000, guid: f3095ddbdf70f7a1683601021b1d1cd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _rTransform: {fileID: 6155452128203155499}
-  _previewPrefab: {fileID: 3686392991619336411, guid: fa3bc5902a801db4b95b36bbcc8f791b, type: 3}
-  _flyDuration: 0.3
+  _previewPrefab: {fileID: 0}
+  _flyDuration: 0.5
+  _delayBeforeFly: 0.3
+  _minDelayBeforeSpawn: 0.1
+  _maxDelayBeforeSpawn: 0.2
   _target: {fileID: 0}
   _scaleCurve:
     serializedVersion: 2
@@ -58,30 +61,40 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 3.3841217
-      outSlope: 3.3841217
-      tangentMode: 34
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.33333334
+      outWeight: 0
     - serializedVersion: 3
-      time: 0.28847075
-      value: 0.9762201
-      inSlope: 0.5618616
-      outSlope: 0.5618616
+      time: 0.12177177
+      value: 0.5540273
+      inSlope: 0.8939426
+      outSlope: 0.8939426
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.06305049
+      outWeight: 0.08270021
     - serializedVersion: 3
-      time: 1
-      value: 0.000015616417
-      inSlope: -1.3719808
-      outSlope: -1.3719808
-      tangentMode: 34
+      time: 0.8290604
+      value: 0.50149155
+      inSlope: -0.79815066
+      outSlope: -0.79815066
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.07140579
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.01
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _maxEffectsOnScreen: 1

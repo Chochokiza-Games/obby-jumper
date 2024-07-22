@@ -59,7 +59,7 @@ public class Counter : MonoBehaviour
         float currentValue = _currentValue;
         float endValue = _neededValue;
         _currentValue = _neededValue;
-        int stepValue = Mathf.RoundToInt(endValue - currentValue) / _changeSteps; 
+        float stepValue = Mathf.Round(endValue - currentValue) / _changeSteps;
         for (int i = 0; i < _changeSteps; i++) 
         {
             currentValue += stepValue;

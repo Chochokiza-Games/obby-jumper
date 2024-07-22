@@ -1,12 +1,11 @@
 {
-    "idSave": 689,
+    "idSave": 846,
     "isFirstSession": false,
     "language": "en",
     "promptDone": false,
-    "money": 0,
-    "digPower": 10,
+    "money": 1250,
+    "power": 165,
     "bagUpgradesBought": 0,
-    "pickaxeDropOrderCurrentId": 0,
     "petDropOrderCurrentId": 0,
     "openedSkins": [
         true,

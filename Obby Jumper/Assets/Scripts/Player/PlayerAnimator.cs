@@ -10,7 +10,8 @@ public class PlayerAnimator : MonoBehaviour
         Idle,
         Running,
         Jumping,
-        Attack
+        Attack,
+        Fly
     }
 
     [SerializeField] private Animator _animator;
@@ -37,6 +38,9 @@ public class PlayerAnimator : MonoBehaviour
                     break;
                 case States.Attack:
                     _animator.SetTrigger("Attack");
+                    break;
+                case States.Fly:
+                    _animator.SetTrigger("Fly");
                     break;
             }
         }

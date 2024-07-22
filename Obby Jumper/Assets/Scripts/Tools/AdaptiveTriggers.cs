@@ -18,13 +18,15 @@ public class AdaptiveTriggers : MonoBehaviour
         get => _playerExit;
     }
 
+    [SerializeField] private string _tag = "Player";
+    [Space]
     [SerializeField] private UnityEvent _playerEnter;
     [SerializeField] private UnityEvent _playerStay;
     [SerializeField] private UnityEvent _playerExit;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag(_tag))
         {
             _playerEnter.Invoke();
         }
@@ -32,7 +34,7 @@ public class AdaptiveTriggers : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag(_tag))
         {
             _playerStay.Invoke();
         }
@@ -40,7 +42,7 @@ public class AdaptiveTriggers : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag(_tag))
         {
             _playerExit.Invoke();
         }

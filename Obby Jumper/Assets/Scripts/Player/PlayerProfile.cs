@@ -12,11 +12,6 @@ public class PlayerProfile : MonoBehaviour
         get => _petDropOrder;
     }
 
-    public int PickaxeDropOrderCurrentId
-    {
-        get => _pickaxeDropOrderCurrentId;
-    }
-
     public int PetDropOrderCurrentId
     {
         get => _petDropOrderCurrentId;
@@ -27,23 +22,16 @@ public class PlayerProfile : MonoBehaviour
         set => _currentSkinId = value;
     }
 
-    public float DigMultiplier
-    {
-        set => _currentDigMultiplier = value;
-    }
-
     public int BagUpgradesCount
     {
         get => _bagUpgradesBought;
     }
 
-    public int DigPower
+    public int Power
     {
         get 
         {
-            int digPowerFactor = Mathf.RoundToInt((float)(_digPower) * (_currentDigMultiplier - 1f));
-
-            return _digPower + digPowerFactor;
+            return _power;
         }
     }
 
@@ -58,6 +46,7 @@ public class PlayerProfile : MonoBehaviour
     }
 
     [SerializeField] private UnityEvent<int> _moneyChanged;
+    [SerializeField] private UnityEvent<int> _powerChanged;
     [SerializeField] private int[] _petDropOrder;
     [SerializeField] private PlayerInventory _petInventory;
     [SerializeField] private UnityEvent _saveEvent;
@@ -71,13 +60,11 @@ public class PlayerProfile : MonoBehaviour
 
     private int _currentSkinId = 0;
     private int _money = 0;
-    private int _digPower = 10;
+    private int _power = 10;
     private int _bagUpgradesBought = 0;
-    private float _currentDigMultiplier = 1;
 
     private bool[] _openedSkins;
 
-    private int _pickaxeDropOrderCurrentId = 0;
     private int _petDropOrderCurrentId = 0;
     private int _educationShowCountCurrent = 0;
 
@@ -121,10 +108,9 @@ public class PlayerProfile : MonoBehaviour
         _loadEvent.Invoke();
 
         _money = YandexGame.savesData.money;
-        _digPower = YandexGame.savesData.digPower;
+        _power = YandexGame.savesData.power;
         _bagUpgradesBought = YandexGame.savesData.bagUpgradesBought;
 
-        _pickaxeDropOrderCurrentId = YandexGame.savesData.pickaxeDropOrderCurrentId;
         _petDropOrderCurrentId = YandexGame.savesData.petDropOrderCurrentId;
 
         _educationShowCountCurrent = YandexGame.savesData.educationPassedCount;
@@ -132,6 +118,7 @@ public class PlayerProfile : MonoBehaviour
         _storeToastEducationShowed = YandexGame.savesData.storeToastEducationShowed;
 
         _moneyChanged.Invoke(_money);
+        _powerChanged.Invoke(_power);
 
         LoadInventory(_petInventory, ref YandexGame.savesData.petInventoryItems);
 
@@ -151,10 +138,8 @@ public class PlayerProfile : MonoBehaviour
         _saveEvent.Invoke();
 
         YandexGame.savesData.money = _money;
-        YandexGame.savesData.digPower = _digPower;
+        YandexGame.savesData.power = _power;
         YandexGame.savesData.bagUpgradesBought = _bagUpgradesBought;
-
-        YandexGame.savesData.pickaxeDropOrderCurrentId = _pickaxeDropOrderCurrentId;
         YandexGame.savesData.petDropOrderCurrentId = _petDropOrderCurrentId;
         YandexGame.savesData.openedSkins = _openedSkins;
 
@@ -223,6 +208,12 @@ public class PlayerProfile : MonoBehaviour
         }
     }
 
+    public void IncreasePower(int amount)
+    {
+        _power += amount;
+        _powerChanged.Invoke(_power);
+    }
+
     public void DeleteSkinStoreEducationTost()
     {
         if (_skinStoreToastEducation != null)
@@ -273,11 +264,6 @@ public class PlayerProfile : MonoBehaviour
         return _openedSkins[id];
     }
 
-    public void IncreasePickaxeDropOrderCurrentId()
-    {
-        _pickaxeDropOrderCurrentId += 1;
-
-    }
 
     public void IncreasePetDropOrderCurrentId()
     {
