@@ -9,14 +9,25 @@ public class PlayerSkin : MonoBehaviour
         set => _playerMovementDirection = value;
     }
 
+    public bool Ragdolled 
+    {
+        set => _ragdolled = value;
+    }
+
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private PlayerAnimator _playerAnimator;
     [SerializeField] private float _turnSpeed;
 
     private Vector3 _playerMovementDirection;
+    private bool _ragdolled = false;
 
     private void FixedUpdate()
     {
+        if (_ragdolled)
+        {
+            return;
+        }
+
         transform.position = _playerMovement.transform.position;
         Vector3 direction = (_playerMovementDirection
             + _playerMovement.transform.position) - transform.position;

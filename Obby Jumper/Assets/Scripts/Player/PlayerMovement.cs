@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        _isGrounded = Physics.BoxCast(transform.position + transform.up / 2, _boxcastSize / 2, -transform.up, transform.rotation, _groundCheckDistance, ~(LayerMask.GetMask("Trigger") + LayerMask.GetMask("Coin")));
+        _isGrounded = Physics.BoxCast(transform.position + transform.up / 2, _boxcastSize / 2, -transform.up, transform.rotation, _groundCheckDistance, ~(LayerMask.GetMask("Trigger") + LayerMask.GetMask("Coin") + LayerMask.GetMask("PlayerSkin")));
 
         //Debug.Log(_isGrounded);
         if (_isGrounded && _playerVelocity.y < 0)

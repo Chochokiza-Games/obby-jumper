@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2917583123093500532}
   - component: {fileID: 7638003668823649700}
   - component: {fileID: 3697907869947045265}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: AdaptiveTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
