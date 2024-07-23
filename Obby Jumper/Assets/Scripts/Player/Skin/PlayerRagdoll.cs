@@ -60,7 +60,10 @@ public class PlayerRagdoll : MonoBehaviour
 
         foreach(Rigidbody rb in GetComponentsInChildren<Rigidbody>())
         {
-            Debug.Log(rb.gameObject.name);
+            if (rb.transform == transform)
+            {
+                continue;
+            }
             _ragdoll.Add(new RagdollBone(rb));
             rb.isKinematic = true;
         }
@@ -92,13 +95,23 @@ public class PlayerRagdoll : MonoBehaviour
         yield return null;
         _hips.transform.parent = null;
         _hips.AddForce((Vector3.forward + Vector3.up) * (_pushForce + _profile.Power), ForceMode.Impulse);
-        float timeElapsed = 0;
+        StartCoroutine(CheckVelocityRoutine());
         while (true)
         {
             transform.position = _hips.transform.position + _ejectOffset;
-            timeElapsed += Time.deltaTime;
             yield return new WaitForFixedUpdate();
         }
+    }
+
+    private IEnumerator CheckVelocityRoutine()
+    {
+        yield return new WaitForSeconds(0.5f);
+        while( _hips.velocity.magnitude > .1f)
+        {
+            Debug.Log(_hips.velocity.magnitude);
+            yield return new WaitForFixedUpdate();
+        }
+        _collider.enabled = true;
     }
 
     private void OnTeleportStarted() 
@@ -113,7 +126,7 @@ public class PlayerRagdoll : MonoBehaviour
 
     public void EnableRagdoll()
     {
-        _collider.enabled = true;
+        //_collider.enabled = true;
         _animator.enabled = false;
         _skin.Ragdolled = true;
         foreach (RagdollBone bone in _ragdoll)
@@ -124,7 +137,7 @@ public class PlayerRagdoll : MonoBehaviour
 
     public void DisableRagdoll()
     {
-        _collider.enabled = false;
+        //_collider.enabled = false;
         _skin.Ragdolled = false;
         _hips.transform.parent = _armature;
 

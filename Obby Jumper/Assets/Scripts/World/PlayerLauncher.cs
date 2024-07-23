@@ -14,6 +14,6 @@ public class PlayerLauncher : MonoBehaviour
     public void OnPlayerEnter()
     {
         _movement.MoveToObject(_target, _speedFactor);
-        _cameraPivot.SetDamping(_damping);
+        //_cameraPivot.SetDamping(_damping);
     }
 }

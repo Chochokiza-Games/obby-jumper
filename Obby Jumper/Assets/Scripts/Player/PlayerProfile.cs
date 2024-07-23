@@ -105,6 +105,7 @@ public class PlayerProfile : MonoBehaviour
 
     public void LoadCloud()
     {
+        YandexGame.ResetSaveProgress();
         _loadEvent.Invoke();
 
         _money = YandexGame.savesData.money;
