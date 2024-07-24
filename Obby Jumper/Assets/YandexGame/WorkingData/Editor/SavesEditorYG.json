@@ -1,10 +1,10 @@
 {
-    "idSave": 862,
+    "idSave": 890,
     "isFirstSession": false,
-    "language": "en",
+    "language": "ru",
     "promptDone": false,
-    "money": 8000,
-    "power": 2190,
+    "money": 200,
+    "power": 70,
     "bagUpgradesBought": 0,
     "petDropOrderCurrentId": 0,
     "openedSkins": [
@@ -27,14 +27,11 @@
     "petInventoryItems": [
         0
     ],
-    "pickaxeInventoryItems": [
-        0
-    ],
+    "pickaxeInventoryItems": [],
     "shopPrices": [
-        3000,
         0
     ],
-    "educationPassedCount": 3,
+    "educationPassedCount": 0,
     "skinStoreToastEducationShowed": false,
     "storeToastEducationShowed": false,
     "lastSkinId": 0

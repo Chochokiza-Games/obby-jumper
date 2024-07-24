@@ -11,20 +11,18 @@ public class RewardBlock : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _3dLabel;
     [SerializeField] private int _startOfCountingValue;
 
-    private BlockSpawner _spawner;
+    private RewardTrace _trace;
     private int _id;
-    private PlayerProfile _profile;
 
-    public void Init(int id)
+    public void Init(int id, RewardTrace trace)
     {
-        _profile = FindObjectOfType<PlayerProfile>();
         _id = id;
+        _trace = trace;
         _3dLabel.text = (_startOfCountingValue * _id).ToString();
     }
 
     public void OnPlayerEnter() 
     {
-        _profile.IncreaseMoney(_baseMoneyRewardCount * _id);
-        _profile.IncreasePower(_basePowerRewardCount * _id);
+        _trace.PlayerEntered(_id, _baseMoneyRewardCount, _basePowerRewardCount);
     }
 }

@@ -88,6 +88,7 @@ public class PlayerRagdoll : MonoBehaviour
 
     private IEnumerator FuckingEjectRoutine()
     {
+        _collider.enabled = false;
         EnableRagdoll();
         _camera.LookAt = transform;
         _camera.Follow = transform;
@@ -126,7 +127,6 @@ public class PlayerRagdoll : MonoBehaviour
 
     public void EnableRagdoll()
     {
-        //_collider.enabled = true;
         _animator.enabled = false;
         _skin.Ragdolled = true;
         foreach (RagdollBone bone in _ragdoll)
@@ -137,7 +137,6 @@ public class PlayerRagdoll : MonoBehaviour
 
     public void DisableRagdoll()
     {
-        //_collider.enabled = false;
         _skin.Ragdolled = false;
         _hips.transform.parent = _armature;
 

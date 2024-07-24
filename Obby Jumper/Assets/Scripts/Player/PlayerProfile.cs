@@ -60,7 +60,7 @@ public class PlayerProfile : MonoBehaviour
 
     private int _currentSkinId = 0;
     private int _money = 0;
-    private int _power = 10;
+    private int _power = 500;
     private int _bagUpgradesBought = 0;
 
     private bool[] _openedSkins;
