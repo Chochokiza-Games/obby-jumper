@@ -47,6 +47,7 @@ public class PlayerProfile : MonoBehaviour
 
     [SerializeField] private UnityEvent<int> _moneyChanged;
     [SerializeField] private UnityEvent<int> _powerChanged;
+    [SerializeField] private int _powerCap;
     [SerializeField] private int[] _petDropOrder;
     [SerializeField] private PlayerInventory _petInventory;
     [SerializeField] private UnityEvent _saveEvent;
@@ -109,7 +110,7 @@ public class PlayerProfile : MonoBehaviour
         _loadEvent.Invoke();
 
         _money = YandexGame.savesData.money;
-        _power = YandexGame.savesData.power;
+        _power = YandexGame.savesData.power = _powerCap;
         _bagUpgradesBought = YandexGame.savesData.bagUpgradesBought;
 
         _petDropOrderCurrentId = YandexGame.savesData.petDropOrderCurrentId;
@@ -212,6 +213,10 @@ public class PlayerProfile : MonoBehaviour
     public void IncreasePower(int amount)
     {
         _power += amount;
+        if (_power > _powerCap)
+        {
+            _power = _powerCap;
+        }
         _powerChanged.Invoke(_power);
     }
 

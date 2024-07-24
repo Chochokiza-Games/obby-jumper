@@ -21,6 +21,7 @@ public class PlayerRagdoll : MonoBehaviour
     [SerializeField] private PlayerMovement _movement;
     [SerializeField] private PlayerTeleport _teleporter;
     [SerializeField] private PlayerAnimator _playerAnimator;
+    [SerializeField] private Vector3 _ejectDirection;
 
     private struct RagdollBone
     {
@@ -50,6 +51,13 @@ public class PlayerRagdoll : MonoBehaviour
     private Vector3 _hipsStartPosition;
     private Quaternion _hipsStartRotation;
     private List<RagdollBone> _ragdoll;
+    private bool _groundReached = false;
+
+    private void OnDrawGizmos() 
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(_hips.position, _hips.position + _ejectDirection * 25f);
+    }
 
     private void Start()
     {
@@ -71,6 +79,7 @@ public class PlayerRagdoll : MonoBehaviour
 
     public void OnGroundReached()
     {
+        _groundReached = true;
         StartCoroutine(TeleportBackRoutine());
     }
 
@@ -79,6 +88,27 @@ public class PlayerRagdoll : MonoBehaviour
         yield return new WaitForSeconds(_delayBeforeTeleport);
         _teleporter.TeleportStarted.AddListener(OnTeleportStarted);
         _teleporter.Teleport(Vector3.zero);
+    }
+
+    public void PushToFinish()
+    {
+        foreach(RagdollBone bone in _ragdoll)
+        {
+            bone.Rigidbody.velocity = Vector3.one * 0.2f;
+        }
+
+        StartCoroutine(PushToFinishRoutine());
+    }
+
+    private IEnumerator PushToFinishRoutine()
+    {
+        _ejectDirection.y = -_ejectDirection.y;
+        while(_groundReached == false)
+        {
+            _hips.AddForce(_ejectDirection * 1, ForceMode.Impulse);
+            yield return null;
+        }
+
     }
 
     public void FuckingEject()
@@ -90,12 +120,13 @@ public class PlayerRagdoll : MonoBehaviour
     {
         _collider.enabled = false;
         EnableRagdoll();
+        _groundReached = false;
         _camera.LookAt = transform;
         _camera.Follow = transform;
         _movement.Locked = true;
         yield return null;
         _hips.transform.parent = null;
-        _hips.AddForce((Vector3.forward + Vector3.up) * (_pushForce + _profile.Power), ForceMode.Impulse);
+        _hips.AddForce(_ejectDirection * (_pushForce + _profile.Power), ForceMode.Impulse);
         StartCoroutine(CheckVelocityRoutine());
         while (true)
         {
@@ -107,7 +138,7 @@ public class PlayerRagdoll : MonoBehaviour
     private IEnumerator CheckVelocityRoutine()
     {
         yield return new WaitForSeconds(0.5f);
-        while( _hips.velocity.magnitude > .1f)
+        while ( _hips.velocity.magnitude > .1f)
         {
             Debug.Log(_hips.velocity.magnitude);
             yield return new WaitForFixedUpdate();

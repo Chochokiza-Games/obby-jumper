@@ -7,7 +7,7 @@ public class RewardBlock : MonoBehaviour
 {
     public int HumanId
     {
-        get => _id * _startOfCountingValue;
+        get => _humanId;
     }
     
     [SerializeField] private int _baseMoneyRewardCount;
@@ -22,7 +22,8 @@ public class RewardBlock : MonoBehaviour
 
     public void Init(int id, RewardTrace trace)
     {
-        _id = id;
+        _id = id - 1;
+        _humanId = id * _startOfCountingValue;
         _trace = trace;
         _3dLabel.text = HumanId.ToString();
     }

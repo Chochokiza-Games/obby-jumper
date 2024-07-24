@@ -8,6 +8,7 @@ TagManager:
   - PetInventory
   - Bot
   - PlayerSkin
+  - PlayerHips
   layers:
   - Default
   - TransparentFX
