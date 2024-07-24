@@ -32,6 +32,8 @@ namespace YG
         public bool skinStoreToastEducationShowed = false;
         public bool storeToastEducationShowed = false;
         public int lastSkinId = 0;
+        public float progressBarAmount = 0;
+        public int playerRecord = 0;
         // ...
 
         // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны

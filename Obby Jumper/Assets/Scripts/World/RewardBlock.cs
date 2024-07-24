@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class RewardBlock : MonoBehaviour
 {
+    public int HumanId
+    {
+        get => _id * _startOfCountingValue;
+    }
+    
     [SerializeField] private int _baseMoneyRewardCount;
     [SerializeField] private int _basePowerRewardCount;
     [Header("Start Of Counting")]
@@ -13,12 +18,13 @@ public class RewardBlock : MonoBehaviour
 
     private RewardTrace _trace;
     private int _id;
+    private int _humanId;
 
     public void Init(int id, RewardTrace trace)
     {
         _id = id;
         _trace = trace;
-        _3dLabel.text = (_startOfCountingValue * _id).ToString();
+        _3dLabel.text = HumanId.ToString();
     }
 
     public void OnPlayerEnter() 
