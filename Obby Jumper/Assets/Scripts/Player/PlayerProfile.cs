@@ -7,6 +7,11 @@ using YG;
 
 public class PlayerProfile : MonoBehaviour
 {
+    public int CurrentLevel
+    {
+        get => _currentLevel;
+    }
+
     public int[] PetDropOrder
     {
         get => _petDropOrder;
@@ -53,11 +58,12 @@ public class PlayerProfile : MonoBehaviour
     [SerializeField] private UnityEvent _skinStoreToastOpened;
     [SerializeField] private Transform _field;
     [SerializeField] private SlotInfo _firstSkin;
+    [SerializeField] private UnityEvent<int> _levelChanged;
 
     private int _currentSkinId = 0;
     private int _money = 0;
     private int _power = 500;
-    private int _currentLevel = 1;
+    private int _currentLevel = 2;
 
     private bool[] _openedSkins;
 
@@ -175,8 +181,15 @@ public class PlayerProfile : MonoBehaviour
 
             _openedSkins[0] = true;
         }
-
     }
+
+    public void IncreaseLevel()
+    {
+        _currentLevel++;
+        _levelChanged.Invoke(_currentLevel);
+        SaveCloud();
+    }
+
     public void MarkSkinAsOpened(int id)
     {
         _openedSkins[id] = true;

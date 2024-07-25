@@ -147,7 +147,6 @@ public class PlayerRagdoll : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         while ( _hips.velocity.magnitude > .1f)
         {
-            Debug.Log(_hips.velocity.magnitude);
             yield return new WaitForFixedUpdate();
         }
         _collider.enabled = true;

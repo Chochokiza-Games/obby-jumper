@@ -20,7 +20,6 @@ public class PlayerRecordInfo : MonoBehaviour
     public void Show(int record)
     {
         _label.text = $"{_template} {record}!";
-
         StartCoroutine(ShowRoutine(record));
     }
 

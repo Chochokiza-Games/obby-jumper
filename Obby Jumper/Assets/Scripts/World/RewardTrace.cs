@@ -12,7 +12,7 @@ public class RewardTrace : MonoBehaviour
     [SerializeField] private PlayerRecord _record;
     [Space]
     [Header("Colors")]
-    [SerializeField] private Color[] _colors;
+    [SerializeField] private TraceColor[] _colors;
     [Space]
     [Header("Generating Prefabs")]
     [SerializeField] private Transform _voidVelocityTrigger;
@@ -73,17 +73,19 @@ public class RewardTrace : MonoBehaviour
         _ragdoll = FindObjectOfType<PlayerRagdoll>();
         _bar = FindAnyObjectByType<ProgressBar>();
         _record = FindObjectOfType<PlayerRecord>();
-
+        int colorId = Random.Range(0, _colors.Length);
         for (int i = 0; i < _generatedBlocks.Count; i++)
         {
-            _generatedBlocks[i].Init(i + 1, this, _colors[Random.Range(0, _colors.Length)]);
+            _generatedBlocks[i].Init(i + 1, this, _profile.CurrentLevel, _colors[colorId].GetShade(Random.Range(0, _colors[colorId].ShadesCount)));
         }
     }
 
-    public void PlayerEntered(int id, int baseMoney, int basePower)
+    public void PlayerEntered(int id, int humanId, float baseMoney, float basePower)
     {
-        _profile.IncreaseMoney(baseMoney * (id + 1));
-        _profile.IncreasePower(basePower * (id + 1));
+        float money = ((id + 1) * baseMoney) * _profile.CurrentLevel;
+        float power = ((id + 1) * basePower);
+        _profile.IncreaseMoney(Mathf.RoundToInt(money));
+        _profile.IncreasePower(Mathf.RoundToInt(power));
         if (_record.TryUpdateRecord(_generatedBlocks[id].HumanId))
         {
             _bar.RefreshBar((float)((float)(id) / (float)(_generatedBlocks.Count - 1)));

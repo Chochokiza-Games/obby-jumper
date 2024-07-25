@@ -1,9 +1,9 @@
 {
-    "idSave": 1036,
+    "idSave": 1151,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
-    "money": 10850,
+    "money": 34000,
     "power": 3000,
     "bagUpgradesBought": 0,
     "petDropOrderCurrentId": 0,
@@ -36,5 +36,5 @@
     "storeToastEducationShowed": false,
     "lastSkinId": 0,
     "progressBarAmount": 1.0,
-    "playerRecord": 500
+    "playerRecord": 5000
 }
