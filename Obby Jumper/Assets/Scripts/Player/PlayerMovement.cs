@@ -33,12 +33,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _groundCheckDistance;
     [SerializeField] private Joystick _joystick;
     [SerializeField] private GameObject _jumpButton;
+    [SerializeField] private Transform _autoRunTarget;
+    [SerializeField] private bool _autoRunned;
 
     private Vector3 _moveDirection;
     private bool _locked;
     private bool _isGrounded = true;
     private Vector3 _playerVelocity;
     private bool _jump;
+    private Coroutine _walkToObjectRoutine;
 
     private void Start()
     {
@@ -60,8 +63,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void MoveToObject(Transform target, float speedFactor = 1f)
     {
+        StopAllCoroutines();
         _locked = true;
-        StartCoroutine(MoveToObjectRoutine(target, speedFactor));
+        _walkToObjectRoutine = StartCoroutine(MoveToObjectRoutine(target, speedFactor));
     }
 
     private IEnumerator MoveToObjectRoutine(Transform target, float speedFactor)
@@ -185,5 +189,25 @@ public class PlayerMovement : MonoBehaviour
     public void Unlock()
     {
         Locked = false;
+    }
+
+    public void SetAutoRun(bool enabled)
+    {
+        _autoRunned = enabled;
+        if (enabled)
+        {
+            if (_walkToObjectRoutine == null)
+            {
+                MoveToObject(_autoRunTarget);
+            }
+        }
+    }
+
+    public void OnLoadingScreenEnded()
+    {   
+        if (_autoRunned)
+        {
+            MoveToObject(_autoRunTarget);
+        }
     }
 }

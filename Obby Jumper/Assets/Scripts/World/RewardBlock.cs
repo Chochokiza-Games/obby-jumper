@@ -22,15 +22,16 @@ public class RewardBlock : MonoBehaviour
     private int _id;
     private int _humanId;
 
-    public void Init(int id, RewardTrace trace)
+    public void Init(int id, RewardTrace trace, Color color)
     {
         
         _id = id - 1;
         _humanId = id * _startOfCountingValue;
         _trace = trace;
         _3dLabel.text = HumanId.ToString();
+        _renderer.material = Instantiate(_renderer.material);
+        _renderer.material.color = color;
 
-        
     }
 
     public void OnPlayerEnter() 

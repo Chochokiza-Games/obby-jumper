@@ -1,10 +1,10 @@
 {
-    "idSave": 1013,
+    "idSave": 1024,
     "isFirstSession": false,
-    "language": "ru",
+    "language": "en",
     "promptDone": false,
-    "money": 700,
-    "power": 220,
+    "money": 19250,
+    "power": 3000,
     "bagUpgradesBought": 0,
     "petDropOrderCurrentId": 0,
     "openedSkins": [
@@ -35,6 +35,6 @@
     "skinStoreToastEducationShowed": false,
     "storeToastEducationShowed": false,
     "lastSkinId": 0,
-    "progressBarAmount": 0.040816325694322589,
-    "playerRecord": 30
+    "progressBarAmount": 1.0,
+    "playerRecord": 500
 }

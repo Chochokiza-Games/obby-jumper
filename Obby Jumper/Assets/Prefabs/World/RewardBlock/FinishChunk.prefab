@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 7707135960564297902}
   - component: {fileID: 5258467195551703405}
   m_Layer: 0
-  m_Name: BlockChunk
+  m_Name: FinishChunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -301,7 +301,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 121c5eba728d22cc186cbb56310f171a, type: 2}
+  - {fileID: 2100000, guid: 13fd16b339f5ede6f9ac72224d06014f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

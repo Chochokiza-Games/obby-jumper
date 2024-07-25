@@ -22,11 +22,6 @@ public class PlayerProfile : MonoBehaviour
         set => _currentSkinId = value;
     }
 
-    public int BagUpgradesCount
-    {
-        get => _bagUpgradesBought;
-    }
-
     public int Power
     {
         get 
@@ -62,7 +57,7 @@ public class PlayerProfile : MonoBehaviour
     private int _currentSkinId = 0;
     private int _money = 0;
     private int _power = 500;
-    private int _bagUpgradesBought = 0;
+    private int _currentLevel = 1;
 
     private bool[] _openedSkins;
 
@@ -111,7 +106,6 @@ public class PlayerProfile : MonoBehaviour
 
         _money = YandexGame.savesData.money;
         _power = YandexGame.savesData.power;
-        _bagUpgradesBought = YandexGame.savesData.bagUpgradesBought;
 
         _petDropOrderCurrentId = YandexGame.savesData.petDropOrderCurrentId;
 
@@ -141,7 +135,6 @@ public class PlayerProfile : MonoBehaviour
 
         YandexGame.savesData.money = _money;
         YandexGame.savesData.power = _power;
-        YandexGame.savesData.bagUpgradesBought = _bagUpgradesBought;
         YandexGame.savesData.petDropOrderCurrentId = _petDropOrderCurrentId;
         YandexGame.savesData.openedSkins = _openedSkins;
 
@@ -167,11 +160,6 @@ public class PlayerProfile : MonoBehaviour
     private void Awake()
     {
         StartCoroutine(SaveRoutine());
-    }
-
-    public void UpgradeBag()
-    {
-        _bagUpgradesBought++;
     }
 
     public void InitSkins(int skinsCount)
