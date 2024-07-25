@@ -12,6 +12,8 @@ public class RewardBlock : MonoBehaviour
     
     [SerializeField] private int _baseMoneyRewardCount;
     [SerializeField] private int _basePowerRewardCount;
+    [Header("Colors")]
+    [SerializeField] private MeshRenderer _renderer;
     [Header("Start Of Counting")]
     [SerializeField] private TextMeshProUGUI _3dLabel;
     [SerializeField] private int _startOfCountingValue;
@@ -22,10 +24,13 @@ public class RewardBlock : MonoBehaviour
 
     public void Init(int id, RewardTrace trace)
     {
+        
         _id = id - 1;
         _humanId = id * _startOfCountingValue;
         _trace = trace;
         _3dLabel.text = HumanId.ToString();
+
+        
     }
 
     public void OnPlayerEnter() 

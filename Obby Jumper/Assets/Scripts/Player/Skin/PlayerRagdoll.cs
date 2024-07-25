@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerRagdoll : MonoBehaviour
 {
+    [SerializeField] private UnityEvent _ejected;
+    [SerializeField] private UnityEvent _flyEnded;
+
     [SerializeField] private Collider _collider;
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private Animator _animator;
@@ -79,6 +83,7 @@ public class PlayerRagdoll : MonoBehaviour
 
     public void OnGroundReached()
     {
+        _flyEnded.Invoke();
         _groundReached = true;
         StartCoroutine(TeleportBackRoutine());
     }
@@ -102,10 +107,11 @@ public class PlayerRagdoll : MonoBehaviour
 
     private IEnumerator PushToFinishRoutine()
     {
-        _ejectDirection.y = -_ejectDirection.y;
+        Vector3 dir = _ejectDirection;
+        dir.y = -dir.y;
         while(_groundReached == false)
         {
-            _hips.AddForce(_ejectDirection * 1, ForceMode.Impulse);
+            _hips.AddForce(dir * 1, ForceMode.Impulse);
             yield return null;
         }
 
@@ -127,6 +133,7 @@ public class PlayerRagdoll : MonoBehaviour
         yield return null;
         _hips.transform.parent = null;
         _hips.AddForce(_ejectDirection * (_pushForce + _profile.Power), ForceMode.Impulse);
+        _ejected.Invoke();
         StartCoroutine(CheckVelocityRoutine());
         while (true)
         {
