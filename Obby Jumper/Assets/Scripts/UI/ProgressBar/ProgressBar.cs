@@ -17,11 +17,18 @@ public class ProgressBar : MonoBehaviour
     public void OnLoadEvent()
     {
         _bar.fillAmount = YandexGame.savesData.progressBarAmount;
+        ChangeLevel(YandexGame.savesData.level);
     }
 
     public void OnSaveEvent()
     {
         YandexGame.savesData.progressBarAmount = _bar.fillAmount;
+    }
+
+    public void ChangeLevel(int level)
+    {
+        _currentLevel.text = level.ToString();
+        _nextLevel.text = (level + 1).ToString();
     }
 
     private void OnDisable()

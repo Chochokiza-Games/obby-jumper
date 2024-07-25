@@ -34,6 +34,7 @@ namespace YG
         public int lastSkinId = 0;
         public float progressBarAmount = 0;
         public int playerRecord = 0;
+        public int level = 1;
         // ...
 
         // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны

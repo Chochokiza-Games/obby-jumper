@@ -63,7 +63,7 @@ public class PlayerProfile : MonoBehaviour
     private int _currentSkinId = 0;
     private int _money = 0;
     private int _power = 500;
-    private int _currentLevel = 2;
+    private int _currentLevel = 1;
 
     private bool[] _openedSkins;
 
@@ -108,10 +108,14 @@ public class PlayerProfile : MonoBehaviour
     public void LoadCloud()
     {
         YandexGame.ResetSaveProgress();
+
+
         _loadEvent.Invoke();
 
         _money = YandexGame.savesData.money;
         _power = YandexGame.savesData.power;
+
+        _currentLevel = YandexGame.savesData.level;
 
         _petDropOrderCurrentId = YandexGame.savesData.petDropOrderCurrentId;
 
@@ -138,7 +142,7 @@ public class PlayerProfile : MonoBehaviour
     public void SaveCloud()
     {
         _saveEvent.Invoke();
-
+        YandexGame.savesData.level = _currentLevel;
         YandexGame.savesData.money = _money;
         YandexGame.savesData.power = _power;
         YandexGame.savesData.petDropOrderCurrentId = _petDropOrderCurrentId;
