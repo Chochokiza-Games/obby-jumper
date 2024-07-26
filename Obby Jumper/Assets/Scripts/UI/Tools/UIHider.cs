@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,15 @@ public class UIHider : MonoBehaviour
     [SerializeField] private UnityEvent _objectsHided;
 
     private List<GameObject> _hidingAnywayGameobjects = new List<GameObject>();
+    private Dictionary<Transform, bool> _startStates = new Dictionary<Transform, bool>();
+
+    private void Start()
+    {
+        foreach (Transform c in transform)
+        {
+            _startStates[c] = c.gameObject.activeInHierarchy;
+        }
+    }
 
     public void ShowOther(GameObject self)
     {
@@ -33,6 +43,19 @@ public class UIHider : MonoBehaviour
             }
         }
         _objectsShowed.Invoke();
+    }
+
+    public void ReturnToDefault()
+    {
+        _hidingAnywayGameobjects.Clear();
+        foreach(var c in _startStates)
+        {  
+            if (c.Key == null)
+            {
+                continue;
+            }
+            c.Key.gameObject.SetActive(c.Value);
+        }
     }
 
     public void HideOther(GameObject self)

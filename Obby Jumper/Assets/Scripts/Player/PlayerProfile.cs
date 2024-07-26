@@ -50,6 +50,7 @@ public class PlayerProfile : MonoBehaviour
     [SerializeField] private int _powerCap;
     [SerializeField] private int[] _petDropOrder;
     [SerializeField] private PlayerInventory _petInventory;
+    [SerializeField] private PlayerInventory _petEggsInventory;
     [SerializeField] private UnityEvent _saveEvent;
     [SerializeField] private UnityEvent _loadEvent;
     [SerializeField] private int _educationShowCountMax;
@@ -107,8 +108,7 @@ public class PlayerProfile : MonoBehaviour
 
     public void LoadCloud()
     {
-        YandexGame.ResetSaveProgress();
-
+        // YandexGame.ResetSaveProgress();
 
         _loadEvent.Invoke();
 
@@ -127,6 +127,7 @@ public class PlayerProfile : MonoBehaviour
         _powerChanged.Invoke(_power);
 
         LoadInventory(_petInventory, ref YandexGame.savesData.petInventoryItems);
+        LoadInventory(_petEggsInventory, ref YandexGame.savesData.petEggsInventoryItems);
 
         FindObjectOfType<LanguageTranslator>().InitLanguage(YandexGame.lang);
     }
@@ -153,6 +154,7 @@ public class PlayerProfile : MonoBehaviour
         YandexGame.savesData.storeToastEducationShowed = _storeToastEducationShowed;
 
         SaveInventory(_petInventory, ref YandexGame.savesData.petInventoryItems);
+        SaveInventory(_petEggsInventory, ref YandexGame.savesData.petEggsInventoryItems);
 
         YandexGame.SaveProgress();
     }

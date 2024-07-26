@@ -58,6 +58,11 @@ public class PetOpening : MonoBehaviour
         StartCoroutine(EggWiggleRoutine());
     }
 
+    public void OnEggPickedFromPopup(int id)
+    {
+        Show();
+    }
+
     private void Update()
     {
         if (_health <= 0)
@@ -185,7 +190,8 @@ public class PetOpening : MonoBehaviour
 
         PetItem item = (PetItem)_petInventory.GetItemById(id);
         _rewardPreview.Show(item.Icon, _translator.CurrentLangunage == LanguageTranslator.Languages.Russian ? item.RuLabel : item.EnLabel);
-        _hider.ShowOther(gameObject);
+        _hider.ReturnToDefault();
+        //_hider.ShowOther(gameObject);
         gameObject.SetActive(false);
     }
 
