@@ -9368,6 +9368,8 @@ MonoBehaviour:
   _hips: {fileID: 3551461745470311819}
   _profile: {fileID: 4523860056063453314}
   _armature: {fileID: 8879528568004826408}
+  _minPushForceFactor: 0.3
+  _maxPushForceFactor: 1.3
   _pushForce: 150
   _ejectOffset: {x: 0, y: -1.004985, z: 0}
   _delayBeforeTeleport: 2
@@ -9775,6 +9777,8 @@ MonoBehaviour:
   _hips: {fileID: 4323898426930257925}
   _profile: {fileID: 0}
   _armature: {fileID: 313973369}
+  _minPushForceFactor: 0
+  _maxPushForceFactor: 0
   _pushForce: 100
   _ejectOffset: {x: 0, y: -1.004985, z: 0}
   _delayBeforeTeleport: 0
