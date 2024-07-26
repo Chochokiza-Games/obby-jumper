@@ -26,7 +26,7 @@ namespace YG
         public int petDropOrderCurrentId = 0;
         public bool[] openedSkins = new bool[0];
         public int[] petInventoryItems = new int[0];
-        public int[] pickaxeInventoryItems = new int[0];
+        public int[] petEggsInventoryItems = new int[0];
         public int[] shopPrices = new int[(int)Store.StoreProducts.Max];
         public int educationPassedCount = 0;
         public bool skinStoreToastEducationShowed = false;

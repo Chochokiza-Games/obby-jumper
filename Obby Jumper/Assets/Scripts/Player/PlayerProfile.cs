@@ -108,11 +108,8 @@ public class PlayerProfile : MonoBehaviour
 
     public void LoadCloud()
     {
-        YandexGame.ResetSaveProgress();
+        // YandexGame.ResetSaveProgress();
 
-        _petEggsInventory.PushItem(BaseInventoryItem.ItemId.Egg);
-        _petEggsInventory.PushItem(BaseInventoryItem.ItemId.Egg);
-        _petEggsInventory.PushItem(BaseInventoryItem.ItemId.Egg);
         _loadEvent.Invoke();
 
         _money = YandexGame.savesData.money;
@@ -130,6 +127,7 @@ public class PlayerProfile : MonoBehaviour
         _powerChanged.Invoke(_power);
 
         LoadInventory(_petInventory, ref YandexGame.savesData.petInventoryItems);
+        LoadInventory(_petEggsInventory, ref YandexGame.savesData.petEggsInventoryItems);
 
         FindObjectOfType<LanguageTranslator>().InitLanguage(YandexGame.lang);
     }
@@ -156,6 +154,7 @@ public class PlayerProfile : MonoBehaviour
         YandexGame.savesData.storeToastEducationShowed = _storeToastEducationShowed;
 
         SaveInventory(_petInventory, ref YandexGame.savesData.petInventoryItems);
+        SaveInventory(_petEggsInventory, ref YandexGame.savesData.petEggsInventoryItems);
 
         YandexGame.SaveProgress();
     }

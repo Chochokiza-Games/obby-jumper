@@ -5653,7 +5653,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2599284151481193915, guid: 5928d50b4a48eaf42bf6d0da300bafb7, type: 3}
       propertyPath: _itemPickedFromPopup.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2599284151481193915, guid: 5928d50b4a48eaf42bf6d0da300bafb7, type: 3}
       propertyPath: _itemPickedFromPopup.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -5678,7 +5678,7 @@ PrefabInstance:
     - target: {fileID: 2599284151481193915, guid: 5928d50b4a48eaf42bf6d0da300bafb7, type: 3}
       propertyPath: _itemPickedFromPopup.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 489894498}
+      objectReference: {fileID: 524366032}
     - target: {fileID: 2599284151481193915, guid: 5928d50b4a48eaf42bf6d0da300bafb7, type: 3}
       propertyPath: _itemPickedFromPopup.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -5701,7 +5701,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2599284151481193915, guid: 5928d50b4a48eaf42bf6d0da300bafb7, type: 3}
       propertyPath: _itemPickedFromPopup.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: OnEggPickedFromPopup
+      value: RemoveById
       objectReference: {fileID: 0}
     - target: {fileID: 2599284151481193915, guid: 5928d50b4a48eaf42bf6d0da300bafb7, type: 3}
       propertyPath: _itemPickedFromPopup.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -5713,7 +5713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2599284151481193915, guid: 5928d50b4a48eaf42bf6d0da300bafb7, type: 3}
       propertyPath: _itemPickedFromPopup.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: PetOpening, Assembly-CSharp
+      value: PlayerInventory, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2599284151481193915, guid: 5928d50b4a48eaf42bf6d0da300bafb7, type: 3}
       propertyPath: _itemPickedFromPopup.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument

@@ -1,12 +1,12 @@
 {
-    "idSave": 1152,
+    "idSave": 1155,
     "isFirstSession": false,
-    "language": "ru",
+    "language": "en",
     "promptDone": false,
     "money": 0,
     "power": 10,
     "bagUpgradesBought": 0,
-    "petDropOrderCurrentId": 0,
+    "petDropOrderCurrentId": 2,
     "openedSkins": [
         true,
         false,
@@ -25,9 +25,16 @@
         false
     ],
     "petInventoryItems": [
+        0,
+        0,
+        1
+    ],
+    "petEggsInventoryItems": [
+        0,
+        0,
+        0,
         0
     ],
-    "pickaxeInventoryItems": [],
     "shopPrices": [
         0
     ],
