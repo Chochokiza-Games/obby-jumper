@@ -23,19 +23,8 @@ public class BaseInventoryItem : ScriptableObject
         PetPumkin,
         PetDemon, 
         PetMax,
-        PickaxeStandart = 0,
-        PickaxeWooden,
-        PickaxeCrowbar,
-        PickaxeHammer,
-        PickaxeShovel,
-        PickaxeWrench,
-        PickaxeAxe,
-        PickaxeCrusher,
-        PickaxeSaw,
-        PickaxeWepAxe,
-        PickaxeSword,
-        PickaxeSledgehammer,
-        PickaxeMax
+        Egg = 0,
+        EggsMax
     }
 
     public int Id

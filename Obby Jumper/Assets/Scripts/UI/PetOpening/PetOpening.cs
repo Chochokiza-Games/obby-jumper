@@ -58,6 +58,11 @@ public class PetOpening : MonoBehaviour
         StartCoroutine(EggWiggleRoutine());
     }
 
+    public void OnEggPickedFromPopup(int id)
+    {
+        Show();
+    }
+
     private void Update()
     {
         if (_health <= 0)

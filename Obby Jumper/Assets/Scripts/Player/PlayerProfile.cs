@@ -50,6 +50,7 @@ public class PlayerProfile : MonoBehaviour
     [SerializeField] private int _powerCap;
     [SerializeField] private int[] _petDropOrder;
     [SerializeField] private PlayerInventory _petInventory;
+    [SerializeField] private PlayerInventory _petEggsInventory;
     [SerializeField] private UnityEvent _saveEvent;
     [SerializeField] private UnityEvent _loadEvent;
     [SerializeField] private int _educationShowCountMax;
@@ -109,7 +110,9 @@ public class PlayerProfile : MonoBehaviour
     {
         YandexGame.ResetSaveProgress();
 
-
+        _petEggsInventory.PushItem(BaseInventoryItem.ItemId.Egg);
+        _petEggsInventory.PushItem(BaseInventoryItem.ItemId.Egg);
+        _petEggsInventory.PushItem(BaseInventoryItem.ItemId.Egg);
         _loadEvent.Invoke();
 
         _money = YandexGame.savesData.money;
