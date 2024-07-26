@@ -9375,7 +9375,8 @@ MonoBehaviour:
   _movement: {fileID: 7365889371364522994}
   _teleporter: {fileID: 7365889371364522999}
   _playerAnimator: {fileID: 1556800103}
-  _ejectDirection: {x: 0, y: 0.7, z: 1}
+  _ejectDirectionMin: {x: 0, y: 0.2, z: 1}
+  _ejectDirectionMax: {x: 0, y: 0.73, z: 1}
 --- !u!54 &919132148429479696
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9782,7 +9783,8 @@ MonoBehaviour:
   _movement: {fileID: 7365889371364522994}
   _teleporter: {fileID: 7365889371364522999}
   _playerAnimator: {fileID: 0}
-  _ejectDirection: {x: 0, y: 0, z: 0}
+  _ejectDirectionMin: {x: 0, y: 0, z: 0}
+  _ejectDirectionMax: {x: 0, y: 0, z: 0}
 --- !u!1 &2211564897760515276
 GameObject:
   m_ObjectHideFlags: 0
