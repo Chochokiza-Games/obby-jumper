@@ -12896,8 +12896,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _profile: {fileID: 11400000, guid: 3a6c54043ca3661f28bb8cfcaaafe3fe, type: 2}
-  _intensity: -50
-  _changeTime: 0.5
+  _intensity: -60
+  _changeTime: 0.3
   _changeAnimationCurve:
     serializedVersion: 2
     m_Curve:
