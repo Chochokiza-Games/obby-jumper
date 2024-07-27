@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
         _a.speed = oldSpeed;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (!_characterController.enabled)
         {
@@ -106,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
             _playerVelocity.y = 0f;
         }
 
-        _playerVelocity.y += (Physics.gravity.y * _gravityFactor) * Time.deltaTime;
+        _playerVelocity.y += (Physics.gravity.y * _gravityFactor) * Time.fixedDeltaTime;
         _characterController.Move(_playerVelocity * Time.deltaTime);
 
         _isGrounded = Physics.BoxCast(transform.position + transform.up / 2, _boxcastSize / 2, -transform.up, transform.rotation, _groundCheckDistance, ~(LayerMask.GetMask("Trigger") + LayerMask.GetMask("Coin") + LayerMask.GetMask("PlayerSkin") + LayerMask.GetMask("PlayerSkinSkeleton")));
@@ -131,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 moveRight = transform.right * horizontalInput;
 
         Vector3 direction = (moveForward + moveRight).normalized * _speed;
-        _characterController.Move(direction * Time.deltaTime);
+        _characterController.Move(direction * Time.fixedDeltaTime);
         if (direction != Vector3.zero)
         {
             _skin.PlayerMovementDirection = direction.normalized;

@@ -20,6 +20,7 @@ public class PlayerSkin : MonoBehaviour
 
     private Vector3 _playerMovementDirection;
     private bool _ragdolled = false;
+    private Vector3 _direction;
 
     private void FixedUpdate()
     {
@@ -31,13 +32,24 @@ public class PlayerSkin : MonoBehaviour
         transform.position = _playerMovement.transform.position;
         Vector3 direction = (_playerMovementDirection
             + _playerMovement.transform.position) - transform.position;
+        _direction = direction;
         if (direction != Vector3.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, _turnSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, _turnSpeed * Time.fixedDeltaTime);
             transform.eulerAngles = Vector3.up * transform.eulerAngles.y;
         }
     }
+
+    // private void Update()
+    // {
+    //     if (_direction != Vector3.zero)
+    //     {
+    //         Quaternion toRotation = Quaternion.LookRotation(_direction);
+    //         transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, _turnSpeed * Time.deltaTime);
+    //         transform.eulerAngles = Vector3.up * transform.eulerAngles.y;
+    //     }
+    // }
 
     public void PlayAttack()
     {
