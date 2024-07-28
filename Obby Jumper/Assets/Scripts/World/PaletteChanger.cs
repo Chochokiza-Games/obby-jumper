@@ -14,7 +14,7 @@ public class PaletteChanger : MonoBehaviour
     private Palette _currentPalette;
     private int _prevPaletteId = -1;
 
-    private void Start()
+    private void Awake()
     {   
         if (_palettes.Length > 1)
         {
