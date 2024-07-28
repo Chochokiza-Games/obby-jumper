@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 1919120656284525184}
   - component: {fileID: 1149921377087504320}
   - component: {fileID: 7707135960564297902}
-  - component: {fileID: 5258467195551703405}
+  - component: {fileID: 4355034807876477277}
   m_Layer: 0
   m_Name: FinishChunk
   m_TagString: Untagged
@@ -344,7 +344,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5258467195551703405
+--- !u!114 &4355034807876477277
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -353,11 +353,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6747711624280415512}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29b7c16bb8fc9b0b8b4a1dc00be150de, type: 3}
+  m_Script: {fileID: 11500000, guid: 582ae62e65b294c48903a17ed61b7f62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseMoneyRewardCount: 50
-  _basePowerRewardCount: 15
+  _baseMoneyRewardCount: 100
+  _basePowerRewardCount: 0
   _renderer: {fileID: 1149921377087504320}
   _3dLabel: {fileID: 2535932427153836081}
   _startOfCountingValue: 10
@@ -421,10 +421,6 @@ PrefabInstance:
       propertyPath: _playerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3697907869947045265, guid: 36bc54dd65902324ba07b942a509f8a6, type: 3}
-      propertyPath: _playerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 5258467195551703405}
     - target: {fileID: 3697907869947045265, guid: 36bc54dd65902324ba07b942a509f8a6, type: 3}
       propertyPath: _playerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2

@@ -10,17 +10,17 @@ public class RewardBlock : MonoBehaviour
         get => _humanId;
     }
     
-    [SerializeField] private int _baseMoneyRewardCount;
-    [SerializeField] private int _basePowerRewardCount;
+    [SerializeField] protected int _baseMoneyRewardCount;
+    [SerializeField] protected int _basePowerRewardCount;
     [Header("Colors")]
-    [SerializeField] private MeshRenderer _renderer;
+    [SerializeField] protected MeshRenderer _renderer;
     [Header("Start Of Counting")]
-    [SerializeField] private TextMeshProUGUI _3dLabel;
-    [SerializeField] private int _startOfCountingValue;
+    [SerializeField] protected TextMeshProUGUI _3dLabel;
+    [SerializeField] protected int _startOfCountingValue;
 
-    private RewardTrace _trace;
-    private int _id;
-    private int _humanId;
+    protected RewardTrace _trace;
+    protected int _id;
+    protected int _humanId;
 
     public void Init(int id, RewardTrace trace, int level, Color color)
     {

@@ -29,6 +29,7 @@ public class ProgressBar : MonoBehaviour
     {
         _currentLevel.text = level.ToString();
         _nextLevel.text = (level + 1).ToString();
+        _bar.fillAmount = 0;
     }
 
     private void OnDisable()

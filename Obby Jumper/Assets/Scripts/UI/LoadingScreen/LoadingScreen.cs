@@ -19,6 +19,7 @@ public class LoadingScreen : MonoBehaviour
     [SerializeField] private float _imageWiggleDuration;
     [SerializeField] private AnimationCurve _animationWiggleCurve;
     [SerializeField] private UnityEvent _started;
+    [SerializeField] private UnityEvent _halfLoaded;
     [SerializeField] private UnityEvent _ended;
 
     private float _loadingPanelLiftingHeight;
@@ -37,6 +38,7 @@ public class LoadingScreen : MonoBehaviour
     private IEnumerator LoadingScreenPopUpRoutine()
     {
         Coroutine wiggle = StartCoroutine(IconWiggleRoutine());
+        bool eventInvoked = false;
 
         float timeElapsed = 0;
         while (timeElapsed < _popUpAnimationDuration)
@@ -44,6 +46,13 @@ public class LoadingScreen : MonoBehaviour
             _background.transform.localScale = new Vector3(
                 _backgroundScalingAnimationCurve.Evaluate(timeElapsed / _popUpAnimationDuration), 1, 1);
 
+
+            if (timeElapsed >= _popUpAnimationDuration / 2 && eventInvoked == false)
+            {
+                _halfLoaded.Invoke();
+                eventInvoked = true;
+            }
+            
             _loadingPanel.transform.position = new Vector3(
                 _loadingPanel.transform.position.x,
 

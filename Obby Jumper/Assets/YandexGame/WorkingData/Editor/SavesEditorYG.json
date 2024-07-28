@@ -1,12 +1,12 @@
 {
-    "idSave": 1165,
+    "idSave": 1183,
     "isFirstSession": false,
-    "language": "en",
+    "language": "ru",
     "promptDone": false,
-    "money": 1250,
-    "power": 260,
+    "money": 5000,
+    "power": 10,
     "bagUpgradesBought": 0,
-    "petDropOrderCurrentId": 2,
+    "petDropOrderCurrentId": 0,
     "openedSkins": [
         true,
         false,
@@ -25,14 +25,9 @@
         false
     ],
     "petInventoryItems": [
-        0,
-        0,
-        1
+        0
     ],
     "petEggsInventoryItems": [
-        0,
-        0,
-        0,
         0
     ],
     "shopPrices": [
@@ -42,7 +37,7 @@
     "skinStoreToastEducationShowed": false,
     "storeToastEducationShowed": false,
     "lastSkinId": 0,
-    "progressBarAmount": 0.08163265138864517,
-    "playerRecord": 50,
-    "level": 1
+    "progressBarAmount": 0.0,
+    "playerRecord": 500,
+    "level": 2
 }

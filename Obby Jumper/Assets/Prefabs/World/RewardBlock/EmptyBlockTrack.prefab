@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7847108465319991809}
   - component: {fileID: 4933355656564500710}
   m_Layer: 9
-  m_Name: EmptyBlockTrace
+  m_Name: EmptyBlockTrack
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -51,12 +51,9 @@ MonoBehaviour:
   _bar: {fileID: 0}
   _record: {fileID: 0}
   _colors:
-  - {r: 0.9811321, g: 0.47668213, b: 0.47668213, a: 0}
-  - {r: 0.39661822, g: 1, b: 0.3820755, a: 0}
-  - {r: 1, g: 0.5235849, b: 0.98355955, a: 0}
-  - {r: 0.4269758, g: 0.9085558, b: 0.9528302, a: 0}
-  - {r: 1, g: 0.5330188, b: 0.8950315, a: 0}
-  - {r: 0.9495862, g: 1, b: 0.48584908, a: 0}
+  - {fileID: 11400000, guid: a41ba40ca448b4301b6c05fdced61ac7, type: 2}
+  - {fileID: 11400000, guid: 23f2fcced7ac1231ea22139a0832401d, type: 2}
+  - {fileID: 11400000, guid: f09c18b3fb270e4ca86e2a2e4391890b, type: 2}
   _voidVelocityTrigger: {fileID: 1080813531342042599}
   _generate: 1
   _generatedCount: 50

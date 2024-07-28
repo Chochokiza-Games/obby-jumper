@@ -22,6 +22,7 @@ public class RewardTrace : MonoBehaviour
     [SerializeField] private GameObject _finishBlockPrefab;
     [SerializeField] private Vector3 _blockSize;
     
+    private int _prevColor = -1;
 
     private void OnDrawGizmos() 
     {
@@ -73,10 +74,28 @@ public class RewardTrace : MonoBehaviour
         _ragdoll = FindObjectOfType<PlayerRagdoll>();
         _bar = FindAnyObjectByType<ProgressBar>();
         _record = FindObjectOfType<PlayerRecord>();
-        int colorId = Random.Range(0, _colors.Length);
+        Init();
+ 
+    }
+
+    public void Init()
+    {
+       int colorId = -1;
+       do
+       {
+            colorId = Random.Range(0, _colors.Length);
+       } while (colorId == _prevColor);
+       _prevColor = colorId;
         for (int i = 0; i < _generatedBlocks.Count; i++)
-        {
-            _generatedBlocks[i].Init(i + 1, this, _profile.CurrentLevel, _colors[colorId].GetShade(Random.Range(0, _colors[colorId].ShadesCount)));
+        {   
+            if (i == _generatedBlocks.Count - 1)
+            {
+                (_generatedBlocks[i] as RewardFinishBlock).Init(i + 1, this, _profile.CurrentLevel);
+            }
+            else
+            {
+                _generatedBlocks[i].Init(i + 1, this, _profile.CurrentLevel, _colors[colorId].GetShade(Random.Range(0, _colors[colorId].ShadesCount)));
+            }
         }
     }
 
@@ -92,6 +111,12 @@ public class RewardTrace : MonoBehaviour
         }
         _ragdoll.OnGroundReached();
     } 
+
+    public void PlayerEnteredFinish(int id, int humanId, float baseMoney, float basePower)
+    {
+        PlayerEntered(id, humanId, baseMoney, basePower);
+        _profile.ShouldChangeLevel();
+    }
 
     public void Alert()
     {
