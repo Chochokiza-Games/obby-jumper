@@ -12,7 +12,7 @@ public class RewardTrace : MonoBehaviour
     [SerializeField] private PlayerRecord _record;
     [Space]
     [Header("Colors")]
-    [SerializeField] private TraceColor[] _colors;
+    [SerializeField] private PaletteChanger _paletteChanger;
     [Space]
     [Header("Generating Prefabs")]
     [SerializeField] private Transform _voidVelocityTrigger;
@@ -21,8 +21,6 @@ public class RewardTrace : MonoBehaviour
     [SerializeField] private GameObject _blockPrefab;
     [SerializeField] private GameObject _finishBlockPrefab;
     [SerializeField] private Vector3 _blockSize;
-    
-    private int _prevColor = -1;
 
     private void OnDrawGizmos() 
     {
@@ -80,12 +78,6 @@ public class RewardTrace : MonoBehaviour
 
     public void Init()
     {
-       int colorId = -1;
-       do
-       {
-            colorId = Random.Range(0, _colors.Length);
-       } while (colorId == _prevColor);
-       _prevColor = colorId;
         for (int i = 0; i < _generatedBlocks.Count; i++)
         {   
             if (i == _generatedBlocks.Count - 1)
@@ -94,7 +86,7 @@ public class RewardTrace : MonoBehaviour
             }
             else
             {
-                _generatedBlocks[i].Init(i + 1, this, _profile.CurrentLevel, _colors[colorId].GetShade(Random.Range(0, _colors[colorId].ShadesCount)));
+                _generatedBlocks[i].Init(i + 1, this, _profile.CurrentLevel, _paletteChanger.CurrentPalette.Colors[Random.Range(0, _paletteChanger.CurrentPalette.Colors.Length)]);
             }
         }
     }

@@ -223,6 +223,58 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5656961485579927947, guid: a7e5a23ef03c87648ae735c94801086c, type: 3}
   m_PrefabInstance: {fileID: 42645438}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &63391601
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 63391603}
+  - component: {fileID: 63391602}
+  m_Layer: 0
+  m_Name: WorldChanger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &63391602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63391601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f0ca89c3a123714484a130fd16c1447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _palettes:
+  - {fileID: 11400000, guid: fefe0542c3c7ad0459bd291c03f859ca, type: 2}
+  - {fileID: 11400000, guid: 83796690fedd1174b8e5856982c78f53, type: 2}
+  - {fileID: 11400000, guid: daca23b5d85c64741ae407f74735681e, type: 2}
+  - {fileID: 11400000, guid: b833d16670d5f814d9f3539ca74a7181, type: 2}
+  - {fileID: 11400000, guid: 8f2d66e77dec6724e81cce1bc2a87b14, type: 2}
+  - {fileID: 11400000, guid: e6d7ad2a527831b429e34b08ef935b58, type: 2}
+  - {fileID: 11400000, guid: cbfe3c55e4f918d4c945e6d12011bd1e, type: 2}
+--- !u!4 &63391603
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63391601}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -26.129028, y: 7.864561, z: 18.322052}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &186447161 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8880147014868126188, guid: 36bc54dd65902324ba07b942a509f8a6, type: 3}
@@ -5317,6 +5369,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4239136045440941735, guid: e4cf629d82f5889d2b05ee24a655a41c, type: 3}
+      propertyPath: _paletteChanger
+      value: 
+      objectReference: {fileID: 63391602}
     - target: {fileID: 4298033334071758331, guid: e4cf629d82f5889d2b05ee24a655a41c, type: 3}
       propertyPath: _playerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -12171,3 +12227,4 @@ SceneRoots:
   - {fileID: 853603068}
   - {fileID: 2012776011}
   - {fileID: 1267010027}
+  - {fileID: 63391603}

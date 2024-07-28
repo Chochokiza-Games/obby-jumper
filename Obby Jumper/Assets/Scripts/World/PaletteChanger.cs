@@ -12,6 +12,7 @@ public class PaletteChanger : MonoBehaviour
     [SerializeField] private Palette[] _palettes;
 
     private Palette _currentPalette;
+    private int _prevPaletteId = -1;
 
     private void Start()
     {   

@@ -1,9 +1,9 @@
 {
-    "idSave": 1211,
+    "idSave": 1213,
     "isFirstSession": false,
     "language": "en",
     "promptDone": false,
-    "money": 180200,
+    "money": 225200,
     "power": 10,
     "bagUpgradesBought": 0,
     "petDropOrderCurrentId": 0,
@@ -35,6 +35,7 @@
         0,
         0,
         0,
+        0,
         0
     ],
     "shopPrices": [
@@ -46,5 +47,5 @@
     "lastSkinId": 0,
     "progressBarAmount": 0.0,
     "playerRecord": 705032704,
-    "level": 9
+    "level": 10
 }
