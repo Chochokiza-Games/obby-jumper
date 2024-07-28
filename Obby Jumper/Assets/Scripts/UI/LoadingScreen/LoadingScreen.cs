@@ -9,6 +9,11 @@ using UnityEngine.UI;
 
 public class LoadingScreen : MonoBehaviour
 {
+    public bool Opened
+    {
+        get => _opened;
+    }
+
     [SerializeField] private Image _background;
     [SerializeField] private float _popUpAnimationDuration;
     [SerializeField] private GameObject _loadingPanel;
@@ -22,6 +27,8 @@ public class LoadingScreen : MonoBehaviour
     [SerializeField] private UnityEvent _halfLoaded;
     [SerializeField] private UnityEvent _ended;
 
+    private bool _opened;
+
     private float _loadingPanelLiftingHeight;
 
     private void Start()
@@ -32,6 +39,7 @@ public class LoadingScreen : MonoBehaviour
     {
         StopAllCoroutines();
         _started.Invoke();
+        _opened = true;
         StartCoroutine(LoadingScreenPopUpRoutine());
     }
 
@@ -65,6 +73,7 @@ public class LoadingScreen : MonoBehaviour
         StopCoroutine(wiggle);
         _background.transform.localScale *= 0;
         _ended.Invoke();
+        _opened = false;
     }
     private IEnumerator IconWiggleRoutine()
     {

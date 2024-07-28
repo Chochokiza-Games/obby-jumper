@@ -1,9 +1,9 @@
 {
-    "idSave": 1183,
+    "idSave": 1211,
     "isFirstSession": false,
-    "language": "ru",
+    "language": "en",
     "promptDone": false,
-    "money": 5000,
+    "money": 180200,
     "power": 10,
     "bagUpgradesBought": 0,
     "petDropOrderCurrentId": 0,
@@ -28,16 +28,23 @@
         0
     ],
     "petEggsInventoryItems": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         0
     ],
     "shopPrices": [
         0
     ],
     "educationPassedCount": 0,
-    "skinStoreToastEducationShowed": false,
+    "skinStoreToastEducationShowed": true,
     "storeToastEducationShowed": false,
     "lastSkinId": 0,
     "progressBarAmount": 0.0,
-    "playerRecord": 500,
-    "level": 2
+    "playerRecord": 705032704,
+    "level": 9
 }
