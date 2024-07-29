@@ -25,6 +25,7 @@ namespace YG
         public int bagUpgradesBought = 0;
         public int petDropOrderCurrentId = 0;
         public bool[] openedSkins = new bool[0];
+        public bool[] openedTrails = new bool[0];
         public int[] petInventoryItems = new int[0];
         public int[] petEggsInventoryItems = new int[0];
         public int[] shopPrices = new int[(int)Store.StoreProducts.Max];
@@ -32,6 +33,7 @@ namespace YG
         public bool skinStoreToastEducationShowed = false;
         public bool storeToastEducationShowed = false;
         public int lastSkinId = 0;
+        public int lastTrailId = 0;
         public float progressBarAmount = 0;
         public int playerRecord = 0;
         public int level = 1;
