@@ -1,10 +1,10 @@
 {
-    "idSave": 1229,
+    "idSave": 1242,
     "isFirstSession": false,
     "language": "en",
     "promptDone": false,
-    "money": 12600,
-    "power": 2530,
+    "money": 34750,
+    "power": 3000,
     "bagUpgradesBought": 0,
     "petDropOrderCurrentId": 2,
     "openedSkins": [
@@ -24,15 +24,7 @@
         false,
         false
     ],
-    "openedTrails": [
-        true,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false
-    ],
+    "openedTrails": [],
     "petInventoryItems": [
         0,
         0,
