@@ -434,7 +434,7 @@ Transform:
   m_GameObject: {fileID: 1054524138400566157}
   serializedVersion: 2
   m_LocalRotation: {x: -0.59411395, y: -0.059212837, z: -0.64306664, w: 0.4795704}
-  m_LocalPosition: {x: 0.056, y: -0.073, z: 0.029}
+  m_LocalPosition: {x: -0.019, y: 0.258, z: -0.056}
   m_LocalScale: {x: 0.03657003, y: 0.036570046, z: 0.036570016}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1035,7 +1035,7 @@ Transform:
   m_GameObject: {fileID: 3502661504117643342}
   serializedVersion: 2
   m_LocalRotation: {x: -0.66597635, y: -0.04564957, z: 0.6658162, w: 0.3332873}
-  m_LocalPosition: {x: -0.036, y: -0.086, z: -0.001}
+  m_LocalPosition: {x: -0.036, y: 0.258, z: -0.001}
   m_LocalScale: {x: 0.03657, y: 0.036569994, z: 0.036570024}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2322,7 +2322,6 @@ GameObject:
   - component: {fileID: 756408932591008499}
   - component: {fileID: 6400099710827594687}
   - component: {fileID: 7932401995900854725}
-  - component: {fileID: 4037401382345322478}
   - component: {fileID: 5216991421259129294}
   - component: {fileID: 698626952041556229}
   - component: {fileID: 1278679658125917431}
@@ -2415,21 +2414,6 @@ MonoBehaviour:
   _trails:
   - {fileID: 2174720612543542324}
   - {fileID: 6757917130150448716}
-  _profile: {fileID: 0}
---- !u!114 &4037401382345322478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7031147385849365152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f7b530fae2a79245b0c3edbf793a944, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _trailsInfo: []
-  _trails: []
   _profile: {fileID: 0}
 --- !u!114 &5216991421259129294
 MonoBehaviour:

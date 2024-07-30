@@ -1,5 +1,5 @@
 {
-    "idSave": 1242,
+    "idSave": 1252,
     "isFirstSession": false,
     "language": "en",
     "promptDone": false,
@@ -24,7 +24,15 @@
         false,
         false
     ],
-    "openedTrails": [],
+    "openedTrails": [
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+    ],
     "petInventoryItems": [
         0,
         0,

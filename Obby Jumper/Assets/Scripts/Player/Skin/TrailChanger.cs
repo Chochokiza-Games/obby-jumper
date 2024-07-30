@@ -15,7 +15,7 @@ public class TrailChanger : MonoBehaviour
     [SerializeField] private PlayerProfile _profile;
     private Color _currentColor;
 
-    private void Start()
+    private void Awake()
     {
         SetTrail(_profile.CurrentTrailId);
         _profile.InitTrails(_trailsInfo.Length);

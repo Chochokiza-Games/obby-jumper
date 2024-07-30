@@ -12,20 +12,14 @@ public class TrailStoreSlot : MonoBehaviour
         get => _trailPicked;
     }
 
-    [SerializeField] private Image _image;
-    [SerializeField] private Sprite _pickedSlotSprite;
-    [SerializeField] private Sprite _notPickedSlotSprite;
-    [SerializeField] private Image _preview;
-    [SerializeField] private TextMeshProUGUI _priceLabel;
     [SerializeField] private UnityEvent<TrailInfo> _trailPicked;
-    [SerializeField] private GameObject _counter;
+    [SerializeField] private Image _image;
 
     private TrailInfo _trailInfo;
     private int _trailId;
 
     public void OnClick()
     {
-        _image.sprite = _pickedSlotSprite;
         _trailPicked.Invoke(_trailInfo);
     }
 
@@ -33,20 +27,19 @@ public class TrailStoreSlot : MonoBehaviour
     {
         if (_trailId != trailId)
         {
-            _image.sprite = _notPickedSlotSprite;
+            
         }
     }
 
     public void HidePrice()
     {
-        _counter.SetActive(false);
+
     }
 
     public void InitFrom(TrailInfo trailInfo)
     {
         _trailInfo = trailInfo;
         _trailId = trailInfo.ItemId;
-        _priceLabel.text = trailInfo.Price.ToString();
-        _preview.sprite = trailInfo.IconPreview;
+        _image.color = trailInfo.Color;
     }
 }

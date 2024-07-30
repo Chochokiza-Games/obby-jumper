@@ -7,11 +7,11 @@ using UnityEngine.UI;
 
 public class TrailStore : MonoBehaviour
 {
-    [SerializeField] private ItemInfo[] _slotsInformation;
+    [SerializeField] private TrailInfo[] _slotsInformation;
     [SerializeField] private GameObject _slotPrefab;
-    [SerializeField] private GameObject _purchaseConfirmationPrefab;
     [SerializeField] private GameObject _toastPrefab;
     [SerializeField] private GameObject _slotsContainer;
+    [SerializeField] private GameObject _purchaseConfirmationWindow;
     [SerializeField] private Image _bigSlotPreview;
     [SerializeField] private float toastSpawnDelay;
     [SerializeField] private PlayerProfile _profile;
@@ -38,16 +38,11 @@ public class TrailStore : MonoBehaviour
                 _pickedItemInfo = trailInfo;
             }
             slot.InitFrom(trailInfo);
-            slot.TrailPicked.AddListener(OnSkinPicked);
+            slot.TrailPicked.AddListener(OnTrailPicked);
             _slots[trailInfo.ItemId] = slot;
-            if (_profile.IsSkinOpened(trailInfo.ItemId))
-            {
-                slot.HidePrice();
-            }
-            _trailPicked.AddListener(slot.OnTrailPickedId);
         }
 
-        OnSkinPicked(_pickedItemInfo);
+        OnTrailPicked(_pickedItemInfo);
     }
 
     private void OnDisable()
@@ -59,12 +54,12 @@ public class TrailStore : MonoBehaviour
         }
     }
 
-    public void OnSkinPicked(TrailInfo info)
+    public void OnTrailPicked(TrailInfo info)
     {
         _pickedItemInfo = info;
         _trailPicked.Invoke(info.ItemId);
-        _bigSlotPreview.sprite = info.IconPreview;
-        if (_profile.IsSkinOpened(info.ItemId))
+        _bigSlotPreview.color = info.Color;
+        if (_profile.IsTrailOpened(info.ItemId))
         {
             _buyButton.SetActive(false);
             _equipButton.SetActive(true);
@@ -86,7 +81,7 @@ public class TrailStore : MonoBehaviour
     {
         if (_profile.CanBuy(_pickedItemInfo.Price)) 
         {
-            _purchaseConfirmationPrefab.SetActive(true);
+            _purchaseConfirmationWindow.SetActive(true);
         }
         else
         {
@@ -101,8 +96,7 @@ public class TrailStore : MonoBehaviour
             _buyButton.SetActive(false);
             _equipButton.SetActive(true);
             _trailChanger.SetTrail(_pickedItemInfo.ItemId);
-            _profile.MarkSkinAsOpened(_pickedItemInfo.ItemId);
-            _slots[_pickedItemInfo.ItemId].HidePrice();
+            _profile.MarkTrailAsOpened(_pickedItemInfo.ItemId);
         }
     }
 }
