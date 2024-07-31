@@ -1,5 +1,5 @@
 {
-    "idSave": 1252,
+    "idSave": 1256,
     "isFirstSession": false,
     "language": "en",
     "promptDone": false,
@@ -36,7 +36,10 @@
     "petInventoryItems": [
         0,
         0,
-        1
+        1,
+        0,
+        0,
+        0
     ],
     "petEggsInventoryItems": [
         0,
