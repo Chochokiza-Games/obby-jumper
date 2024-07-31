@@ -15,17 +15,15 @@ public class SpinWheel : MonoBehaviour
         PetEgg,
         Other
     }
-    [SerializeField] private float _cellDegrees;
     [SerializeField] private int _delay;
     [Header("GameObjects")]
-    [SerializeField] private UIHider _hider;
+    [SerializeField] private GameObject _dimed;
     [SerializeField] private GameObject _wheelBase;
     [SerializeField] private GameObject _wheel;
     [SerializeField] private GameObject[] _previews;
     [SerializeField] private RewardPreview _rewardPreview;
     [SerializeField] private PetOpening _petOpening;
     [SerializeField] private GameObject _closeButton;
-    [SerializeField] private GameObject _spinWheelPanel;
     [SerializeField] private Image _lockCircle;
     [SerializeField] private Image _spinButton;
     [SerializeField] private TextMeshProUGUI _spinButtonText;
@@ -35,15 +33,22 @@ public class SpinWheel : MonoBehaviour
     [SerializeField] private AnimatedButton _buttonsSpinButton;
     [Header("Animations")]
     [SerializeField] private float _idleRotationSpeed;
-    [SerializeField] private AnimationCurve _spinCurve;
-    [SerializeField] private float _spinDuration;
+    [SerializeField] private AnimationCurve _spinCurveOpening;
+    [SerializeField] private float _spinOpeningDuration;
+    [SerializeField] private int _guarantedLaps;
+    [SerializeField] private AnimationCurve _spinCurveClosening;
+    [SerializeField] private float _spinCloseningDuration;
     [SerializeField] private AnimationCurve _switchToRewardCurve;
     [SerializeField] private float _switchToRewardDuration;
+    [SerializeField] private AnimationCurve _spinCurve;
+    [SerializeField] private float _spinDuration;
+
     [Header("Reward Info")]
     [SerializeField] private SpinWheelRewardInfo[] _info;
     [Header("Events")]
     [SerializeField] private UnityEvent _adReloaded;
 
+    private float _cellDegrees;
     private int _rewardSpinId = 1;
     private bool _idle = true;
     private PlayerProfile _profile;
@@ -54,6 +59,7 @@ public class SpinWheel : MonoBehaviour
 
     private void Awake()
     {
+        _cellDegrees = 360f / ((float)(_info.Length));
         _wheelBaseStartPosition = _wheelBase.transform.position;
         _currentLanguage = FindObjectOfType<LanguageTranslator>().CurrentLangunage;
     }
@@ -67,8 +73,6 @@ public class SpinWheel : MonoBehaviour
         {
             _previews[i].GetComponent<SpinWheelRewardPreview>().InitFromInfo(_info[i]);
         }
-
-
     }
 
     private void Update()
@@ -76,6 +80,10 @@ public class SpinWheel : MonoBehaviour
         if (_idle)
         {
             _wheel.transform.eulerAngles -= Vector3.forward * _idleRotationSpeed * Time.deltaTime;
+            if (_wheel.transform.eulerAngles.z < 0f)
+            {
+                _wheel.transform.eulerAngles = Vector3.forward * 360f;
+            }
         }
     }
 
@@ -90,46 +98,79 @@ public class SpinWheel : MonoBehaviour
     {
         _spinButton.gameObject.SetActive(false);
         float timeElapsed = 0;
-        while (timeElapsed < _spinDuration)
+        while (timeElapsed < _spinOpeningDuration)
         {
-            _wheel.transform.eulerAngles += Vector3.forward * _spinCurve.Evaluate(timeElapsed / _spinDuration);
-            if (_wheel.transform.eulerAngles.z >= 360)
-            {
-                _wheel.transform.eulerAngles = Vector3.zero;
-            }
+            _wheel.transform.eulerAngles = Vector3.forward * _spinCurveOpening.Evaluate(timeElapsed / _spinOpeningDuration);
             timeElapsed += Time.deltaTime;
             yield return null;
         }
 
-        int cell_id = (int)(Mathf.Ceil(_wheel.transform.eulerAngles.z / _cellDegrees));
-        if (cell_id >= 6)
-        {
-            cell_id = 0;
-        }
+        _wheel.transform.eulerAngles = Vector3.zero;
+
+        int cell = Random.Range(0, _info.Length);
+
+        Debug.Log($"CELL {cell} {_info[cell].EnName}");
+        float degree = (360f * _guarantedLaps) + ((cell * _cellDegrees) + (_cellDegrees / 2f));
 
         timeElapsed = 0;
-        while (timeElapsed < _switchToRewardDuration)
+        float startRotation = 0;
+        while (timeElapsed < _spinDuration)
         {
-            float percentPosition = _switchToRewardCurve.Evaluate(timeElapsed / _switchToRewardDuration);
-            _wheelBase.transform.position = new Vector3(_wheelBase.transform.position.x, _wheelBase.transform.position.y - Screen.height * percentPosition, 0);
+            _wheel.transform.eulerAngles = Vector3.Lerp(new Vector3(0, 0, startRotation), new Vector3(0, 0, degree), _spinCurve.Evaluate(timeElapsed / _spinDuration));
             timeElapsed += Time.deltaTime;
             yield return null;
         }
-        Debug.Log(_info[cell_id].RewardType);
-        switch (_info[cell_id].RewardType)
-        {
-            case RewardType.Money:
-                _profile.IncreaseMoney(_info[cell_id].Amount);
-                _hider.ShowOther(gameObject);
-                _rewardPreview.Show(_info[cell_id].Icon, _currentLanguage == LanguageTranslator.Languages.Russian ? _info[cell_id].RuName : _info[cell_id].EnName);
-                break;
-            case RewardType.PetEgg:
-                _petOpening.Show();
-                break;
 
+        _wheel.transform.eulerAngles = Vector3.forward * degree;
+
+        timeElapsed = 0;
+        Vector3 startEulers = _wheel.transform.eulerAngles;
+        while (timeElapsed < _spinCloseningDuration)
+        {
+            _wheel.transform.eulerAngles = startEulers + (Vector3.forward * _spinCurveClosening.Evaluate(timeElapsed / _spinCloseningDuration));
+            timeElapsed += Time.deltaTime;
+            yield return null;
         }
+
+        _wheel.transform.eulerAngles = Vector3.forward * degree;
+
+
+
+        // int cell_id = (int)(Mathf.Ceil((_wheel.transform.eulerAngles.z / _cellDegrees)));
+        // if (cell_id >= _info.Length)
+        // {
+        //     cell_id = 0;
+        // }
+
+        // timeElapsed = 0;
+        // while (timeElapsed < _switchToRewardDuration)
+        // {
+        //     float percentPosition = _switchToRewardCurve.Evaluate(timeElapsed / _switchToRewardDuration);
+        //     _wheelBase.transform.position = new Vector3(_wheelBase.transform.position.x, _wheelBase.transform.position.y - Screen.height * percentPosition, 0);
+        //     timeElapsed += Time.deltaTime;
+        //     yield return null;
+        // }
+
+        // _dimed.SetActive(false);
+        
+        // Debug.Log(_info[cell_id].EnName);
+
+
+        // switch (_info[cell_id].RewardType)
+        // {
+        //     case RewardType.Money:
+        //         Debug.Log($"Money {_info[cell_id].Amount}");
+        //         _profile.IncreaseMoney(_info[cell_id].Amount);
+        //         //_hider.ShowOther(gameObject);
+        //         _rewardPreview.Show(_info[cell_id].Icon, _currentLanguage == LanguageTranslator.Languages.Russian ? _info[cell_id].RuName : _info[cell_id].EnName);
+        //         break;
+        //     case RewardType.PetEgg:
+        //         Debug.Log("Pet Egg");
+        //         _petOpening.Show();
+        //         break;
+
+        // }
         StartCoroutine(WaitDelayRoutine());
-        _spinWheelPanel.SetActive(false);
     }
 
     public void OnSpinButtonClick() 
@@ -143,7 +184,7 @@ public class SpinWheel : MonoBehaviour
     public void Show()
     {
         _idle = true;
-        _spinWheelPanel.SetActive(true);
+        _dimed.SetActive(true);
         _spinButton.gameObject.SetActive(true);
         _closeButton.SetActive(true);
         _wheelBase.transform.position = _wheelBaseStartPosition;

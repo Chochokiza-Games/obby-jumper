@@ -1,12 +1,12 @@
 {
-    "idSave": 1256,
+    "idSave": 1408,
     "isFirstSession": false,
     "language": "en",
     "promptDone": false,
-    "money": 34750,
+    "money": 40750,
     "power": 3000,
     "bagUpgradesBought": 0,
-    "petDropOrderCurrentId": 2,
+    "petDropOrderCurrentId": 5,
     "openedSkins": [
         true,
         false,
@@ -51,7 +51,7 @@
         0
     ],
     "educationPassedCount": 0,
-    "skinStoreToastEducationShowed": false,
+    "skinStoreToastEducationShowed": true,
     "storeToastEducationShowed": false,
     "lastSkinId": 0,
     "lastTrailId": 0,
