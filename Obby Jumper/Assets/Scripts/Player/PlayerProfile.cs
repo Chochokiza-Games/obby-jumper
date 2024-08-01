@@ -27,6 +27,12 @@ public class PlayerProfile : MonoBehaviour
         set => _currentSkinId = value;
     }
 
+    public int CurrentTrailId
+    {
+        get => _currentTrailId;
+        set => _currentTrailId = value;
+    }
+
     public int Power
     {
         get 
@@ -58,14 +64,16 @@ public class PlayerProfile : MonoBehaviour
     [SerializeField] private GameObject _skinStoreToastEducationPrefab;
     [SerializeField] private UnityEvent _skinStoreToastOpened;
     [SerializeField] private Transform _field;
-    [SerializeField] private SlotInfo _firstSkin;
+    [SerializeField] private ItemInfo _firstSkin;
     [SerializeField] private UnityEvent<int> _levelChanged;
 
     private int _currentSkinId = 0;
+    private int _currentTrailId = 0;
     private int _money = 0;
     private int _power = 500;
     private int _currentLevel = 1;
 
+    private bool[] _openedTrails;
     private bool[] _openedSkins;
 
     private int _petDropOrderCurrentId = 0;
@@ -130,6 +138,13 @@ public class PlayerProfile : MonoBehaviour
         LoadInventory(_petEggsInventory, ref YandexGame.savesData.petEggsInventoryItems);
 
         FindObjectOfType<LanguageTranslator>().InitLanguage(YandexGame.lang);
+
+        _petInventory.PushItem(BaseInventoryItem.ItemId.PetCat);
+        _petInventory.PushItem(BaseInventoryItem.ItemId.PetCat);
+        _petInventory.PushItem(BaseInventoryItem.ItemId.PetCat);
+        _petInventory.PushItem(BaseInventoryItem.ItemId.PetCat);
+        _petInventory.PushItem(BaseInventoryItem.ItemId.PetCat);
+        _petInventory.PushItem(BaseInventoryItem.ItemId.PetCat);
     }
 
     private void LoadInventory(PlayerInventory inventory, ref int[] array)
@@ -148,6 +163,7 @@ public class PlayerProfile : MonoBehaviour
         YandexGame.savesData.power = _power;
         YandexGame.savesData.petDropOrderCurrentId = _petDropOrderCurrentId;
         YandexGame.savesData.openedSkins = _openedSkins;
+        YandexGame.savesData.openedTrails = _openedTrails;
 
         YandexGame.savesData.educationPassedCount = _educationShowCountCurrent;
         YandexGame.savesData.skinStoreToastEducationShowed = _skinStoreToastEducationShowed;
@@ -188,6 +204,19 @@ public class PlayerProfile : MonoBehaviour
             _openedSkins[0] = true;
         }
     }
+    public void InitTrails(int trailsCount)
+    {
+        _openedTrails = YandexGame.savesData.openedTrails;
+        if (_openedTrails.Length == 0)
+        {
+            _openedTrails = new bool[trailsCount];
+            for (int i =0; i < trailsCount; i++)
+            {
+                _openedTrails[i] = false;
+            }
+            _openedTrails[0] = true;
+        }
+    }
 
     public void IncreaseLevel()
     {
@@ -199,6 +228,11 @@ public class PlayerProfile : MonoBehaviour
     public void MarkSkinAsOpened(int id)
     {
         _openedSkins[id] = true;
+    }
+
+    public void MarkTrailAsOpened(int id)
+    {
+        _openedTrails[id] = true;
     }
 
     public void IncreaseMoney(int amount)
@@ -277,6 +311,10 @@ public class PlayerProfile : MonoBehaviour
         return _openedSkins[id];
     }
 
+    public bool IsTrailOpened(int id)
+    {
+        return _openedTrails[id];
+    }
 
     public void IncreasePetDropOrderCurrentId()
     {

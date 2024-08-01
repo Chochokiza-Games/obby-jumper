@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class LoadingScreen : MonoBehaviour
 {
     [SerializeField] private Image _background;
+    [SerializeField] private Image _pattern;
     [SerializeField] private float _popUpAnimationDuration;
     [SerializeField] private GameObject _loadingPanel;
     [SerializeField] private AnimationCurve _loadingPanelCurve;
@@ -39,10 +40,16 @@ public class LoadingScreen : MonoBehaviour
         Coroutine wiggle = StartCoroutine(IconWiggleRoutine());
 
         float timeElapsed = 0;
+        Vector3 startPatternScale = _pattern.transform.localScale;
         while (timeElapsed < _popUpAnimationDuration)
         {
             _background.transform.localScale = new Vector3(
                 _backgroundScalingAnimationCurve.Evaluate(timeElapsed / _popUpAnimationDuration), 1, 1);
+
+            _pattern.transform.localScale = new Vector3(
+                _background.transform.localScale.x <= 0.001f ? 0.001f : startPatternScale.x / _background.transform.localScale.x, 
+                _pattern.transform.localScale.y,
+                _pattern.transform.localScale.z);
 
             _loadingPanel.transform.position = new Vector3(
                 _loadingPanel.transform.position.x,
@@ -55,6 +62,7 @@ public class LoadingScreen : MonoBehaviour
         }
         StopCoroutine(wiggle);
         _background.transform.localScale *= 0;
+        _pattern.transform.localScale = startPatternScale;
         _ended.Invoke();
     }
     private IEnumerator IconWiggleRoutine()
