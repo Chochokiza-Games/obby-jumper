@@ -9,7 +9,7 @@ public class SkinStore : MonoBehaviour
 {
     [SerializeField] private ItemInfo[] _slotsInformation;
     [SerializeField] private GameObject _slotPrefab;
-    [SerializeField] private GameObject _purchaseConfirmationPrefab;
+    [SerializeField] private GameObject _purchaseConfirmation;
     [SerializeField] private GameObject _toastPrefab;
     [SerializeField] private GameObject _slotsContainer;
     [SerializeField] private Image _bigSlotPreview;
@@ -86,7 +86,7 @@ public class SkinStore : MonoBehaviour
     {
         if (_profile.CanBuy(_pickedSlotInfo.Price)) 
         {
-            _purchaseConfirmationPrefab.SetActive(true);
+            _purchaseConfirmation.SetActive(true);
         }
         else
         {

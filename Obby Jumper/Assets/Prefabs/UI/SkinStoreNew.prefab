@@ -1512,8 +1512,9 @@ GameObject:
   - component: {fileID: 7035716232757717994}
   - component: {fileID: 9170077716763285737}
   - component: {fileID: 2671173520357055152}
+  - component: {fileID: 5432654363879040603}
   m_Layer: 0
-  m_Name: Shop
+  m_Name: SkinStoreNew
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1592,6 +1593,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 1
+--- !u!114 &5432654363879040603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3148170577089987865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 086a2070fb50d724ebf993597cdb3ae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slotsInformation:
+  - {fileID: 11400000, guid: b1da61f55f243d144867bffedcc3678c, type: 2}
+  - {fileID: 11400000, guid: d94a46d0fce88954e9a8eaea9b63d12e, type: 2}
+  - {fileID: 11400000, guid: e19076e015f12054cadd6112527a1cd7, type: 2}
+  - {fileID: 11400000, guid: d981731052c5fc74dbb2266d44fce15f, type: 2}
+  - {fileID: 11400000, guid: fd9ecc0418ce0964bafa4297a53e865d, type: 2}
+  - {fileID: 11400000, guid: c52c847e4db34fc459ae20a348db10bb, type: 2}
+  - {fileID: 11400000, guid: 50146de504fee114eac713af02ab15d0, type: 2}
+  - {fileID: 11400000, guid: 42f0c9eb361cecf44869a55330415e04, type: 2}
+  - {fileID: 11400000, guid: b514aceabbe963140b27c48fd4421fc5, type: 2}
+  - {fileID: 11400000, guid: 480a705740674fb4faa9180332d62c5f, type: 2}
+  - {fileID: 11400000, guid: c0ccb830dc4f2cd4493c670ee86cb7b7, type: 2}
+  - {fileID: 11400000, guid: d1375af9bc3f8334ea65a62063bc397f, type: 2}
+  - {fileID: 11400000, guid: 81b48b881cd4de745988f33b101dd30a, type: 2}
+  - {fileID: 11400000, guid: e83345300de81fc42afa6ee8db987ffb, type: 2}
+  - {fileID: 11400000, guid: 4be5ba45a652e9e4981e300916701474, type: 2}
+  _slotPrefab: {fileID: 3148170577089987865}
+  _purchaseConfirmationPrefab: {fileID: 0}
+  _toastPrefab: {fileID: 0}
+  _slotsContainer: {fileID: 0}
+  _bigSlotPreview: {fileID: 0}
+  toastSpawnDelay: 0
+  _profile: {fileID: 0}
+  _skinChanger: {fileID: 0}
+  _buyButton: {fileID: 0}
+  _equipButton: {fileID: 0}
 --- !u!1 &3277136325099380055
 GameObject:
   m_ObjectHideFlags: 0
