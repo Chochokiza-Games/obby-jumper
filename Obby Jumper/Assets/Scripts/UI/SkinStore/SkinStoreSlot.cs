@@ -12,9 +12,9 @@ public class SkinStoreSlot : MonoBehaviour
         get => _skinPicked;
     }
 
-    [SerializeField] private Image _image;
-    [SerializeField] private Sprite _pickedSlotSprite;
-    [SerializeField] private Sprite _notPickedSlotSprite;
+    
+    [SerializeField] private Color _pickedColor;
+    [SerializeField] private Color _notPickedColor;
     [SerializeField] private Image _preview;
     [SerializeField] private TextMeshProUGUI _priceLabel;
     [SerializeField] private UnityEvent<ItemInfo> _skinPicked;
@@ -25,15 +25,16 @@ public class SkinStoreSlot : MonoBehaviour
 
     public void OnClick()
     {
-        _image.sprite = _pickedSlotSprite;
+        //_image.sprite = _pickedSlotSprite;
         _skinPicked.Invoke(_slotInfo);
     }
+
 
     public void OnSkinPickedId(int skinId)
     {
         if (_skinId != skinId)
         {
-            _image.sprite = _notPickedSlotSprite;
+            //_image.sprite = _notPickedSlotSprite;
         }
     }
 

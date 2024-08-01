@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9607843, g: 0.7607843, b: 0.14117648, a: 1}
+  m_Color: {r: 0.9433962, g: 0.74250823, b: 0.12014952, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -386,6 +386,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7823927188111435765}
+  - component: {fileID: 134950635907259663}
   m_Layer: 0
   m_Name: ShopSlot
   m_TagString: Untagged
@@ -416,6 +417,27 @@ RectTransform:
   m_AnchoredPosition: {x: 177, y: 615.4579}
   m_SizeDelta: {x: 250, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &134950635907259663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3527400307017875460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79f6d548fc2ffda488a7c149f37550db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _imagesToChangeColorWhilePicked: []
+  _pickedColor: {r: 0, g: 0, b: 0, a: 0}
+  _notPickedColor: {r: 0, g: 0, b: 0, a: 0}
+  _preview: {fileID: 0}
+  _priceLabel: {fileID: 1151070818670649588}
+  _skinPicked:
+    m_PersistentCalls:
+      m_Calls: []
+  _counter: {fileID: 0}
 --- !u!1 &4016034241686762216
 GameObject:
   m_ObjectHideFlags: 0

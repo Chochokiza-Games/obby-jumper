@@ -25,12 +25,10 @@ public class SpinWheel : MonoBehaviour
     [SerializeField] private PetOpening _petOpening;
     [SerializeField] private GameObject _closeButton;
     [SerializeField] private Image _lockCircle;
-    [SerializeField] private Image _spinButton;
+    [SerializeField] private Button _spinButton;
     [SerializeField] private TextMeshProUGUI _spinButtonText;
-    [SerializeField] private Color _lockColor;
     [SerializeField] private Color _lockTextColor;
     [SerializeField] private AdInitiator _adInitiator;
-    [SerializeField] private AnimatedButton _buttonsSpinButton;
     [Header("Animations")]
     [SerializeField] private float _idleRotationSpeed;
     [SerializeField] private AnimationCurve _spinCurveOpening;
@@ -67,7 +65,7 @@ public class SpinWheel : MonoBehaviour
     private void Start()
     {
         StartCoroutine(WaitDelayRoutine());
-        _buttonColor = _spinButton.color;
+        //_buttonColor = //_spinButton.image.color;
         _profile = FindObjectOfType<PlayerProfile>();
         for (int i = 0; i < _info.Length; i++)
         {
@@ -96,7 +94,6 @@ public class SpinWheel : MonoBehaviour
 
     private IEnumerator SpinRoutine()
     {
-        _spinButton.gameObject.SetActive(false);
         float timeElapsed = 0;
         while (timeElapsed < _spinOpeningDuration)
         {
@@ -134,42 +131,22 @@ public class SpinWheel : MonoBehaviour
 
         _wheel.transform.eulerAngles = Vector3.forward * degree;
 
+        switch (_info[cell].RewardType)
+        {
+            case RewardType.Money:
+                Debug.Log($"Money {_info[cell].Amount}");
+                _profile.IncreaseMoney(_info[cell].Amount);
+                //_hider.ShowOther(gameObject);
+                _rewardPreview.Show(_info[cell].Icon, _currentLanguage == LanguageTranslator.Languages.Russian ? _info[cell].RuName : _info[cell].EnName);
+                break;
+            case RewardType.PetEgg:
+                Debug.Log("Pet Egg");
+                _petOpening.Show();
+                break;
 
-
-        // int cell_id = (int)(Mathf.Ceil((_wheel.transform.eulerAngles.z / _cellDegrees)));
-        // if (cell_id >= _info.Length)
-        // {
-        //     cell_id = 0;
-        // }
-
-        // timeElapsed = 0;
-        // while (timeElapsed < _switchToRewardDuration)
-        // {
-        //     float percentPosition = _switchToRewardCurve.Evaluate(timeElapsed / _switchToRewardDuration);
-        //     _wheelBase.transform.position = new Vector3(_wheelBase.transform.position.x, _wheelBase.transform.position.y - Screen.height * percentPosition, 0);
-        //     timeElapsed += Time.deltaTime;
-        //     yield return null;
-        // }
-
-        // _dimed.SetActive(false);
-        
-        // Debug.Log(_info[cell_id].EnName);
-
-
-        // switch (_info[cell_id].RewardType)
-        // {
-        //     case RewardType.Money:
-        //         Debug.Log($"Money {_info[cell_id].Amount}");
-        //         _profile.IncreaseMoney(_info[cell_id].Amount);
-        //         //_hider.ShowOther(gameObject);
-        //         _rewardPreview.Show(_info[cell_id].Icon, _currentLanguage == LanguageTranslator.Languages.Russian ? _info[cell_id].RuName : _info[cell_id].EnName);
-        //         break;
-        //     case RewardType.PetEgg:
-        //         Debug.Log("Pet Egg");
-        //         _petOpening.Show();
-        //         break;
-
-        // }
+        }
+        _dimed.SetActive(false);
+        _wheelBase.SetActive(false);
         StartCoroutine(WaitDelayRoutine());
     }
 
@@ -185,7 +162,7 @@ public class SpinWheel : MonoBehaviour
     {
         _idle = true;
         _dimed.SetActive(true);
-        _spinButton.gameObject.SetActive(true);
+        _wheelBase.SetActive(true);
         _closeButton.SetActive(true);
         _wheelBase.transform.position = _wheelBaseStartPosition;
         _wheel.transform.eulerAngles = Vector3.forward * Random.Range(0f, 360f);
@@ -203,7 +180,8 @@ public class SpinWheel : MonoBehaviour
     {
         if (id == _rewardSpinId)
         {
-            _spinButton.gameObject.SetActive(false);
+            _spinButton.interactable = false;
+            _spinButtonText.color = _lockTextColor;
             _closeButton.SetActive(false);
             StartCoroutine(SpinRoutine());
         }
@@ -212,7 +190,8 @@ public class SpinWheel : MonoBehaviour
     private IEnumerator WaitDelayRoutine()
     {
         _locked = true;
-        _spinButton.color = _lockColor;
+        _spinButton.interactable = false;
+        //_spinButton.image.color = _lockColor;
         _spinButtonText.color = _lockTextColor;
         for (int i = 0; i < _delay; i++)
         {
@@ -220,21 +199,11 @@ public class SpinWheel : MonoBehaviour
             _lockCircle.fillAmount = 1f - (float)((float)(i) / (float)(_delay));
         }
         _lockCircle.fillAmount = 0f;
-        _spinButton.color = _buttonColor;
+        //_spinButton.image.color = _buttonColor;
         _spinButtonText.color = Color.white;
         _locked = false;
+        _spinButton.interactable = true;
 
         _adReloaded.Invoke();
-        StartCoroutine(TryStartPulsateSpinButton());
-    }
-
-    private IEnumerator TryStartPulsateSpinButton()
-    {
-        while(!_buttonsSpinButton.gameObject.activeInHierarchy)
-        {
-            yield return new WaitForSeconds(1);
-        }
-
-        _buttonsSpinButton.StartPulsate();
     }
 }

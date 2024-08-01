@@ -353,6 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _background: {fileID: 2686886724507296504}
+  _pattern: {fileID: 2735746103748738728}
   _popUpAnimationDuration: 3
   _loadingPanel: {fileID: 2655018765605593011}
   _loadingPanelCurve:
