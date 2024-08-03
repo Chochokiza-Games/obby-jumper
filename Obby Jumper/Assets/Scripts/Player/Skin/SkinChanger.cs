@@ -15,7 +15,7 @@ public class SkinChanger : MonoBehaviour
     [SerializeField] private bool _setOnStart;
     [SerializeField] private PlayerProfile _profile;
 
-    private void Start()
+    private void Awake()
     {
         if (!_setOnStart)
         {

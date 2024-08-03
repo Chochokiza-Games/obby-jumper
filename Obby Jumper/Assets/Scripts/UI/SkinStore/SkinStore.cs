@@ -7,9 +7,9 @@ using UnityEngine.UI;
 
 public class SkinStore : MonoBehaviour
 {
-    [SerializeField] private SlotInfo[] _slotsInformation;
+    [SerializeField] private ItemInfo[] _slotsInformation;
     [SerializeField] private GameObject _slotPrefab;
-    [SerializeField] private GameObject _purchaseConfirmationPrefab;
+    [SerializeField] private GameObject _purchaseConfirmation;
     [SerializeField] private GameObject _toastPrefab;
     [SerializeField] private GameObject _slotsContainer;
     [SerializeField] private Image _bigSlotPreview;
@@ -19,7 +19,7 @@ public class SkinStore : MonoBehaviour
     [SerializeField] private GameObject _buyButton;
     [SerializeField] private GameObject _equipButton;
 
-    private SlotInfo _pickedSlotInfo = null;
+    private ItemInfo _pickedSlotInfo = null;
     private UnityEvent<int> _skinPicked;
     private Dictionary<int, SkinStoreSlot> _slots;
 
@@ -30,17 +30,17 @@ public class SkinStore : MonoBehaviour
         _skinPicked = new UnityEvent<int>();
         _slots = new Dictionary<int, SkinStoreSlot>();
 
-        foreach (SlotInfo slotInfo in _slotsInformation)
+        foreach (ItemInfo itemInfo in _slotsInformation)
         {
             SkinStoreSlot slot = Instantiate(_slotPrefab, _slotsContainer.transform).GetComponent<SkinStoreSlot>();
             if (_pickedSlotInfo == null)
             {
-                _pickedSlotInfo = slotInfo;
+                _pickedSlotInfo = itemInfo;
             }
-            slot.InitFrom(slotInfo);
+            slot.InitFrom(itemInfo);
             slot.SkinPicked.AddListener(OnSkinPicked);
-            _slots[slotInfo.SkinId] = slot;
-            if (_profile.IsSkinOpened(slotInfo.SkinId))
+            _slots[itemInfo.ItemId] = slot;
+            if (_profile.IsSkinOpened(itemInfo.ItemId))
             {
                 slot.HidePrice();
             }
@@ -59,16 +59,16 @@ public class SkinStore : MonoBehaviour
         }
     }
 
-    public void OnSkinPicked(SlotInfo info)
+    public void OnSkinPicked(ItemInfo info)
     {
         _pickedSlotInfo = info;
-        _skinPicked.Invoke(info.SkinId);
+        _skinPicked.Invoke(info.ItemId);
         _bigSlotPreview.sprite = info.IconPreview;
-        if (_profile.IsSkinOpened(info.SkinId))
+        if (_profile.IsSkinOpened(info.ItemId))
         {
             _buyButton.SetActive(false);
             _equipButton.SetActive(true);
-            _slots[info.SkinId].HidePrice();
+            _slots[info.ItemId].HidePrice();
         }
         else
         {
@@ -79,14 +79,14 @@ public class SkinStore : MonoBehaviour
 
     public void OnEquipButtonUp()
     {
-        _skinChanger.SetSkin(_pickedSlotInfo.SkinId);   
+        _skinChanger.SetSkin(_pickedSlotInfo.ItemId);   
     }
 
     public void TryBuy()
     {
         if (_profile.CanBuy(_pickedSlotInfo.Price)) 
         {
-            _purchaseConfirmationPrefab.SetActive(true);
+            _purchaseConfirmation.SetActive(true);
         }
         else
         {
@@ -100,9 +100,9 @@ public class SkinStore : MonoBehaviour
         {
             _buyButton.SetActive(false);
             _equipButton.SetActive(true);
-            _skinChanger.SetSkin(_pickedSlotInfo.SkinId);
-            _profile.MarkSkinAsOpened(_pickedSlotInfo.SkinId);
-            _slots[_pickedSlotInfo.SkinId].HidePrice();
+            _skinChanger.SetSkin(_pickedSlotInfo.ItemId);
+            _profile.MarkSkinAsOpened(_pickedSlotInfo.ItemId);
+            _slots[_pickedSlotInfo.ItemId].HidePrice();
         }
     }
 }
