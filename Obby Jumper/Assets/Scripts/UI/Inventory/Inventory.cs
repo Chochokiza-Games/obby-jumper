@@ -26,7 +26,7 @@ public class Inventory : MonoBehaviour
     {
         if (_popup != null)
         {
-            _popupOffset = new Vector2(_rTransform.sizeDelta.x * -(_popupOffsetPercent.x / 100f), _rTransform.sizeDelta.y * (_popupOffsetPercent.y / 100f));
+            _popupOffset = new Vector2(_rTransform.rect.width * -(_popupOffsetPercent.x / 100f), _rTransform.rect.height * (_popupOffsetPercent.y / 100f));
         }
 
         UpdateSizeInfo();

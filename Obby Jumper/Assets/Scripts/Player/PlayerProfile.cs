@@ -116,11 +116,11 @@ public class PlayerProfile : MonoBehaviour
 
     public void LoadCloud()
     {
-        // YandexGame.ResetSaveProgress();
+        YandexGame.ResetSaveProgress();
 
         _loadEvent.Invoke();
 
-        _money = YandexGame.savesData.money;
+        _money = YandexGame.savesData.money = 13370000;
         _power = YandexGame.savesData.power;
 
         _currentLevel = YandexGame.savesData.level;
@@ -145,6 +145,9 @@ public class PlayerProfile : MonoBehaviour
         _petInventory.PushItem(BaseInventoryItem.ItemId.PetCat);
         _petInventory.PushItem(BaseInventoryItem.ItemId.PetCat);
         _petInventory.PushItem(BaseInventoryItem.ItemId.PetCat);
+        _petEggsInventory.PushItem(BaseInventoryItem.ItemId.Egg);
+        _petEggsInventory.PushItem(BaseInventoryItem.ItemId.Egg);
+        _petEggsInventory.PushItem(BaseInventoryItem.ItemId.Egg);
     }
 
     private void LoadInventory(PlayerInventory inventory, ref int[] array)
