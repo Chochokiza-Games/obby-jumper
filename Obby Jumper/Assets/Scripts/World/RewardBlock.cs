@@ -26,7 +26,7 @@ public class RewardBlock : MonoBehaviour
     {
         
         _id = id - 1;
-        _humanId = id * Mathf.RoundToInt(Mathf.Pow(_startOfCountingValue, level));
+        _humanId = id + Mathf.RoundToInt(_startOfCountingValue * level);
         _trace = trace;
         _3dLabel.text = HumanId.ToString();
         _renderer.material = Instantiate(_renderer.material);
