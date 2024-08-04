@@ -35,7 +35,7 @@ public class ItemStoreSlot : MonoBehaviour
     [SerializeField] private UnityEvent<ItemInfo> _itemPicked;
 
     private ItemInfo _slotInfo;
-    private int _skinId;
+    private int _itemId;
 
     public void OnClick()
     {
@@ -43,9 +43,9 @@ public class ItemStoreSlot : MonoBehaviour
     }
 
 
-    public void OnItemPickedId(int skinId)
+    public void OnItemPickedId(int itemId)
     {
-        if (_skinId != skinId)
+        if (_itemId != itemId)
         {
             _bg.color = _bgNotPickedColor;
             _innerBg.color = _innerBgNotPickedColor;
@@ -72,7 +72,7 @@ public class ItemStoreSlot : MonoBehaviour
     public void InitFrom(ItemInfo slotInfo)
     {
         _slotInfo = slotInfo;
-        _skinId = slotInfo.ItemId;
+        _itemId = slotInfo.ItemId;
         _priceLabel.text = slotInfo.Price.ToString();
         _preview.sprite = slotInfo.IconPreview;
     }

@@ -25,6 +25,7 @@ namespace YG
         public int bagUpgradesBought = 0;
         public int petDropOrderCurrentId = 0;
         public bool[] openedSkins = new bool[0];
+        public bool[] openedAccessories = new bool[0];
         public bool[] openedTrails = new bool[0];
         public int[] petInventoryItems = new int[0];
         public int[] petEggsInventoryItems = new int[0];

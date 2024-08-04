@@ -1,5 +1,5 @@
 {
-    "idSave": 1478,
+    "idSave": 1479,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
@@ -23,6 +23,12 @@
         false,
         true,
         false
+    ],
+    "openedAccessories": [
+        true,
+        false,
+        false,
+        true
     ],
     "openedTrails": [
         true,
