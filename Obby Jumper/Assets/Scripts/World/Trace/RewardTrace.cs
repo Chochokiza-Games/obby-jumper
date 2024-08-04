@@ -86,7 +86,7 @@ public class RewardTrace : MonoBehaviour
             }
             else
             {
-                _generatedBlocks[i].Init(i + 1, this, _profile.CurrentLevel, _paletteChanger.CurrentPalette.Colors[Random.Range(0, _paletteChanger.CurrentPalette.Colors.Length)]);
+                _generatedBlocks[i].Init(i + 1, this, _profile.CurrentLevel, _paletteChanger.CurrentPalette.Colors[Random.Range(3, _paletteChanger.CurrentPalette.Colors.Length)]);
             }
         }
     }
