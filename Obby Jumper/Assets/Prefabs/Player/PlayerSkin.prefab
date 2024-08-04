@@ -808,7 +808,39 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5949117553591404}
+  - {fileID: 8962270751239697431}
   m_Father: {fileID: 5828247129061260417}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2718021378366781970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8962270751239697431}
+  m_Layer: 8
+  m_Name: WingsPlaceholder
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8962270751239697431
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2718021378366781970}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.43, z: -0.257}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8093612924921362273}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3195248899888132365
 GameObject:
@@ -1315,6 +1347,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7949022083999997163}
+  - {fileID: 2861128969515536833}
   m_Father: {fileID: 8358645640407313415}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4106024996175506609
@@ -1988,6 +2021,37 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.009534895, y: 0.31580392, z: -0.0084685385}
     m_Extent: {x: 1.1481283, y: 0.6452589, z: 0.6555339}
   m_DirtyAABB: 0
+--- !u!1 &5524973482858702035
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2861128969515536833}
+  m_Layer: 8
+  m_Name: HatPlaceholder
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2861128969515536833
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5524973482858702035}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.043, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3343044209873448029}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5546535145311972902
 GameObject:
   m_ObjectHideFlags: 0
@@ -2325,6 +2389,7 @@ GameObject:
   - component: {fileID: 5216991421259129294}
   - component: {fileID: 698626952041556229}
   - component: {fileID: 1278679658125917431}
+  - component: {fileID: 5669492062074916482}
   - component: {fileID: 5592184187195067924}
   - component: {fileID: 6578164701056917803}
   - component: {fileID: 9106399037655969115}
@@ -2428,7 +2493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerMovement: {fileID: 0}
-  _playerAnimator: {fileID: 0}
+  _playerAnimator: {fileID: 1278679658125917431}
   _turnSpeed: 10
 --- !u!95 &698626952041556229
 Animator:
@@ -2464,6 +2529,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 698626952041556229}
+--- !u!114 &5669492062074916482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7031147385849365152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b1174a316a13d0c98efdd4bb4eeddd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _debugWings: {fileID: 11400000, guid: 4a0f22c156cc7fb36a31b529d36ef797, type: 2}
+  _debugHat: {fileID: 11400000, guid: a4e585477a8b2ed63ba55adcb78f069e, type: 2}
+  _hatPlaceholder: {fileID: 2861128969515536833}
+  _wingsPlaceholder: {fileID: 8962270751239697431}
+  _currentHat: {fileID: 0}
+  _currentWings: {fileID: 0}
 --- !u!114 &5592184187195067924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2480,8 +2563,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CameraSpeedEffect, Assembly-CSharp
-        m_MethodName: Show
+        m_TargetAssemblyTypeName: CameraFishEye, Assembly-CSharp
+        m_MethodName: EnableFishEye
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2492,8 +2575,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CameraFishEye, Assembly-CSharp
-        m_MethodName: EnableFishEye
+        m_TargetAssemblyTypeName: CameraSpeedEffect, Assembly-CSharp
+        m_MethodName: Show
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2507,8 +2590,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CameraSpeedEffect, Assembly-CSharp
-        m_MethodName: Hide
+        m_TargetAssemblyTypeName: CameraFishEye, Assembly-CSharp
+        m_MethodName: DisableFishEye
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2519,8 +2602,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CameraFishEye, Assembly-CSharp
-        m_MethodName: DisableFishEye
+        m_TargetAssemblyTypeName: CameraSpeedEffect, Assembly-CSharp
+        m_MethodName: Hide
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
