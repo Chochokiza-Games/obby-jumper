@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -19,6 +18,10 @@ public class LoadingScreen : MonoBehaviour
     [SerializeField] private Image _loadingIcon;
     [SerializeField] private float _imageWiggleDuration;
     [SerializeField] private AnimationCurve _animationWiggleCurve;
+    [SerializeField] private TextMeshProUGUI _tips;
+    [SerializeField] private string[] _enTips;
+    [SerializeField] private string[] _ruTips;
+    [SerializeField] private LanguageTranslator _language;
     [SerializeField] private UnityEvent _started;
     [SerializeField] private UnityEvent _ended;
 
@@ -39,6 +42,8 @@ public class LoadingScreen : MonoBehaviour
     {
         Coroutine wiggle = StartCoroutine(IconWiggleRoutine());
 
+        _tips.SetText(_language.CurrentLangunage == LanguageTranslator.Languages.Russian? _ruTips[Random.Range(0, _ruTips.Length)] : _enTips[Random.Range(0, _enTips.Length)]);
+        
         float timeElapsed = 0;
         Vector3 startPatternScale = _pattern.transform.localScale;
         while (timeElapsed < _popUpAnimationDuration)
