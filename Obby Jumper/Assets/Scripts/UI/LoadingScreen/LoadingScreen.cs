@@ -20,7 +20,7 @@ public class LoadingScreen : MonoBehaviour
     [SerializeField] private AnimationCurve _animationWiggleCurve;
     [SerializeField] private UnityEvent _started;
     [SerializeField] private UnityEvent _ended;
-
+    
     private float _loadingPanelLiftingHeight;
 
     private void Start()

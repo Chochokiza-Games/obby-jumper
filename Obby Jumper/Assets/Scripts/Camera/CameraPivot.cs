@@ -19,6 +19,13 @@ public class CameraPivot : MonoBehaviour
             }
         }
     }
+    public float SensetivityCoef
+    {
+        set
+        {
+            _sensitivityCoef = value;
+        }
+    }
 
 
     [SerializeField] private float _rotationSpeed;
@@ -31,14 +38,15 @@ public class CameraPivot : MonoBehaviour
     private int _mouseButton = 1;
 
     private Vector2 _axisSensitivity;
+    private float _sensitivityCoef  = 1.0f;
 
     private void Start()
     {
         _isMobile = FindObjectOfType<PlayerProfile>().RunOnMobile();
         _mouseButton = _isMobile ? 0 : 1;
 
-        _axisSensitivity.y = _camera.m_YAxis.m_MaxSpeed;
-        _axisSensitivity.x = _camera.m_XAxis.m_MaxSpeed;
+        _axisSensitivity.y = _camera.m_YAxis.m_MaxSpeed * _sensitivityCoef;
+        _axisSensitivity.x = _camera.m_XAxis.m_MaxSpeed * _sensitivityCoef;
 
         _camera.m_YAxis.m_MaxSpeed = 0;
         _camera.m_XAxis.m_MaxSpeed = 0;
