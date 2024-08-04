@@ -19,13 +19,7 @@ public class CameraPivot : MonoBehaviour
             }
         }
     }
-    public float SensetivityCoef
-    {
-        set
-        {
-            _sensitivityCoef = value;
-        }
-    }
+
 
 
     [SerializeField] private float _rotationSpeed;
@@ -45,13 +39,17 @@ public class CameraPivot : MonoBehaviour
         _isMobile = FindObjectOfType<PlayerProfile>().RunOnMobile();
         _mouseButton = _isMobile ? 0 : 1;
 
-        _axisSensitivity.y = _camera.m_YAxis.m_MaxSpeed * _sensitivityCoef;
-        _axisSensitivity.x = _camera.m_XAxis.m_MaxSpeed * _sensitivityCoef;
+        _axisSensitivity.y = _camera.m_YAxis.m_MaxSpeed;
+        _axisSensitivity.x = _camera.m_XAxis.m_MaxSpeed;
 
         _camera.m_YAxis.m_MaxSpeed = 0;
         _camera.m_XAxis.m_MaxSpeed = 0;
     }
 
+    public void SetSensetivityCoef(float value)
+    {
+        _sensitivityCoef = Mathf.Clamp(value, 1, 3);
+    }
     public void SetDamping(float value)
     {
         for(int i = 0; i < 3; i++) 
@@ -75,8 +73,8 @@ public class CameraPivot : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(1) && !_eventSystem.IsPointerOverGameObject())
             {
-                _camera.m_YAxis.m_MaxSpeed = _axisSensitivity.y;
-                _camera.m_XAxis.m_MaxSpeed = _axisSensitivity.x;
+                _camera.m_YAxis.m_MaxSpeed = _axisSensitivity.y * _sensitivityCoef;
+                _camera.m_XAxis.m_MaxSpeed = _axisSensitivity.x * _sensitivityCoef;
             }
 
             if (Input.GetMouseButtonUp(1))

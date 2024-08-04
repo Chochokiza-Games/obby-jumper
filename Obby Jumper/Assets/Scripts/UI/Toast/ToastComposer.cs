@@ -21,40 +21,44 @@ public class ToastComposer : MonoBehaviour
     [SerializeField] private float _pathDuration;
     [SerializeField] private float _pauseDuration;
     [SerializeField] private Vector2 _targetPositionOffset;
-    [SerializeField] private Dictionary<ToastsType, string> _toastMap;
     [SerializeField] private LanguageTranslator _language;
+    private Dictionary<ToastsType, string> _toastMap = new Dictionary<ToastsType, string>();
 
     private int _currentToastsCount;
     private Vector3 _startPosition;
-    private Vector3 _targetPosition;
 
     private void Start()
     {
         _startPosition = _startPositionPoint.anchoredPosition;
         _toastMap[ToastsType.StoreErr] = _language.CurrentLangunage == LanguageTranslator.Languages.Russian ?  "Недостаточно денег" :  "Not enough money";
-        ToastSpawn(ToastsType.StoreErr);
     }
 
     public void ToastSpawn(ToastsType toastType)
     {
-        Debug.LogError("ffs");
-        StartCoroutine(AnimationRoutine(toastType));
-    }
-    private IEnumerator AnimationRoutine(ToastsType toastType)
-    {        
-        _targetPosition = (_startPositionPoint.anchoredPosition - (Vector2.up * _startPositionPoint.rect.size.y) - _targetPositionOffset)*_currentToastsCount;
-        TextMeshProUGUI toast = Instantiate(_toastPrefab, _targetPosition, Quaternion.identity).GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI toast = Instantiate(_toastPrefab, _startPositionPoint.position, Quaternion.identity, transform).GetComponent<TextMeshProUGUI>();
         toast.SetText(_toastMap[toastType]);
 
-        _currentToastsCount += 1;
+        StartCoroutine(AnimationRoutine(toast.GetComponent<RectTransform>()));
+        
+    }
+    public void ToastSpawn(ToastsType toastType, Color color)
+    {
+        TextMeshProUGUI toast = Instantiate(_toastPrefab, _startPositionPoint.position, Quaternion.identity, transform).GetComponent<TextMeshProUGUI>();
+        toast.SetText(_toastMap[toastType]);
+        toast.color = color;
+        StartCoroutine(AnimationRoutine(toast.GetComponent<RectTransform>()));
+    }
+    private IEnumerator AnimationRoutine(RectTransform toast)
+    {
+         _currentToastsCount++;
+        Vector3 targetPosition = (_startPositionPoint.anchoredPosition - (Vector2.up * _startPositionPoint.rect.size.y) - _targetPositionOffset)*_currentToastsCount;
 
         float timeElapsed = 0;
         while (timeElapsed < _pathDuration) 
         {
             float t = timeElapsed / _pathDuration; 
             t = t * t * (3f - 2f * t);
-            _startPositionPoint.anchoredPosition = Vector2.Lerp(_startPosition, _targetPosition, t);
-            timeElapsed += Time.deltaTime;
+            toast.anchoredPosition = Vector2.Lerp(_startPosition, targetPosition, t);            timeElapsed += Time.deltaTime;
             yield return null;
         }
 
@@ -65,11 +69,11 @@ public class ToastComposer : MonoBehaviour
         {
             float t = timeElapsed / _pathDuration;
             t = t * t * (3f - 2f * t);
-            _startPositionPoint.anchoredPosition = Vector2.Lerp(_targetPosition, _startPosition, t);
+            toast.anchoredPosition = Vector2.Lerp(targetPosition, _startPosition, t);
             timeElapsed += Time.deltaTime;
             yield return null;
         }
-        _currentToastsCount -= 1;
-        Destroy(toast);
+        _currentToastsCount --;
+        Destroy(toast.gameObject);
     }
 }
