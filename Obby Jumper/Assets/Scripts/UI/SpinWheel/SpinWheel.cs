@@ -166,14 +166,6 @@ public class SpinWheel : MonoBehaviour
         _closeButton.SetActive(true);
         _wheelBase.transform.position = _wheelBaseStartPosition;
         _wheel.transform.eulerAngles = Vector3.forward * Random.Range(0f, 360f);
-/*        if (_lockCircle.fillAmount != 0f)
-        {
-            _lockCircle.color = Color.white;
-        }
-        else
-        {
-            _lockCircle.color = new Color(0, 0, 0, 0);
-        }*/
     }
 
     public void OnRewardSpinGet(int id)
