@@ -19,15 +19,18 @@ public class CameraSpan : MonoBehaviour
         {
             foreach (Transform p in _points)
             {
-                Gizmos.color = Color.red;
-                Gizmos.DrawLine(p.position, p.position + p.forward * 5f);
+                if (p != null)
+                {
+                    Gizmos.color = Color.red;
+                    Gizmos.DrawLine(p.position, p.position + p.forward * 5f);
+                }
             }
         }
     }
 
     private void Start() 
     {
-        Span();
+        //Span();
     }
 
     public void Span()

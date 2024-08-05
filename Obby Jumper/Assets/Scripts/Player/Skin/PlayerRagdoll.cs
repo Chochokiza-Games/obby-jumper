@@ -11,7 +11,6 @@ public class PlayerRagdoll : MonoBehaviour
     [SerializeField] private UnityEvent _flyEnded;
 
     [SerializeField] private Collider _collider;
-    [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private Animator _animator;
     [SerializeField] private PlayerSkin _skin;
     [SerializeField] private Rigidbody _hips;
