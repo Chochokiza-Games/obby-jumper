@@ -1,15 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
-public class UIComposerWindowUbservabl : MonoBehaviour
+public class UIComposerWindowObservable : MonoBehaviour
 {
-    void OnEnable()
+    private UIComposer _uiComposer;
+    
+    private void Awake()
     {
-
+        _uiComposer = FindObjectOfType<UIComposer>();
     }
-    void OnDisable()
+    private void OnEnable()
     {
-        
+        _uiComposer.OpeningSomeUI();
+    }
+    private void OnDisable()
+    {
+        _uiComposer.ClosingSomeUI();
     }
 }

@@ -16,20 +16,11 @@ public class UIComposer : MonoBehaviour
     public void OpeningSomeUI()
     {   
         _isSomeUIOpened = true;
-        HideHomeUI();
+        _homeUI.SetActive(false);
     }
     public void ClosingSomeUI()
     {
         _isSomeUIOpened = false;
-        ShowHomeUI();
-    }
-
-    private void HideHomeUI()
-    {
-        _homeUI.SetActive(false);
-    }
-    private void ShowHomeUI()
-    {
         _homeUI.SetActive(true);
-    }
+    }   
 }

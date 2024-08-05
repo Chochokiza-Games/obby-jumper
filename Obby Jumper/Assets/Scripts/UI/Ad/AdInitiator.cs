@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -14,7 +13,7 @@ public class AdInitiator : MonoBehaviour
     [SerializeField] private int _adShowdelay;
     [SerializeField] private PlayerMovement _movement;
     [SerializeField] private CameraPivot _pivot;
-    [SerializeField] private UIHider _hider;
+    //[SerializeField] private UIHider _hider;
     [SerializeField] private BotMovement[] _bots;
     [SerializeField] private PetStation _petStation;
 
@@ -49,7 +48,7 @@ public class AdInitiator : MonoBehaviour
 
             _movement.Locked = true;
             _pivot.Locked = true;
-            _hider.HideOther(gameObject);
+            //_hider.HideOther(gameObject);
             DisableBots();
             _petStation.DisablePets();
 
@@ -66,7 +65,7 @@ public class AdInitiator : MonoBehaviour
             _adInitiatorWindow.SetActive(false);
             _movement.Locked = false;
             _pivot.Locked = false;
-            _hider.ShowOther(gameObject);
+            //_hider.ShowOther(gameObject);
             EnableBots();
             _petStation.EnablePets();
         }

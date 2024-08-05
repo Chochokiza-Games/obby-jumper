@@ -18,7 +18,7 @@ public class SpinWheel : MonoBehaviour
     [SerializeField] private float _cellDegrees;
     [SerializeField] private int _delay;
     [Header("GameObjects")]
-    [SerializeField] private UIHider _hider;
+    //[SerializeField] private UIHider _hider;
     [SerializeField] private GameObject _wheelBase;
     [SerializeField] private GameObject _wheel;
     [SerializeField] private GameObject[] _previews;
@@ -120,7 +120,7 @@ public class SpinWheel : MonoBehaviour
         {
             case RewardType.Money:
                 _profile.IncreaseMoney(_info[cell_id].Amount);
-                _hider.ShowOther(gameObject);
+                //_hider.ShowOther(gameObject);
                 _rewardPreview.Show(_info[cell_id].Icon, _currentLanguage == LanguageTranslator.Languages.Russian ? _info[cell_id].RuName : _info[cell_id].EnName);
                 break;
             case RewardType.PetEgg:
