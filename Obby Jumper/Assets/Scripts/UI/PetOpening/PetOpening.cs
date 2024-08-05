@@ -26,7 +26,6 @@ public class PetOpening : MonoBehaviour
     [SerializeField] private GameObject _base;
     [SerializeField] private PlayerInventory _petInventory;
     [SerializeField] private RewardPreview _rewardPreview;
-    //[SerializeField] private UIHider _hider;
     [SerializeField] private LanguageTranslator _translator;
     [Header("Animations")]
     [SerializeField] private AnimationCurve _eggWiggleCurve;
@@ -190,8 +189,7 @@ public class PetOpening : MonoBehaviour
 
         PetItem item = (PetItem)_petInventory.GetItemById(id);
         _rewardPreview.Show(item.Icon, _translator.CurrentLangunage == LanguageTranslator.Languages.Russian ? item.RuLabel : item.EnLabel);
-        //_hider.ReturnToDefault();
-        //_hider.ShowOther(gameObject);
+
         gameObject.SetActive(false);
     }
 

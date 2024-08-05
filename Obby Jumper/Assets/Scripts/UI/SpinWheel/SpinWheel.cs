@@ -18,7 +18,6 @@ public class SpinWheel : MonoBehaviour
     [SerializeField] private float _cellDegrees;
     [SerializeField] private int _delay;
     [Header("GameObjects")]
-    //[SerializeField] private UIHider _hider;
     [SerializeField] private GameObject _wheelBase;
     [SerializeField] private GameObject _wheel;
     [SerializeField] private GameObject[] _previews;
@@ -120,7 +119,6 @@ public class SpinWheel : MonoBehaviour
         {
             case RewardType.Money:
                 _profile.IncreaseMoney(_info[cell_id].Amount);
-                //_hider.ShowOther(gameObject);
                 _rewardPreview.Show(_info[cell_id].Icon, _currentLanguage == LanguageTranslator.Languages.Russian ? _info[cell_id].RuName : _info[cell_id].EnName);
                 break;
             case RewardType.PetEgg:
@@ -148,14 +146,6 @@ public class SpinWheel : MonoBehaviour
         _closeButton.SetActive(true);
         _wheelBase.transform.position = _wheelBaseStartPosition;
         _wheel.transform.eulerAngles = Vector3.forward * Random.Range(0f, 360f);
-/*        if (_lockCircle.fillAmount != 0f)
-        {
-            _lockCircle.color = Color.white;
-        }
-        else
-        {
-            _lockCircle.color = new Color(0, 0, 0, 0);
-        }*/
     }
 
     public void OnRewardSpinGet(int id)
