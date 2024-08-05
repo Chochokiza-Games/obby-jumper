@@ -9,6 +9,8 @@ TagManager:
   - Bot
   - PlayerSkin
   - PlayerHips
+  - WorldButtonsField
+  - WorldButton
   layers:
   - Default
   - TransparentFX

@@ -13,5 +13,6 @@ public class BotMessage : MonoBehaviour
         _nick.text = nick;
         _text.text = text;
         _nick.color = nickColor;
+        _text.color = nickColor;
     }
 }
