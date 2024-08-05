@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25e28cf48a5465549a83dbcd3a09b6e0, type: 3}
+  m_Name: Red
+  m_EditorClassIdentifier: 
+  _colors:
+  - {r: 0.8490566, g: 0.244304, b: 0.46797964, a: 1}
+  - {r: 0.8867924, g: 0.31001502, b: 0.18823427, a: 1}
+  - {r: 0.8679245, g: 0.43032444, b: 0.26610893, a: 1}
+  - {r: 0.8584906, g: 0.21462277, b: 0.21462265, a: 1}
+  - {r: 0.8018868, g: 0.22486389, b: 0.18534178, a: 1}
+  - {r: 1, g: 0.4198113, b: 0.59719396, a: 1}
+  - {r: 0.990566, g: 0.44648448, b: 0.3317462, a: 1}
+  - {r: 0.9811321, g: 0.3874829, b: 0.34709862, a: 1}
+  - {r: 1, g: 0.2783019, b: 0.40096757, a: 1}
+  - {r: 0.3725525, g: 0.48351428, b: 0.8679245, a: 1}

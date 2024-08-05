@@ -28,8 +28,10 @@ public class PlayerRagdoll : MonoBehaviour
     [SerializeField] private PlayerMovement _movement;
     [SerializeField] private PlayerTeleport _teleporter;
     [SerializeField] private PlayerAnimator _playerAnimator;
-    [SerializeField] private Vector3 _ejectDirection;
+    [SerializeField] private Vector3 _ejectDirectionMin;
+    [SerializeField] private Vector3 _ejectDirectionMax;
 
+    private Vector3 _ejectDirection;
     private int _jumpsCount;
 
     private struct RagdollBone
@@ -64,7 +66,11 @@ public class PlayerRagdoll : MonoBehaviour
 
     private void OnDrawGizmos() 
     {
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(_hips.position, _hips.position + _ejectDirectionMin * 25f);
         Gizmos.color = Color.red;
+        Gizmos.DrawLine(_hips.position, _hips.position + _ejectDirectionMax * 25f);
+        Gizmos.color = Color.cyan;
         Gizmos.DrawLine(_hips.position, _hips.position + _ejectDirection * 25f);
     }
 
@@ -130,6 +136,7 @@ public class PlayerRagdoll : MonoBehaviour
     private IEnumerator FuckingEjectRoutine()
     {
         _jumpsCount++;
+        _ejectDirection = new Vector3(0, Random.Range(_ejectDirectionMin.y, _ejectDirectionMax.y), 1);
         _collider.enabled = false;
         EnableRagdoll();
         _groundReached = false;
