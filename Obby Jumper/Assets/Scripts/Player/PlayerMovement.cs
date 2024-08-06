@@ -36,6 +36,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform _autoRunTarget;
     [SerializeField] private bool _autoRunned;
 
+
+    private float _startAnimatorSpeed;
     private Vector3 _moveDirection;
     private bool _locked;
     private bool _isGrounded = true;
@@ -45,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        _startAnimatorSpeed = _a.speed;
         bool mobile = FindObjectOfType<PlayerProfile>().RunOnMobile();
         _joystick.gameObject.SetActive(mobile);
         _jumpButton.SetActive(mobile);
@@ -70,7 +73,6 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator MoveToObjectRoutine(Transform target, float speedFactor)
     {
-        float oldSpeed = _a.speed;
         _a.speed = speedFactor / 2;
         while(Vector3.Distance(transform.position, target.position) > .2f)
         {
@@ -91,10 +93,10 @@ public class PlayerMovement : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
 
-        _a.speed = oldSpeed;
+        _a.speed = _startAnimatorSpeed;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (!_characterController.enabled)
         {
@@ -106,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
             _playerVelocity.y = 0f;
         }
 
-        _playerVelocity.y += (Physics.gravity.y * _gravityFactor) * Time.deltaTime;
+        _playerVelocity.y += (Physics.gravity.y * _gravityFactor) * Time.fixedDeltaTime;
         _characterController.Move(_playerVelocity * Time.deltaTime);
 
         _isGrounded = Physics.BoxCast(transform.position + transform.up / 2, _boxcastSize / 2, -transform.up, transform.rotation, _groundCheckDistance, ~(LayerMask.GetMask("Trigger") + LayerMask.GetMask("Coin") + LayerMask.GetMask("PlayerSkin") + LayerMask.GetMask("PlayerSkinSkeleton")));
@@ -131,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 moveRight = transform.right * horizontalInput;
 
         Vector3 direction = (moveForward + moveRight).normalized * _speed;
-        _characterController.Move(direction * Time.deltaTime);
+        _characterController.Move(direction * Time.fixedDeltaTime);
         if (direction != Vector3.zero)
         {
             _skin.PlayerMovementDirection = direction.normalized;

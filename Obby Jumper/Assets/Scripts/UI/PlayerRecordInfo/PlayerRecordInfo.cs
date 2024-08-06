@@ -17,6 +17,11 @@ public class PlayerRecordInfo : MonoBehaviour
     [SerializeField] private AnimationCurve _alphaCurve;
     [SerializeField] private float _duration;
 
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+    
     public void Show(int record)
     {
         _label.text = $"{_template} {record}!";

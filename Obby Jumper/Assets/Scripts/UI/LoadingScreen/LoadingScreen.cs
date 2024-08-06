@@ -24,7 +24,7 @@ public class LoadingScreen : MonoBehaviour
     [SerializeField] private LanguageTranslator _language;
     [SerializeField] private UnityEvent _started;
     [SerializeField] private UnityEvent _ended;
-
+    
     private float _loadingPanelLiftingHeight;
 
     private void Start()
