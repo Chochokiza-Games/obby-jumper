@@ -75,6 +75,7 @@ public class PlayerProfile : MonoBehaviour
 
     private bool[] _openedTrails;
     private bool[] _openedSkins;
+    private bool[] _openedAccessories;
 
     private int _petDropOrderCurrentId = 0;
     private int _educationShowCountCurrent = 0;
@@ -166,6 +167,7 @@ public class PlayerProfile : MonoBehaviour
         YandexGame.savesData.power = _power;
         YandexGame.savesData.petDropOrderCurrentId = _petDropOrderCurrentId;
         YandexGame.savesData.openedSkins = _openedSkins;
+        YandexGame.savesData.openedAccessories = _openedAccessories;
         YandexGame.savesData.openedTrails = _openedTrails;
 
         YandexGame.savesData.educationPassedCount = _educationShowCountCurrent;
@@ -221,6 +223,20 @@ public class PlayerProfile : MonoBehaviour
         }
     }
 
+    public void InitAccessories(int accessoriesCount)
+    {
+        _openedAccessories = YandexGame.savesData.openedAccessories;
+        if (_openedAccessories.Length == 0)
+        {
+            _openedAccessories = new bool[accessoriesCount];
+            for (int i =0; i < accessoriesCount; i++)
+            {
+                _openedAccessories[i] = false;
+            }
+            _openedAccessories[0] = true;
+        }
+    }
+
     public void IncreaseLevel()
     {
         _currentLevel++;
@@ -231,6 +247,11 @@ public class PlayerProfile : MonoBehaviour
     public void MarkSkinAsOpened(int id)
     {
         _openedSkins[id] = true;
+    }
+
+    public void MarkAccessoryAsOpened(int id)
+    {
+        _openedAccessories[id] = true;
     }
 
     public void MarkTrailAsOpened(int id)
@@ -312,6 +333,11 @@ public class PlayerProfile : MonoBehaviour
     public bool IsSkinOpened(int id)
     {
         return _openedSkins[id];
+    }
+
+    public bool IsAccessoryOpened(int id)
+    {
+        return _openedAccessories[id];
     }
 
     public bool IsTrailOpened(int id)

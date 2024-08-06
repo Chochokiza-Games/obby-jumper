@@ -5,11 +5,11 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class SkinStoreSlot : MonoBehaviour
+public class ItemStoreSlot : MonoBehaviour
 {
-    public UnityEvent<ItemInfo> SkinPicked
+    public UnityEvent<ItemInfo> ItemPicked
     {
-        get => _skinPicked;
+        get => _itemPicked;
     }
 
     [Header("Picked Colors")]
@@ -32,20 +32,20 @@ public class SkinStoreSlot : MonoBehaviour
     [SerializeField] private Image _innerLine;
     [SerializeField] private Image _preview;
     [SerializeField] private TextMeshProUGUI _priceLabel;
-    [SerializeField] private UnityEvent<ItemInfo> _skinPicked;
+    [SerializeField] private UnityEvent<ItemInfo> _itemPicked;
 
     private ItemInfo _slotInfo;
-    private int _skinId;
+    private int _itemId;
 
     public void OnClick()
     {
-        _skinPicked.Invoke(_slotInfo);
+        _itemPicked.Invoke(_slotInfo);
     }
 
 
-    public void OnSkinPickedId(int skinId)
+    public void OnItemPickedId(int itemId)
     {
-        if (_skinId != skinId)
+        if (_itemId != itemId)
         {
             _bg.color = _bgNotPickedColor;
             _innerBg.color = _innerBgNotPickedColor;
@@ -72,7 +72,7 @@ public class SkinStoreSlot : MonoBehaviour
     public void InitFrom(ItemInfo slotInfo)
     {
         _slotInfo = slotInfo;
-        _skinId = slotInfo.ItemId;
+        _itemId = slotInfo.ItemId;
         _priceLabel.text = slotInfo.Price.ToString();
         _preview.sprite = slotInfo.IconPreview;
     }

@@ -1,0 +1,14 @@
+newmtl Mcdonaldshat1Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.027451 0.027451 0.027451 
+
+d 1
+
+Ns 0
+
+map_Ka Mcdonaldshat1_diff.png
+map_Kd Mcdonaldshat1_diff.png
+map_d Mcdonaldshat1_diff.png
+

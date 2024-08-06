@@ -1569,7 +1569,7 @@ GameObject:
   - component: {fileID: 7035716232757717994}
   - component: {fileID: 9170077716763285737}
   - component: {fileID: 2671173520357055152}
-  - component: {fileID: 5432654363879040603}
+  - component: {fileID: 4313665294593281846}
   m_Layer: 0
   m_Name: SkinStoreNew
   m_TagString: Untagged
@@ -1651,7 +1651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 1
---- !u!114 &5432654363879040603
+--- !u!114 &4313665294593281846
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1660,7 +1660,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3148170577089987865}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 086a2070fb50d724ebf993597cdb3ae2, type: 3}
+  m_Script: {fileID: 11500000, guid: 3767fa8eea18e5d4d939cc5cc0aa865d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _slotsInformation:
@@ -1681,14 +1681,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d94a46d0fce88954e9a8eaea9b63d12e, type: 2}
   _slotPrefab: {fileID: 3527400307017875460, guid: 82140c84583bc9e4a9ee787590ca720c, type: 3}
   _purchaseConfirmation: {fileID: 5690291122335334297}
-  _toastPrefab: {fileID: 0}
   _slotsContainer: {fileID: 3287388136379844485}
   _bigSlotPreview: {fileID: 8923088797805262750}
-  toastSpawnDelay: 0
   _profile: {fileID: 0}
-  _skinChanger: {fileID: 0}
   _buyButton: {fileID: 1799494666408929784}
   _equipButton: {fileID: 4508358038305852247}
+  _skinChanger: {fileID: 0}
 --- !u!1 &3277136325099380055
 GameObject:
   m_ObjectHideFlags: 0
@@ -2683,7 +2681,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.673147, y: 1}
-  m_AnchoredPosition: {x: -44.293457, y: -0.22070312}
+  m_AnchoredPosition: {x: -44.29358, y: -0.22070312}
   m_SizeDelta: {x: -88.597, y: -21.80339}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7960314615840627732
@@ -2845,7 +2843,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5432654363879040603}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SkinStore, Assembly-CSharp
         m_MethodName: OnEquipButtonUp
         m_Mode: 1
@@ -4931,10 +4929,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 8913290667478803284, guid: 49e062474292d3b65866db75957011f8, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 5432654363879040603}
     - target: {fileID: 8913290667478803284, guid: 49e062474292d3b65866db75957011f8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 

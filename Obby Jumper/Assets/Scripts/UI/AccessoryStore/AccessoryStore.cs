@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class SkinStore : ItemStore
+public class AccessoryStore : ItemStore
 {
-    [SerializeField] private SkinChanger _skinChanger;
+    [SerializeField] private AccessoryStation _accessoryStation;
 
     private void Start()
     {
         _skinPicked = new UnityEvent<int>();
         _slots = new Dictionary<int, ItemStoreSlot>();
+
+        _profile.InitAccessories(_slotsInformation.Length);
 
         foreach (ItemInfo itemInfo in _slotsInformation)
         {
@@ -22,7 +24,7 @@ public class SkinStore : ItemStore
             slot.InitFrom(itemInfo);
             slot.ItemPicked.AddListener(OnItemPicked);
             _slots[itemInfo.ItemId] = slot;
-            if (_profile.IsSkinOpened(itemInfo.ItemId))
+            if (_profile.IsAccessoryOpened(itemInfo.ItemId))
             {
                 slot.HidePrice();
             }
@@ -35,7 +37,7 @@ public class SkinStore : ItemStore
     public new void OnItemPicked(ItemInfo info)
     {
         base.OnItemPicked(info);
-        if (_profile.IsSkinOpened(info.ItemId))
+        if (_profile.IsAccessoryOpened(info.ItemId))
         {
             _buyButton.SetActive(false);
             _equipButton.SetActive(true);
@@ -50,7 +52,7 @@ public class SkinStore : ItemStore
 
     public void OnEquipButtonUp()
     {
-        _skinChanger.SetSkin(_pickedSlotInfo.ItemId);   
+        _accessoryStation.SetAccessory((AccessoryInfo)_pickedSlotInfo);   
     }
 
     public new void OnBuyButtonUp()
@@ -59,10 +61,9 @@ public class SkinStore : ItemStore
         {
             _buyButton.SetActive(false);
             _equipButton.SetActive(true);
-            _skinChanger.SetSkin(_pickedSlotInfo.ItemId);
-            _profile.MarkSkinAsOpened(_pickedSlotInfo.ItemId);
+            _accessoryStation.SetAccessory((AccessoryInfo)_pickedSlotInfo);   
+            _profile.MarkAccessoryAsOpened(_pickedSlotInfo.ItemId);
             _slots[_pickedSlotInfo.ItemId].HidePrice();
         }
     }
-
 }
