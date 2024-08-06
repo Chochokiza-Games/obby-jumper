@@ -29,6 +29,7 @@ public class PlayerRagdoll : MonoBehaviour
     [SerializeField] private PlayerAnimator _playerAnimator;
     [SerializeField] private Vector3 _ejectDirectionMin;
     [SerializeField] private Vector3 _ejectDirectionMax;
+    [SerializeField] private float _pushToFinishForceFactor;
 
     private Vector3 _ejectDirection;
     private int _jumpsCount;
@@ -121,7 +122,7 @@ public class PlayerRagdoll : MonoBehaviour
         dir.y = -dir.y;
         while(_groundReached == false)
         {
-            _hips.AddForce(dir * 1, ForceMode.Impulse);
+            _hips.AddForce(dir * _pushToFinishForceFactor, ForceMode.Impulse);
             yield return null;
         }
 

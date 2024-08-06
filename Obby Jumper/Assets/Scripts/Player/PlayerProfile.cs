@@ -61,7 +61,7 @@ public class PlayerProfile : MonoBehaviour
     [SerializeField] private UnityEvent _loadEvent;
     [SerializeField] private int _educationShowCountMax;
     [SerializeField] private float _saveDelay = 20f;
-    [SerializeField] private GameObject _skinStoreToastEducationPrefab;
+   //[SerializeField] private GameObject _skinStoreToastEducationPrefab;
     [SerializeField] private UnityEvent _skinStoreToastOpened;
     [SerializeField] private Transform _field;
     [SerializeField] private ItemInfo _firstSkin;
@@ -84,6 +84,8 @@ public class PlayerProfile : MonoBehaviour
     private GameObject _storeToastEducation;
     private bool _skinStoreToastEducationShowed = false;
     private bool _storeToastEducationShowed = false;
+    private bool _shouldChangeLevel = false;
+
 
     private void OnEnable() => YandexGame.GetDataEvent += LoadCloud;
 
@@ -179,7 +181,6 @@ public class PlayerProfile : MonoBehaviour
 
         YandexGame.SaveProgress();
     }
-
     private IEnumerator SaveRoutine() 
     {
         while (true) 
@@ -237,11 +238,29 @@ public class PlayerProfile : MonoBehaviour
         }
     }
 
+    public void ShouldChangeLevel()
+    {
+        _shouldChangeLevel = true;
+    }
+
+    public void TryChangeLevel()
+    {
+        if (_shouldChangeLevel)
+        {
+            IncreaseLevel();
+            _shouldChangeLevel = false;
+        }
+    }
+
     public void IncreaseLevel()
     {
         _currentLevel++;
+        _power = 10;
+        _powerChanged.Invoke(_power);
         _levelChanged.Invoke(_currentLevel);
+        _petEggsInventory.PushItem(BaseInventoryItem.ItemId.Egg);
         SaveCloud();
+
     }
 
     public void MarkSkinAsOpened(int id)
@@ -266,12 +285,12 @@ public class PlayerProfile : MonoBehaviour
 
         if (_money >= _firstSkin.Price && !_skinStoreToastEducationShowed)
         {
-            if (_skinStoreToastEducation == null)
-            {
-                _skinStoreToastEducation = Instantiate(_skinStoreToastEducationPrefab, _field);
-                _skinStoreToastOpened.Invoke();
-                _skinStoreToastEducationShowed = true;
-            }
+            // if (_skinStoreToastEducation == null)
+            // {
+            //     _skinStoreToastEducation = Instantiate(_skinStoreToastEducationPrefab, _field);
+            //     _skinStoreToastOpened.Invoke();
+            //     _skinStoreToastEducationShowed = true;
+            // }
         }
     }
 
