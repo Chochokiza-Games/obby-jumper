@@ -42,14 +42,17 @@ public class InventorySlot : MonoBehaviour
     {
         _icon.sprite = preview;
         _id = id;
-        _additionalInfoLabel.gameObject.SetActive(false);
+        _additionalInfoLabel?.gameObject.SetActive(false);
     }
 
     public void Initialize(int id, Sprite preview, string additionalText)
     {
         _icon.sprite = preview;
         _id = id;
-        _additionalInfoLabel.text = additionalText;
+        if (_additionalInfoLabel != null)
+        {
+            _additionalInfoLabel.text = additionalText;
+        }
     }
     
     public void OnPick()

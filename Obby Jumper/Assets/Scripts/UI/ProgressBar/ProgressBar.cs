@@ -11,6 +11,7 @@ public class ProgressBar : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _nextLevel;
     [SerializeField] private Image _bar;
     [SerializeField] private float _refreshDuration;
+    [SerializeField] private UIComposer _uiComposer;
 
     private float _newAmount;
     
