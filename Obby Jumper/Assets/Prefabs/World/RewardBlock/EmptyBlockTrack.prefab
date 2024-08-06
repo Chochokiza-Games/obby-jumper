@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 6465484428594739830}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 25.79}
+  m_LocalPosition: {x: 0, y: 0, z: 41.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -50,16 +50,13 @@ MonoBehaviour:
   _ragdoll: {fileID: 0}
   _bar: {fileID: 0}
   _record: {fileID: 0}
-  _colors:
-  - {fileID: 11400000, guid: a41ba40ca448b4301b6c05fdced61ac7, type: 2}
-  - {fileID: 11400000, guid: 23f2fcced7ac1231ea22139a0832401d, type: 2}
-  - {fileID: 11400000, guid: f09c18b3fb270e4ca86e2a2e4391890b, type: 2}
+  _paletteChanger: {fileID: 0}
   _voidVelocityTrigger: {fileID: 1080813531342042599}
   _generate: 1
   _generatedCount: 50
   _blockPrefab: {fileID: 6747711624280415512, guid: 1b53be72e5b2cd4109b6e64457a95b6a, type: 3}
-  _finishBlockPrefab: {fileID: 6747711624280415512, guid: 0bc7c11f7e11d9a8db7ca115d46c1434, type: 3}
-  _blockSize: {x: 20, y: 0, z: 10}
+  _finishBlockPrefab: {fileID: 6747711624280415512, guid: 36b29a1f27a0ff274b81c172c101324f, type: 3}
+  _blockSize: {x: 30, y: 0, z: 14}
 --- !u!1001 &2774925775298250643
 PrefabInstance:
   m_ObjectHideFlags: 0

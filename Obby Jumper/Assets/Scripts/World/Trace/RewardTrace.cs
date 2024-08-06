@@ -64,6 +64,7 @@ public class RewardTrace : MonoBehaviour
             tr.size = new Vector3(_blockSize.x, 1000, 20);
             tr.center = new Vector3(0, 500, (_blockSize.z * _generatedCount) - (_blockSize.z / 2));
             _generate = false;
+            gameObject.name = "BlockTrack";
             EditorApplication.isPaused = true;
             return;
         }
@@ -72,6 +73,7 @@ public class RewardTrace : MonoBehaviour
         _ragdoll = FindObjectOfType<PlayerRagdoll>();
         _bar = FindAnyObjectByType<ProgressBar>();
         _record = FindObjectOfType<PlayerRecord>();
+        _paletteChanger = FindObjectOfType<PaletteChanger>();
         Init();
  
     }
