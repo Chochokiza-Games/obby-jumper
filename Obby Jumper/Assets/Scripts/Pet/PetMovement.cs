@@ -42,7 +42,7 @@ public class PetMovement : MonoBehaviour
         float sinHeight = Mathf.Sin(Time.realtimeSinceStartup) * _flySinFactor;
         Vector3 targetPos = _player.transform.position + _targetPositionOffset;
         targetPos.y += sinHeight + _heightOffset;
-        transform.position = Vector3.Lerp(transform.position, targetPos, _speed * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, targetPos, _speed * Time.fixedDeltaTime);
         targetPos.y = transform.position.y;
         if (Vector3.Distance(targetPos, transform.position) > _positionThreshold) 
         {
