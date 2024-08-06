@@ -29,6 +29,11 @@ public class PlayerRecordInfo : MonoBehaviour
         _currentLanguage = FindObjectOfType<LanguageTranslator>().CurrentLangunage;
     }
 
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+    
     public void Show(int record)
     {
         _label.text = $"{(_currentLanguage == LanguageTranslator.Languages.Russian ? _ruTemplate : _enTemplate)} {record}!";

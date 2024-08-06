@@ -30,6 +30,11 @@ public class SoundHandler : MonoBehaviour
         AudioListener.volume = 1;
     }
 
+    public void SetVolume(float value)
+    {
+        AudioListener.volume = Mathf.Clamp(value, 0, 1);
+    }
+
     private void SpawnSound(GameObject go)
     {
         Instantiate(go, transform);

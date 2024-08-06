@@ -1,74 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 
-public class SkinStore : MonoBehaviour
+public class SkinStore : ItemStore
 {
-    [SerializeField] private SlotInfo[] _slotsInformation;
-    [SerializeField] private GameObject _slotPrefab;
-    [SerializeField] private GameObject _purchaseConfirmationPrefab;
-    [SerializeField] private GameObject _toastPrefab;
-    [SerializeField] private GameObject _slotsContainer;
-    [SerializeField] private Image _bigSlotPreview;
-    [SerializeField] private float toastSpawnDelay;
-    [SerializeField] private PlayerProfile _profile;
     [SerializeField] private SkinChanger _skinChanger;
-    [SerializeField] private GameObject _buyButton;
-    [SerializeField] private GameObject _equipButton;
-
-    private SlotInfo _pickedSlotInfo = null;
-    private UnityEvent<int> _skinPicked;
-    private Dictionary<int, SkinStoreSlot> _slots;
-
-    private GameObject _toast;
 
     private void Start()
     {
         _skinPicked = new UnityEvent<int>();
-        _slots = new Dictionary<int, SkinStoreSlot>();
+        _slots = new Dictionary<int, ItemStoreSlot>();
 
-        foreach (SlotInfo slotInfo in _slotsInformation)
+        foreach (ItemInfo itemInfo in _slotsInformation)
         {
-            SkinStoreSlot slot = Instantiate(_slotPrefab, _slotsContainer.transform).GetComponent<SkinStoreSlot>();
+            ItemStoreSlot slot = Instantiate(_slotPrefab, _slotsContainer.transform).GetComponent<ItemStoreSlot>();
             if (_pickedSlotInfo == null)
             {
-                _pickedSlotInfo = slotInfo;
+                _pickedSlotInfo = itemInfo;
             }
-            slot.InitFrom(slotInfo);
-            slot.SkinPicked.AddListener(OnSkinPicked);
-            _slots[slotInfo.SkinId] = slot;
-            if (_profile.IsSkinOpened(slotInfo.SkinId))
+            slot.InitFrom(itemInfo);
+            slot.ItemPicked.AddListener(OnItemPicked);
+            _slots[itemInfo.ItemId] = slot;
+            if (_profile.IsSkinOpened(itemInfo.ItemId))
             {
                 slot.HidePrice();
             }
-            _skinPicked.AddListener(slot.OnSkinPickedId);
+            _skinPicked.AddListener(slot.OnItemPickedId);
         }
 
-        OnSkinPicked(_pickedSlotInfo);
+        OnItemPicked(_pickedSlotInfo);
     }
 
-    private void OnDisable()
+    public new void OnItemPicked(ItemInfo info)
     {
-        if (_toast != null)
-        {
-            Destroy(_toast);
-            _toast = null;
-        }
-    }
-
-    public void OnSkinPicked(SlotInfo info)
-    {
-        _pickedSlotInfo = info;
-        _skinPicked.Invoke(info.SkinId);
-        _bigSlotPreview.sprite = info.IconPreview;
-        if (_profile.IsSkinOpened(info.SkinId))
+        base.OnItemPicked(info);
+        if (_profile.IsSkinOpened(info.ItemId))
         {
             _buyButton.SetActive(false);
             _equipButton.SetActive(true);
-            _slots[info.SkinId].HidePrice();
+            _slots[info.ItemId].HidePrice();
         }
         else
         {
@@ -79,30 +50,19 @@ public class SkinStore : MonoBehaviour
 
     public void OnEquipButtonUp()
     {
-        _skinChanger.SetSkin(_pickedSlotInfo.SkinId);   
+        _skinChanger.SetSkin(_pickedSlotInfo.ItemId);   
     }
 
-    public void TryBuy()
-    {
-        if (_profile.CanBuy(_pickedSlotInfo.Price)) 
-        {
-            _purchaseConfirmationPrefab.SetActive(true);
-        }
-        else
-        {
-            _toast = Instantiate(_toastPrefab, transform);
-        }
-    }
-
-    public void OnBuyButtonUp()
+    public new void OnBuyButtonUp()
     {
         if (_profile.Buy(_pickedSlotInfo.Price))
         {
             _buyButton.SetActive(false);
             _equipButton.SetActive(true);
-            _skinChanger.SetSkin(_pickedSlotInfo.SkinId);
-            _profile.MarkSkinAsOpened(_pickedSlotInfo.SkinId);
-            _slots[_pickedSlotInfo.SkinId].HidePrice();
+            _skinChanger.SetSkin(_pickedSlotInfo.ItemId);
+            _profile.MarkSkinAsOpened(_pickedSlotInfo.ItemId);
+            _slots[_pickedSlotInfo.ItemId].HidePrice();
         }
     }
+
 }

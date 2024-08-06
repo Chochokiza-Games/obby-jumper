@@ -34,7 +34,7 @@ public class PlayerSkin : MonoBehaviour
         if (direction != Vector3.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, _turnSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, _turnSpeed * Time.fixedDeltaTime);
             transform.eulerAngles = Vector3.up * transform.eulerAngles.y;
         }
     }
