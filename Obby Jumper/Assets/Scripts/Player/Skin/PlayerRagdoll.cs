@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UIElements.Experimental;
 
 public class PlayerRagdoll : MonoBehaviour
 {
@@ -10,7 +11,6 @@ public class PlayerRagdoll : MonoBehaviour
     [SerializeField] private UnityEvent _flyEnded;
 
     [SerializeField] private Collider _collider;
-    [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private Animator _animator;
     [SerializeField] private PlayerSkin _skin;
     [SerializeField] private Rigidbody _hips;
@@ -18,6 +18,8 @@ public class PlayerRagdoll : MonoBehaviour
 
     [Header("Eject")]
     [SerializeField] private Transform _armature;
+    [SerializeField] private float _minPushForceFactor;
+    [SerializeField] private float _maxPushForceFactor;
     [SerializeField] private float _pushForce;
     [SerializeField] private Vector3 _ejectOffset;
     [SerializeField] private float _delayBeforeTeleport;
@@ -29,6 +31,7 @@ public class PlayerRagdoll : MonoBehaviour
     [SerializeField] private Vector3 _ejectDirectionMax;
 
     private Vector3 _ejectDirection;
+    private int _jumpsCount;
 
     private struct RagdollBone
     {
@@ -131,6 +134,7 @@ public class PlayerRagdoll : MonoBehaviour
 
     private IEnumerator FuckingEjectRoutine()
     {
+        _jumpsCount++;
         _ejectDirection = new Vector3(0, Random.Range(_ejectDirectionMin.y, _ejectDirectionMax.y), 1);
         _collider.enabled = false;
         EnableRagdoll();
@@ -140,7 +144,21 @@ public class PlayerRagdoll : MonoBehaviour
         _movement.Locked = true;
         yield return null;
         _hips.transform.parent = null;
-        _hips.AddForce(_ejectDirection * (_pushForce + _profile.Power), ForceMode.Impulse);
+        float force = _pushForce + _profile.Power;
+        float forceFactor = 0;
+        if (_jumpsCount % 2 == 0)
+        {
+            forceFactor = _maxPushForceFactor;
+        }
+        else 
+        {
+            forceFactor = Random.Range(_minPushForceFactor, _maxPushForceFactor);
+        }
+
+        force *= forceFactor;
+        Debug.Log($"Current Force Factor {forceFactor}");
+        
+        _hips.AddForce(_ejectDirection * force, ForceMode.Impulse);
         _ejected.Invoke();
         StartCoroutine(CheckVelocityRoutine());
         while (true)
