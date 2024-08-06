@@ -61,7 +61,7 @@ public class PlayerProfile : MonoBehaviour
     [SerializeField] private UnityEvent _loadEvent;
     [SerializeField] private int _educationShowCountMax;
     [SerializeField] private float _saveDelay = 20f;
-    [SerializeField] private GameObject _skinStoreToastEducationPrefab;
+   //[SerializeField] private GameObject _skinStoreToastEducationPrefab;
     [SerializeField] private UnityEvent _skinStoreToastOpened;
     [SerializeField] private Transform _field;
     [SerializeField] private ItemInfo _firstSkin;
@@ -285,12 +285,12 @@ public class PlayerProfile : MonoBehaviour
 
         if (_money >= _firstSkin.Price && !_skinStoreToastEducationShowed)
         {
-            if (_skinStoreToastEducation == null)
-            {
-                _skinStoreToastEducation = Instantiate(_skinStoreToastEducationPrefab, _field);
-                _skinStoreToastOpened.Invoke();
-                _skinStoreToastEducationShowed = true;
-            }
+            // if (_skinStoreToastEducation == null)
+            // {
+            //     _skinStoreToastEducation = Instantiate(_skinStoreToastEducationPrefab, _field);
+            //     _skinStoreToastOpened.Invoke();
+            //     _skinStoreToastEducationShowed = true;
+            // }
         }
     }
 
