@@ -36,6 +36,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform _autoRunTarget;
     [SerializeField] private bool _autoRunned;
 
+
+    private float _startAnimatorSpeed;
     private Vector3 _moveDirection;
     private bool _locked;
     private bool _isGrounded = true;
@@ -45,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        _startAnimatorSpeed = _a.speed;
         bool mobile = FindObjectOfType<PlayerProfile>().RunOnMobile();
         _joystick.gameObject.SetActive(mobile);
         _jumpButton.SetActive(mobile);
@@ -70,7 +73,6 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator MoveToObjectRoutine(Transform target, float speedFactor)
     {
-        float oldSpeed = _a.speed;
         _a.speed = speedFactor / 2;
         while(Vector3.Distance(transform.position, target.position) > .2f)
         {
@@ -91,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
 
-        _a.speed = oldSpeed;
+        _a.speed = _startAnimatorSpeed;
     }
 
     private void Update()
