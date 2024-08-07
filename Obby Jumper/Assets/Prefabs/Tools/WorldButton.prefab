@@ -142,7 +142,8 @@ PrefabInstance:
       value: TriggerVisualize
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6619225641134156614, guid: 6b5a71b640acf165097518d07d2599c3, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b5a71b640acf165097518d07d2599c3, type: 3}
