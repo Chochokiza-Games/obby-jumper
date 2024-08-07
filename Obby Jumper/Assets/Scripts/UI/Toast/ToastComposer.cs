@@ -7,7 +7,7 @@ using UnityEngine.WSA;
 
 public class ToastComposer : MonoBehaviour
 {
-    public enum ToastsType
+    public enum Type
     {
         StoreErr,
     }
@@ -22,7 +22,7 @@ public class ToastComposer : MonoBehaviour
     [SerializeField] private float _pauseDuration;
     [SerializeField] private Vector2 _targetPositionOffset;
     [SerializeField] private LanguageTranslator _language;
-    private Dictionary<ToastsType, string> _toastMap = new Dictionary<ToastsType, string>();
+    private Dictionary<Type, string> _toastMap = new Dictionary<Type, string>();
 
     private int _currentToastsCount;
     private Vector3 _startPosition;
@@ -30,10 +30,10 @@ public class ToastComposer : MonoBehaviour
     private void Start()
     {
         _startPosition = _startPositionPoint.anchoredPosition;
-        _toastMap[ToastsType.StoreErr] = _language.CurrentLangunage == LanguageTranslator.Languages.Russian ?  "Недостаточно денег" :  "Not enough money";
+        _toastMap[Type.StoreErr] = _language.CurrentLangunage == LanguageTranslator.Languages.Russian ?  "Недостаточно денег" :  "Not enough money";
     }
 
-    public void ToastSpawn(ToastsType toastType)
+    public void ToastSpawn(Type toastType)
     {
         TextMeshProUGUI toast = Instantiate(_toastPrefab, _startPositionPoint.position, Quaternion.identity, transform).GetComponent<TextMeshProUGUI>();
         toast.SetText(_toastMap[toastType]);
@@ -41,7 +41,7 @@ public class ToastComposer : MonoBehaviour
         StartCoroutine(AnimationRoutine(toast.GetComponent<RectTransform>()));
         
     }
-    public void ToastSpawn(ToastsType toastType, Color color)
+    public void ToastSpawn(Type toastType, Color color)
     {
         TextMeshProUGUI toast = Instantiate(_toastPrefab, _startPositionPoint.position, Quaternion.identity, transform).GetComponent<TextMeshProUGUI>();
         toast.SetText(_toastMap[toastType]);
