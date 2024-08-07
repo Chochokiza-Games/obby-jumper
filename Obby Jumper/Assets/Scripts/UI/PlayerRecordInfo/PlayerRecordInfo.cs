@@ -34,8 +34,15 @@ public class PlayerRecordInfo : MonoBehaviour
         StopAllCoroutines();
     }
     
+    public void Hide()
+    {
+        StopAllCoroutines();
+        _label.alpha = 0;
+    }
+
     public void Show(int record)
     {
+        gameObject.SetActive(true);
         _label.text = $"{(_currentLanguage == LanguageTranslator.Languages.Russian ? _ruTemplate : _enTemplate)} {record}!";
         StartCoroutine(ShowRoutine());
     }
