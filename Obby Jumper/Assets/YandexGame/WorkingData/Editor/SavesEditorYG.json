@@ -1,9 +1,9 @@
 {
-    "idSave": 1687,
+    "idSave": 1723,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
-    "money": 13370500,
+    "money": 13370000,
     "power": 10,
     "bagUpgradesBought": 0,
     "petDropOrderCurrentId": 0,
@@ -35,18 +35,9 @@
         false
     ],
     "petInventoryItems": [
-        0,
-        0,
-        0,
-        0,
-        0,
         0
     ],
-    "petEggsInventoryItems": [
-        0,
-        0,
-        0
-    ],
+    "petEggsInventoryItems": [],
     "shopPrices": [
         0
     ],
