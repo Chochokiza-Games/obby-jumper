@@ -15,31 +15,43 @@ public class AccessoryStation : MonoBehaviour
     [SerializeField] private AccessoryInfo _debugWings;
     [SerializeField] private AccessoryInfo _debugHat;
     [Space]
+    [SerializeField] private AccessoryInfo[] _info;
     [SerializeField] private Transform _hatPlaceholder;
     [SerializeField] private Transform _wingsPlaceholder;
-    [SerializeField] private GameObject _currentHat;
-    [SerializeField] private GameObject _currentWings;
+    private GameObject _currentHat;
+    private GameObject _currentWings;
 
     private void Start() 
     {
+        FindObjectOfType<PlayerProfile>().InitAccessories(_info.Length);
         if (Debug.isDebugBuild)
         {
             if (_debugHat != null)
             {
-                SetAccessory(_debugHat);
+                SetAccessory(_debugHat.ItemId);
             }
 
             if (_debugWings != null)
             {
-                SetAccessory(_debugWings);
+                SetAccessory(_debugWings.ItemId);
             }
         }
     }
 
 
-    public void SetAccessory(AccessoryInfo info)
+    public void SetAccessory(int id)
     {
-        switch (info.Type)
+        AccessoryInfo info = null;
+
+        foreach (AccessoryInfo i in _info)
+        {
+            if (i.ItemId == id)
+            {
+                info = i;
+            }
+        }
+
+        switch (info.AccessoryType)
         {
             case AccessoryType.Hat:
                 SetAccessory(

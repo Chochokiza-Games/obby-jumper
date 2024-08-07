@@ -7,25 +7,37 @@ using UnityEngine.UI;
 
 public class ItemStore : MonoBehaviour
 {
-    [SerializeField] protected ItemInfo[] _slotsInformation;
-    [SerializeField] protected GameObject _slotPrefab;
-    [SerializeField] protected GameObject _purchaseConfirmation;
-    [SerializeField] protected GameObject _slotsContainer;
-    [SerializeField] protected Image _bigSlotPreview;
+    public enum Type
+    {
+        Skin,
+        Trail,
+        Accessory
+    }
 
-    [SerializeField] protected PlayerProfile _profile;
-    [SerializeField] protected GameObject _buyButton;
-    [SerializeField] protected GameObject _equipButton;
+    [SerializeField] private ItemInfo[] _slotsInformation;
+    [SerializeField] private GameObject _slotPrefab;
+    [SerializeField] private GameObject _purchaseConfirmation;
+    [SerializeField] private GameObject _slotsContainer;
+    [SerializeField] private Image _bigSlotPreview;
 
-    protected Dictionary<int, ItemStoreSlot> _slots;
-    protected ItemInfo _pickedSlotInfo = null;
+    [SerializeField] private PlayerProfile _profile;
+    [SerializeField] private GameObject _buyButton;
+    [SerializeField] private GameObject _equipButton;
+
+    [Header("Changers")]
+    [SerializeField] private SkinChanger _skinChanger;
+    [SerializeField] private TrailChanger _trailChanger;
+    [SerializeField] private AccessoryStation _accessoryStation;
+
+    private Dictionary<ItemInfo, ItemStoreSlot> _slots;
+    private ItemInfo _pickedSlotInfo = null;
     
-    protected UnityEvent<int> _skinPicked;
+    private UnityEvent<ItemInfo> _skinPicked;
 
     private void Start()
     {
-        _skinPicked = new UnityEvent<int>();
-        _slots = new Dictionary<int, ItemStoreSlot>();
+        _skinPicked = new UnityEvent<ItemInfo>();
+        _slots = new Dictionary<ItemInfo, ItemStoreSlot>();
 
         foreach (ItemInfo itemInfo in _slotsInformation)
         {
@@ -36,7 +48,28 @@ public class ItemStore : MonoBehaviour
             }
             slot.InitFrom(itemInfo);
             slot.ItemPicked.AddListener(OnItemPicked);
-            _slots[itemInfo.ItemId] = slot;
+            _slots[itemInfo] = slot;
+            switch (_pickedSlotInfo.Type)
+            {
+                case Type.Skin:
+                    if (_profile.IsSkinOpened(itemInfo.ItemId))
+                    {
+                        slot.HidePrice();
+                    }
+                    break;
+                case Type.Accessory:
+                    if (_profile.IsAccessoryOpened(itemInfo.ItemId))
+                    {
+                        slot.HidePrice();
+                    }
+                    break;
+                case Type.Trail:
+                    if (_profile.IsTrailOpened(itemInfo.ItemId))
+                    {
+                        slot.HidePrice();
+                    }
+                    break;
+            } 
             // if (_profile.IsSkinOpened(itemInfo.ItemId))
             // {
             //     slot.HidePrice();
@@ -50,8 +83,69 @@ public class ItemStore : MonoBehaviour
     public void OnItemPicked(ItemInfo info)
     {
         _pickedSlotInfo = info;
-        _skinPicked.Invoke(info.ItemId);
+        _skinPicked.Invoke(info);
         _bigSlotPreview.sprite = info.IconPreview;
+        _bigSlotPreview.color = Color.white;
+
+        switch (info.Type)
+        {
+            case Type.Skin:
+                if (_profile.IsSkinOpened(info.ItemId))
+                {
+                    _buyButton.SetActive(false);
+                    _equipButton.SetActive(true);
+                    _slots[info].HidePrice();
+                }
+                else
+                {
+                    _buyButton.SetActive(true);
+                    _equipButton.SetActive(false);
+                }
+                break;
+            case Type.Accessory:
+                if (_profile.IsAccessoryOpened(info.ItemId))
+                {
+                    _buyButton.SetActive(false);
+                    _equipButton.SetActive(true);
+                    _slots[info].HidePrice();
+                }
+                else
+                {
+                    _buyButton.SetActive(true);
+                    _equipButton.SetActive(false);
+                }
+                break;
+            case Type.Trail:
+                _bigSlotPreview.color = (info as TrailInfo).Color;
+                if (_profile.IsTrailOpened(info.ItemId))
+                {
+                    _buyButton.SetActive(false);
+                    _equipButton.SetActive(true);
+                    _slots[info].HidePrice();
+                }
+                else
+                {
+                    _buyButton.SetActive(true);
+                    _equipButton.SetActive(false);
+                }
+                break;
+        }
+    }
+
+    public void OnEquipButtonUp()
+    {
+        switch (_pickedSlotInfo.Type)
+        {
+            case Type.Skin:
+                _skinChanger.SetSkin(_pickedSlotInfo.ItemId);
+                break;
+            case Type.Accessory:
+                _accessoryStation.SetAccessory(_pickedSlotInfo.ItemId);
+                break;
+            case Type.Trail:
+                _trailChanger.SetTrail(_pickedSlotInfo.ItemId);
+                break;
+        } 
     }
 
     public void OnBuyButtonUp()
@@ -60,9 +154,22 @@ public class ItemStore : MonoBehaviour
         {
             _buyButton.SetActive(false);
             _equipButton.SetActive(true);
-            //_skinChanger.SetSkin(_pickedSlotInfo.ItemId);
-            //_profile.MarkSkinAsOpened(_pickedSlotInfo.ItemId);
-            _slots[_pickedSlotInfo.ItemId].HidePrice();
+            _slots[_pickedSlotInfo].HidePrice();
+            switch (_pickedSlotInfo.Type)
+            {
+                case Type.Skin:
+                    _skinChanger.SetSkin(_pickedSlotInfo.ItemId);
+                    _profile.MarkSkinAsOpened(_pickedSlotInfo.ItemId);
+                    break;
+                case Type.Accessory:
+                    _accessoryStation.SetAccessory(_pickedSlotInfo.ItemId);
+                    _profile.MarkAccessoryAsOpened(_pickedSlotInfo.ItemId);
+                    break;
+                case Type.Trail:
+                    _trailChanger.SetTrail(_pickedSlotInfo.ItemId);
+                    _profile.MarkTrailAsOpened(_pickedSlotInfo.ItemId);
+                    break;
+            }
         }
     }
 }
