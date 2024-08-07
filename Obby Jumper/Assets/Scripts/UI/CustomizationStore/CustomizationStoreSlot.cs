@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class ItemStoreSlot : MonoBehaviour
+public class CustomizationStoreSlot : MonoBehaviour
 {
     public UnityEvent<ItemInfo> ItemPicked
     {
@@ -43,9 +43,9 @@ public class ItemStoreSlot : MonoBehaviour
     }
 
 
-    public void OnItemPickedId(int itemId)
+    public void OnItemPickedId(ItemInfo info)
     {
-        if (_itemId != itemId)
+        if (_slotInfo != info)
         {
             _bg.color = _bgNotPickedColor;
             _innerBg.color = _innerBgNotPickedColor;
@@ -75,5 +75,10 @@ public class ItemStoreSlot : MonoBehaviour
         _itemId = slotInfo.ItemId;
         _priceLabel.text = slotInfo.Price.ToString();
         _preview.sprite = slotInfo.IconPreview;
+
+        if (slotInfo is TrailInfo)  
+        {
+            _preview.color = (slotInfo as TrailInfo).Color;
+        }
     }
 }

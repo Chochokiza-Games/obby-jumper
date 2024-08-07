@@ -5,9 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "AccessoryInfo", menuName = "Accessories/Info", order = 52)]
 public class AccessoryInfo : ItemInfo 
 {
-    public AccessoryStation.AccessoryType Type
+    public AccessoryStation.AccessoryType AccessoryType
     {
-        get => _type;
+        get => _accessoryType;
     }
 
     public GameObject Prefab
@@ -16,5 +16,5 @@ public class AccessoryInfo : ItemInfo
     }
 
     [SerializeField] private GameObject _prefab;
-    [SerializeField] private AccessoryStation.AccessoryType _type;
+    [SerializeField] private AccessoryStation.AccessoryType _accessoryType;
 }

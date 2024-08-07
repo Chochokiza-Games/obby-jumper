@@ -15,4 +15,5 @@ MonoBehaviour:
   _itemId: 3
   _price: 10000
   _iconPreview: {fileID: 0}
+  _type: 1
   _color: {r: 0.10107756, g: 0, b: 1, a: 1}
