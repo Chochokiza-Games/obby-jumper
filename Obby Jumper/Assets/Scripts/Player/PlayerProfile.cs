@@ -123,7 +123,7 @@ public class PlayerProfile : MonoBehaviour
 
         _loadEvent.Invoke();
 
-        _money = YandexGame.savesData.money = 13370000;
+        _money = YandexGame.savesData.money = 0;
         _power = YandexGame.savesData.power;
 
         _currentLevel = YandexGame.savesData.level;

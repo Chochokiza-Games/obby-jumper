@@ -14,6 +14,7 @@ public class CustomizationStore : MonoBehaviour
         Accessory
     }
 
+    [SerializeField] private ToastComposer _toastComposer;
     [SerializeField] private ItemInfo[] _slotsInformation;
     [SerializeField] private GameObject _slotPrefab;
     [SerializeField] private GameObject _purchaseConfirmation;
@@ -170,6 +171,10 @@ public class CustomizationStore : MonoBehaviour
                     _profile.MarkTrailAsOpened(_pickedSlotInfo.ItemId);
                     break;
             }
+        }
+        else
+        {
+            _toastComposer.ToastSpawn(ToastComposer.Type.StoreErr);
         }
     }
 }
