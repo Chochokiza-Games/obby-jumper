@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class ItemStore : MonoBehaviour
+public class CustomizationStore : MonoBehaviour
 {
     public enum Type
     {
@@ -29,7 +29,7 @@ public class ItemStore : MonoBehaviour
     [SerializeField] private TrailChanger _trailChanger;
     [SerializeField] private AccessoryStation _accessoryStation;
 
-    private Dictionary<ItemInfo, ItemStoreSlot> _slots;
+    private Dictionary<ItemInfo, CustomizationStoreSlot> _slots;
     private ItemInfo _pickedSlotInfo = null;
     
     private UnityEvent<ItemInfo> _skinPicked;
@@ -37,11 +37,11 @@ public class ItemStore : MonoBehaviour
     private void Start()
     {
         _skinPicked = new UnityEvent<ItemInfo>();
-        _slots = new Dictionary<ItemInfo, ItemStoreSlot>();
+        _slots = new Dictionary<ItemInfo, CustomizationStoreSlot>();
 
         foreach (ItemInfo itemInfo in _slotsInformation)
         {
-            ItemStoreSlot slot = Instantiate(_slotPrefab, _slotsContainer.transform).GetComponent<ItemStoreSlot>();
+            CustomizationStoreSlot slot = Instantiate(_slotPrefab, _slotsContainer.transform).GetComponent<CustomizationStoreSlot>();
             if (_pickedSlotInfo == null)
             {
                 _pickedSlotInfo = itemInfo;

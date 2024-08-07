@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class ItemStoreSlot : MonoBehaviour
+public class CustomizationStoreSlot : MonoBehaviour
 {
     public UnityEvent<ItemInfo> ItemPicked
     {
