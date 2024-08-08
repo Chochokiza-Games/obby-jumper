@@ -156,7 +156,7 @@ public class PlayerMovement : MonoBehaviour
             _animator.PlayState(PlayerAnimator.States.Jumping);
         }
 
-        Debug.Log(_isGrounded);
+        //Debug.Log(_isGrounded);
 
         if ((Input.GetButton("Jump") || _jump) && _isGrounded)
         {

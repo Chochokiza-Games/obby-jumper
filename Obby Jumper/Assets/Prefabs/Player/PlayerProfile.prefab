@@ -102,7 +102,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _powerCap: 3000
+  _powerCap: 4500
   _petDropOrder: 000000000100000002000000030000000300000002000000010000000100000003000000000000000100000003000000020000000300000003000000030000000100000002000000030000000000000004000000030000000400000000000000040000000400000005000000050000000400000005000000
   _petInventory: {fileID: 2737060211471705015}
   _petEggsInventory: {fileID: 3236578398675394717}
@@ -282,6 +282,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
         m_MethodName: Play
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Education, Assembly-CSharp
+        m_MethodName: OnChangeLevel
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

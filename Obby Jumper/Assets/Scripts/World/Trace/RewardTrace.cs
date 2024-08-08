@@ -84,11 +84,11 @@ public class RewardTrace : MonoBehaviour
         {   
             if (i == _generatedBlocks.Count - 1)
             {
-                (_generatedBlocks[i] as RewardFinishBlock).Init(i + 1, this, _profile.CurrentLevel);
+                (_generatedBlocks[i] as RewardFinishBlock).Init(i + 1, this, _generatedBlocks.Count, _profile.CurrentLevel);
             }
             else
             {
-                _generatedBlocks[i].Init(i + 1, this, _profile.CurrentLevel, _paletteChanger.CurrentPalette.Colors[Random.Range(3, _paletteChanger.CurrentPalette.Colors.Length)]);
+                _generatedBlocks[i].Init(i + 1, this, _generatedBlocks.Count, _profile.CurrentLevel, _paletteChanger.CurrentPalette.Colors[Random.Range(3, _paletteChanger.CurrentPalette.Colors.Length)]);
             }
         }
     }
@@ -99,7 +99,7 @@ public class RewardTrace : MonoBehaviour
         float power = ((id + 1) * basePower);
         _profile.IncreaseMoney(Mathf.RoundToInt(money));
         _profile.IncreasePower(Mathf.RoundToInt(power));
-        if (_record.TryUpdateRecord(_generatedBlocks[id].HumanId))
+        if (_record.TryUpdateRecord(humanId))
         {
             _bar.RefreshBar((float)((float)(id) / (float)(_generatedBlocks.Count - 1)));
         }
