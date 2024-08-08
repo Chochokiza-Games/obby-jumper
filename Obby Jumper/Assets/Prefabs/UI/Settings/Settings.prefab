@@ -1263,6 +1263,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6085812408591492610, guid: a9dafe653310232e5a3d9410d3733e68, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3937259439637912020}
     - target: {fileID: 9159323357637667022, guid: a9dafe653310232e5a3d9410d3733e68, type: 3}
       propertyPath: m_Name
       value: ButtonClose
