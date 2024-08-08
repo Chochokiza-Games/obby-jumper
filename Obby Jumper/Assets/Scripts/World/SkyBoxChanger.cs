@@ -5,23 +5,25 @@ using UnityEngine;
 public class SkyBoxChanger : MonoBehaviour
 {   
     [SerializeField] private PaletteChanger _paletteChanger;
-    [SerializeField] private Material _skyBox;
-    private Color[] _currentPaletteColors;
+    private Material _skyBox;
 
 
     public void OnLevelChanged()
     {
-        // _currentPaletteColors = _paletteChanger.CurrentPalette.Colors;
+        PaintSkyboxFromPalette();
 
-
-        // (_currentPaletteColors[Random.Range(0, _currentPaletteColors.Length - 1)]);
-        
     }
+
+    private void PaintSkyboxFromPalette()
+    {
+        _skyBox.SetColor("_SkyColor", _paletteChanger.CurrentPalette.Colors[0]);
+        _skyBox.SetColor("_EquatorColor", _paletteChanger.CurrentPalette.Colors[1]);
+        _skyBox.SetColor("_GroundColor", _paletteChanger.CurrentPalette.Colors[2]);
+    } 
+
     private void Start()
     {
-
-        RenderSettings.skybox = _skyBox;
-        _skyBox.color = _currentPaletteColors[Random.Range(0, _currentPaletteColors.Length - 1)];
-
+        _skyBox = RenderSettings.skybox;
+        PaintSkyboxFromPalette();    
     }
 }

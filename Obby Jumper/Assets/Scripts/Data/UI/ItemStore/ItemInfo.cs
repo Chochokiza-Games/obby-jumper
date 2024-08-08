@@ -6,6 +6,10 @@ using UnityEngine;
 
 public class ItemInfo : ScriptableObject
 {
+    public CustomizationStore.Type Type
+    {
+        get => _type;
+    }
     public int ItemId
     {
         get => _itemId;
@@ -22,4 +26,5 @@ public class ItemInfo : ScriptableObject
     [SerializeField] private int _itemId;
     [SerializeField] private int _price;
     [SerializeField] private Sprite _iconPreview;
+    [SerializeField] private CustomizationStore.Type _type;
 }

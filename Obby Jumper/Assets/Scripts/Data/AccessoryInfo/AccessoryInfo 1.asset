@@ -15,5 +15,6 @@ MonoBehaviour:
   _itemId: 1
   _price: 0
   _iconPreview: {fileID: 0}
+  _type: 2
   _prefab: {fileID: 919132149155446097, guid: 3b610db41aa59fe77886a8ee04020c9b, type: 3}
-  _type: 1
+  _accessoryType: 0

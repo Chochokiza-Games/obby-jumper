@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 7757942539337996664}
   - component: {fileID: 379652593494889097}
   - component: {fileID: 1415114547203100155}
-  - component: {fileID: -8935904124132919514}
-  - component: {fileID: 8741852843899409760}
   m_Layer: 5
   m_Name: Toast
   m_TagString: Untagged
@@ -136,35 +134,3 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &-8935904124132919514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2738109588065686351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c2d3ed5368e85643896818405a183c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _text: {fileID: 1415114547203100155}
-  _ru: "\u043E\u0448\u0438\u0431\u043A\u0430"
-  _en: err
-  _tu: 
---- !u!114 &8741852843899409760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2738109588065686351}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea267dd45cd38444fb843a0a368fb255, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rTransform: {fileID: 7757942539337996664}
-  _pathDuration: 0.2
-  _pauseDuration: 2
-  _targetPositionOffset: {x: 0, y: 100}

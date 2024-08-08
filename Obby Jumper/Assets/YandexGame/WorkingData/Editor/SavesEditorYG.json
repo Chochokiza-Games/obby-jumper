@@ -1,9 +1,9 @@
 {
-    "idSave": 1724,
+    "idSave": 1354,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
-    "money": 13370000,
+    "money": 0,
     "power": 10,
     "bagUpgradesBought": 0,
     "petDropOrderCurrentId": 0,
@@ -24,7 +24,10 @@
         true,
         false
     ],
-    "openedAccessories": [],
+    "openedAccessories": [
+        true,
+        false
+    ],
     "openedTrails": [
         true,
         false,

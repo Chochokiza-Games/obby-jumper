@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 290512818753147737}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.3332657, y: 0, z: 0, w: 0.94283295}
-  m_LocalPosition: {x: 0, y: -0.00000009685755, z: 0}
+  m_LocalRotation: {x: 0.094998784, y: -2.0470743e-15, z: 1.8726282e-16, w: 0.99547744}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 0.1, z: -3}
+  m_FollowOffset: {x: 0, y: 4.0355153, z: -6.460046}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 0.1, z: -3}
+  m_FollowOffset: {x: 0, y: 4.0355153, z: -6.460046}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -346,7 +346,6 @@ GameObject:
   - component: {fileID: 5352303117907620705}
   - component: {fileID: 1745995153755566462}
   - component: {fileID: 290773970519187705}
-  - component: {fileID: 8701681201135298733}
   m_Layer: 0
   m_Name: FreeLook Camera
   m_TagString: Untagged
@@ -412,7 +411,7 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_YAxis:
-    Value: 0
+    Value: 0.61
     m_SpeedMode: 0
     m_MaxSpeed: 4
     m_AccelTime: 0.2
@@ -538,59 +537,6 @@ MonoBehaviour:
   _cinecam: {fileID: 6005078137695786026}
   _touchField: {fileID: 0}
   _sensivity: {x: 0.1, y: 0.1}
---- !u!114 &8701681201135298733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3739461879343148761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b2ef61ce5dcd82d5b18e3c9554325df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _points:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _camera: {fileID: 6005078137695786026}
-  _flyCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: -0.15996207
-      outSlope: -0.15996207
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.10248786
-    - serializedVersion: 3
-      time: 0.5548573
-      value: 0.59678304
-      inSlope: 1.2982109
-      outSlope: 1.2982109
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.09512059
-      outWeight: 0.09918662
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0.24210502
-      outSlope: 0.24210502
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.15559602
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _pauseTime: 2
-  _timeBetweenPoints: 2
 --- !u!1 &8532169292895517174
 GameObject:
   m_ObjectHideFlags: 3
@@ -616,8 +562,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8532169292895517174}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.27855065, y: 0, z: 0, w: 0.96042156}
-  m_LocalPosition: {x: 0, y: -0.00000009685755, z: 0}
+  m_LocalRotation: {x: 0.1520309, y: 2.5085804e-23, z: -6.605852e-24, w: 0.9883758}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -729,7 +675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 0.1, z: -3}
+  m_FollowOffset: {x: 0, y: 4.0355153, z: -6.460046}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -822,8 +768,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9124750327639774253}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.30612525, y: 0, z: 0, w: 0.95199126}
-  m_LocalPosition: {x: 0, y: -0.00000009685755, z: 0}
+  m_LocalRotation: {x: 0.12347132, y: -0.000000029574284, z: 0.0000000036797323, w: 0.9923482}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

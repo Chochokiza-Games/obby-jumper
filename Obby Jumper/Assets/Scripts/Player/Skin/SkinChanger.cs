@@ -43,6 +43,7 @@ public class SkinChanger : MonoBehaviour
         foreach (SkinnedMeshRenderer part in _bodyParts)
         {
             part.material = _materials[skinId];
+
         }
     }
 
