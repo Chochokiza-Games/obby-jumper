@@ -140,8 +140,8 @@ public class PlayerRagdoll : MonoBehaviour
         _collider.enabled = false;
         EnableRagdoll();
         _groundReached = false;
-        _camera.LookAt = transform;
-        _camera.Follow = transform;
+        // _camera.LookAt = transform;
+        // _camera.Follow = transform;
         _movement.Locked = true;
         yield return null;
         _hips.transform.parent = null;
@@ -181,8 +181,8 @@ public class PlayerRagdoll : MonoBehaviour
 
     private void OnTeleportStarted() 
     {
-        _camera.LookAt = _movement.transform;
-        _camera.Follow = _movement.transform;
+        // _camera.LookAt = _movement.transform;
+        // _camera.Follow = _movement.transform;
         StopAllCoroutines();
         DisableRagdoll();
         _movement.Locked = false;
