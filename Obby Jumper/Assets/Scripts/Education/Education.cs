@@ -29,13 +29,14 @@ public class Education : MonoBehaviour
         {
             _viewPointsMapped[p.Type] = p;
         }
-        // _movement.Lock();
-        // ShowEducation(Type.Pohui, () => {
-        //     ShowEducation(Type.Ahui, () => {
-        //         _cameraSpan.ReturnBack();
-        //         _movement.Unlock();
-        //     });
-        // });
+        
+        _movement.Lock();
+        ShowEducation(Type.Pohui, () => {
+            ShowEducation(Type.Ahui, () => {
+                _cameraSpan.ReturnBack();
+                _movement.Unlock();
+            });
+        });
     }   
 
     public void OnChangeLevel(int level)
