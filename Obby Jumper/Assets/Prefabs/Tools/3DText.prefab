@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5703273463108787578}
   - component: {fileID: 775608418380122328}
   - component: {fileID: 3104751389941661347}
-  - component: {fileID: 7410734164805868447}
   m_Layer: 0
   m_Name: 3DText
   m_TagString: Untagged
@@ -85,7 +84,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &3104751389941661347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,22 +102,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7410734164805868447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034843135600267654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c2d3ed5368e85643896818405a183c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _text: {fileID: 6248565142203518998}
-  _ru: 
-  _en: 
-  _tu: 
 --- !u!1 &4290440429128949139
 GameObject:
   m_ObjectHideFlags: 0

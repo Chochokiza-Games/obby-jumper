@@ -11,7 +11,7 @@ public class CanvasLooker : MonoBehaviour
 
 
 
-        private void FixedUpdate()
+    private void Update()
     {
         _label.transform.LookAt(_playerMovement.position);
         _label.transform.Rotate(Vector3.up * -180);
