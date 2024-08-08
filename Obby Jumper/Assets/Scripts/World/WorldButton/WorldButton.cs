@@ -15,12 +15,6 @@ public class WorldButton : MonoBehaviour
     [SerializeField] private string _label;
     [SerializeField] private Camera _camera;
 
-
-    [Header("Trigger Visualization")]
-    [SerializeField] private bool _triggerVisualize = false;
-    [SerializeField] private Transform _triggerVisualization;
-    [SerializeField] private float _triggerRotateSpeed;
-
     private bool _active;
 
     public void OnPlayerEnter()
@@ -41,11 +35,6 @@ public class WorldButton : MonoBehaviour
         if (_active)
         {
             _worldButtonObject.transform.position = _camera.WorldToScreenPoint(transform.position); 
-        }
-
-        if (_triggerVisualize == true)
-        {
-            _triggerVisualization.Rotate(Vector3.up * _triggerRotateSpeed * Time.deltaTime);
         }
     }
 

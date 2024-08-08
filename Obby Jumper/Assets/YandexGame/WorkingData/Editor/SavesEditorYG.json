@@ -38,18 +38,9 @@
         false
     ],
     "petInventoryItems": [
-        0,
-        0,
-        0,
-        0,
-        0,
         0
     ],
-    "petEggsInventoryItems": [
-        0,
-        0,
-        0
-    ],
+    "petEggsInventoryItems": [],
     "shopPrices": [
         0
     ],

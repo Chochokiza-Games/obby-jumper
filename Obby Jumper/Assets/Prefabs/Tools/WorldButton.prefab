@@ -66,9 +66,6 @@ MonoBehaviour:
   _worldButtonLabel: {fileID: 0}
   _label: sosite
   _camera: {fileID: 0}
-  _triggerVisualize: 1
-  _triggerVisualization: {fileID: 5631178709294175374}
-  _triggerRotateSpeed: 15
 --- !u!1001 &5309548582951826277
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -142,10 +139,35 @@ PrefabInstance:
       value: TriggerVisualize
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6619225641134156614, guid: 6b5a71b640acf165097518d07d2599c3, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6b5a71b640acf165097518d07d2599c3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2610561317169047405}
   m_SourcePrefab: {fileID: 100100000, guid: 6b5a71b640acf165097518d07d2599c3, type: 3}
+--- !u!1 &5002979803943964212 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6b5a71b640acf165097518d07d2599c3, type: 3}
+  m_PrefabInstance: {fileID: 5309548582951826277}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2610561317169047405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5002979803943964212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75d8230b8a955194ebdfdd1739bb8754, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _needRotate: 1
+  _model: {fileID: 5631178709294175374}
+  _modelRotateSpeed: 15
+  _rotationAxis: {x: 0, y: 1, z: 0}
 --- !u!4 &5631178709294175374 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6b5a71b640acf165097518d07d2599c3, type: 3}
