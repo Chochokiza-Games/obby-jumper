@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -30,6 +28,7 @@ public class LoadingScreen : MonoBehaviour
     [SerializeField] private UnityEvent _started;
     [SerializeField] private UnityEvent _halfLoaded;
     [SerializeField] private UnityEvent _ended;
+    [SerializeField] private Vector3 _startPatternScale;
 
     private bool _opened;
     private float _loadingPanelLiftingHeight;
@@ -38,6 +37,7 @@ public class LoadingScreen : MonoBehaviour
     {
         _loadingPanelLiftingHeight = _LoadingPanelTarget.position.y;
     }
+    
     public void Show()
     {
         StopAllCoroutines();
@@ -54,7 +54,6 @@ public class LoadingScreen : MonoBehaviour
         bool eventInvoked = false;
 
         float timeElapsed = 0;
-        Vector3 startPatternScale = _pattern.transform.localScale;
         while (timeElapsed < _popUpAnimationDuration)
         {
             _background.transform.localScale = new Vector3(
@@ -68,7 +67,7 @@ public class LoadingScreen : MonoBehaviour
             }
             
             _pattern.transform.localScale = new Vector3(
-                _background.transform.localScale.x <= 0.001f ? 0.001f : startPatternScale.x / _background.transform.localScale.x, 
+                _background.transform.localScale.x <= 0.001f ? 0.001f : _startPatternScale.x / _background.transform.localScale.x, 
                 _pattern.transform.localScale.y,
                 _pattern.transform.localScale.z);
 
@@ -83,7 +82,7 @@ public class LoadingScreen : MonoBehaviour
         }
         StopCoroutine(wiggle);
         _background.transform.localScale *= 0;
-        _pattern.transform.localScale = startPatternScale;
+        _pattern.transform.localScale = _startPatternScale;
         _ended.Invoke();
         _opened = false;
     }

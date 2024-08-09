@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     private float _startAnimatorSpeed;
     private Vector3 _moveDirection;
     private bool _locked;
+    private bool _lockedForEducation;
     private bool _isGrounded = true;
     private Vector3 _playerVelocity;
     private bool _jump;
@@ -76,6 +77,11 @@ public class PlayerMovement : MonoBehaviour
         _a.speed = speedFactor / 2;
         while(Vector3.Distance(transform.position, target.position) > .2f)
         {
+            while(_lockedForEducation)
+            {
+                yield return null;
+            }
+
             Vector3 dir = (target.position - transform.position).normalized * _speed * speedFactor;
             dir.y = transform.position.y;
             Debug.DrawLine(transform.position, target.transform.position);
@@ -94,6 +100,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         _a.speed = _startAnimatorSpeed;
+        _walkToObjectRoutine = null;
     }
 
     private void FixedUpdate()
@@ -113,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
 
         _isGrounded = Physics.BoxCast(transform.position + transform.up / 2, _boxcastSize / 2, -transform.up, transform.rotation, _groundCheckDistance, ~(LayerMask.GetMask("Trigger") + LayerMask.GetMask("Coin") + LayerMask.GetMask("PlayerSkin") + LayerMask.GetMask("PlayerSkinSkeleton")));
 
-        if (_locked)
+        if (_locked || _lockedForEducation)
         {
             return;
         }
@@ -194,6 +201,17 @@ public class PlayerMovement : MonoBehaviour
     {
         Locked = false;
     }
+
+    public void LockForEducation()
+    {
+        _lockedForEducation = true;
+    }
+
+    public void UnlockForEducation()
+    {
+        _lockedForEducation = false;
+    }
+
 
     public void SetAutoRun(bool enabled)
     {

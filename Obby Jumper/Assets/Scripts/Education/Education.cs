@@ -30,11 +30,11 @@ public class Education : MonoBehaviour
             _viewPointsMapped[p.Type] = p;
         }
         
-        _movement.Lock();
+        _movement.LockForEducation();
         ShowEducation(Type.Pohui, () => {
             ShowEducation(Type.Ahui, () => {
                 _cameraSpan.ReturnBack();
-                _movement.Unlock();
+                _movement.UnlockForEducation();
             });
         });
     }   
@@ -43,10 +43,10 @@ public class Education : MonoBehaviour
     {
         if (level == 2)
         {
-            _movement.Lock();
+            _movement.LockForEducation();
             ShowEducation(Type.NextLevel, () => {
                 _cameraSpan.ReturnBack();
-                _movement.Unlock();
+                _movement.UnlockForEducation();
             });
         }
     }

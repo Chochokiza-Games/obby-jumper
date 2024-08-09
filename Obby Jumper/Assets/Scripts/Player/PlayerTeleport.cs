@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,6 +10,7 @@ public class PlayerTeleport : MonoBehaviour
     }
 
     [SerializeField] private PlayerMovement _playerMovement;
+    [SerializeField] private CameraPivot _pivot;
     [SerializeField] private GameObject _target;
     [SerializeField] private LoadingScreen _loadingScreen;
     [SerializeField] private float _delayBeforeTeleport;
@@ -38,6 +38,8 @@ public class PlayerTeleport : MonoBehaviour
         _teleportStarted.Invoke();
 
         _playerMovement.Teleport(target);
+        _playerMovement.transform.eulerAngles = Vector3.zero;
+        _pivot.ReturnToDefault();
     }
 
 }

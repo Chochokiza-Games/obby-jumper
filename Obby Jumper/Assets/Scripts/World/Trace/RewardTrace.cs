@@ -22,6 +22,8 @@ public class RewardTrace : MonoBehaviour
     [SerializeField] private GameObject _finishBlockPrefab;
     [SerializeField] private Vector3 _blockSize;
 
+    private int _lastColorId = -1;
+
     private void OnDrawGizmos() 
     {
         if (_generate)
@@ -88,7 +90,13 @@ public class RewardTrace : MonoBehaviour
             }
             else
             {
-                _generatedBlocks[i].Init(i + 1, this, _generatedBlocks.Count, _profile.CurrentLevel, _paletteChanger.CurrentPalette.Colors[Random.Range(3, _paletteChanger.CurrentPalette.Colors.Length)]);
+                int colorId = -1;
+                do 
+                {
+                    colorId = Random.Range(3, _paletteChanger.CurrentPalette.Colors.Length);
+                } while(colorId == _lastColorId);
+                _lastColorId = colorId;
+                _generatedBlocks[i].Init(i + 1, this, _generatedBlocks.Count, _profile.CurrentLevel, _paletteChanger.CurrentPalette.Colors[colorId]);
             }
         }
     }

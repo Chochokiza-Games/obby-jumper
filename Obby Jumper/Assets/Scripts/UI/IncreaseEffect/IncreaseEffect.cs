@@ -14,6 +14,8 @@ public class IncreaseEffect : MonoBehaviour
     [SerializeField] private AnimationCurve _scaleCurve;
     [SerializeField] private int _maxEffectsOnScreen;
 
+    private int _oldValue = -1;
+
     public void ShowEffect()
     {
         StartCoroutine(ShowEffectRoutine());
@@ -21,11 +23,12 @@ public class IncreaseEffect : MonoBehaviour
 
     public void ShowEffect(int count)
     {
-        if (count == 0)
+        if (count == 0 || count == _oldValue)
         {
-            ShowEffect();
             return;
         }
+
+        _oldValue = count;
 
         if (count > _maxEffectsOnScreen)
         {
