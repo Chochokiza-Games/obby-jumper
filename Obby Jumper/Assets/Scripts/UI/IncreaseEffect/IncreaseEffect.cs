@@ -46,7 +46,7 @@ public class IncreaseEffect : MonoBehaviour
         float randomTime = Random.Range(_minDelayBeforeSpawn, _maxDelayBeforeSpawn);
         yield return new WaitForSeconds(randomTime);
         Transform t = Instantiate(_previewPrefab, randomPos, Quaternion.identity, transform).transform;
-        StartCoroutine(
+    StartCoroutine(
             FlyRoutine(
                 t
             ));

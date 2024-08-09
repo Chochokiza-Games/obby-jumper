@@ -11,6 +11,11 @@ public class Education : MonoBehaviour
         Ahui,
         NextLevel
     }
+    public bool EducationInProgress
+    {
+        get => _educationInProgress;
+    }
+
 
     [SerializeField] private LanguageTranslator _language;
     [SerializeField] private PlayerMovement _movement;
@@ -20,7 +25,7 @@ public class Education : MonoBehaviour
 
     private Dictionary<Type, EducationViewPoint> _viewPointsMapped;
     private string[] _currentEducationPopupText;
-
+    private bool _educationInProgress;
 
     private void Start()
     {
@@ -29,12 +34,13 @@ public class Education : MonoBehaviour
         {
             _viewPointsMapped[p.Type] = p;
         }
-        
+        _educationInProgress = true;
         _movement.Lock();
         ShowEducation(Type.Pohui, () => {
             ShowEducation(Type.Ahui, () => {
                 _cameraSpan.ReturnBack();
                 _movement.Unlock();
+                _educationInProgress = false;
             });
         });
     }   
@@ -43,10 +49,12 @@ public class Education : MonoBehaviour
     {
         if (level == 2)
         {
+            _educationInProgress = true;
             _movement.Lock();
             ShowEducation(Type.NextLevel, () => {
                 _cameraSpan.ReturnBack();
                 _movement.Unlock();
+                _educationInProgress = false;
             });
         }
     }
