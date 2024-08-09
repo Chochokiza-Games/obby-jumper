@@ -65,7 +65,6 @@ public class RewardTrace : MonoBehaviour
             tr.center = new Vector3(0, 500, (_blockSize.z * _generatedCount) - (_blockSize.z / 2));
             _generate = false;
             gameObject.name = "BlockTrack";
-            EditorApplication.isPaused = true;
             return;
         }
 
