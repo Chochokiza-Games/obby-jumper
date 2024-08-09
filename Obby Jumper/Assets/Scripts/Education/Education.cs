@@ -133,7 +133,7 @@ public class Education : MonoBehaviour
                     {
                         _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ПОПРОБУЙ ДОПРЫГНУТЬ ДО КОНЦА" : "TRY TO JUMP TO THE END",
                         _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "КОГДА ПРЫГАЕШЬ, УВЕЛИЧИВАЕТСЯ ТВОЯ СИЛА" : "WHEN YOU JUMP, YOUR POWER INCREASES, OINK",
-                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ПРЫГАЙ, ПОКА НЕ ДОПРЫГНЕШЬ ДО КОНЦА" : "JUMP AS MUCH UNTIL YOU JUMP TO THE END",
+                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ПРЫГАЙ, ПОКА НЕ ДОБЕРЕШЬСЯ ДО КОНЦА" : "JUMP AS MUCH UNTIL YOU JUMP TO THE END",
                     };
 
                 break;
@@ -156,7 +156,7 @@ public class Education : MonoBehaviour
             case Type.Spinwheel:
                 _currentEducationPopupText = new string[] 
                     {
-                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ЕСЛИ ТЫ ХОЧЕШЬ БЫСТРЕЕ ПОЛУЧИТЬ ДОПОЛНИТЕЛЬНОГО ПИТОМЦА ИЛИ МОНЕТКИ..." : "IF YOU WANT TO GET AN ADDITIONAL PET OR COINS FASTER...",
+                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ХОЧЕШЬ БЫСТРЕЕ ПОЛУЧИТЬ ДОПОЛНИТЕЛЬНОГО ПИТОМЦА ИЛИ МОНЕТКИ?" : "IF YOU WANT TO GET AN ADDITIONAL PET OR COINS FASTER...",
                         _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "КРУТИ КОЛЕСО И ПОЛУЧАЙ ПРИЗЫ!" : "SPIN THE WHEEL AND EARN PRIZES!",
                         _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "НЕ БУДУ ЗАДЕРЖИВАТЬ ТЕБЯ, ТРЕНИРУЙСЯ" : "I WILL NOT DELAY YOU, TRAIN",
                         _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "СТАНОВИСЬ СИГМОЙ!" : "BECOME SIGMA!",
@@ -182,7 +182,7 @@ public class Education : MonoBehaviour
             case Type.Store:
                 _currentEducationPopupText = new string[] 
                     {
-                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ЕЩЕ МОЖЕШЬ КУПИТЬ СЕБЕ ШЛЯПЫ, КРЫЛЬЯ И МНОГО ЧЕГО ЕЩЕ В МАГАЗИНЕ АКСЕССУАРОВ" : "YOU CAN ALSO BUY YOURSELF HATS, WINGS AND MUCH MORE IN THE ACCESSORIES STORE",
+                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "МОЖЕШЬ КУПИТЬ СЕБЕ ШЛЯПЫ, КРЫЛЬЯ И МНОГО ЧЕГО ЕЩЕ В МАГАЗИНЕ АКСЕССУАРОВ" : "YOU CAN ALSO BUY YOURSELF HATS, WINGS AND MUCH MORE IN THE ACCESSORIES STORE",
                     };
                 break;  
         }
