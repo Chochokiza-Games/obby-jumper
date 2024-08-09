@@ -17,6 +17,7 @@ public class Education : MonoBehaviour
     [SerializeField] private CameraSpan _cameraSpan;
     [SerializeField] private EducationPopup _popUp;
     [SerializeField] private EducationViewPoint[] _viewPoints;
+    [SerializeField] private bool _showEducation;
 
     private Dictionary<Type, EducationViewPoint> _viewPointsMapped;
     private string[] _currentEducationPopupText;
@@ -30,17 +31,28 @@ public class Education : MonoBehaviour
             _viewPointsMapped[p.Type] = p;
         }
         
+        if (!_showEducation)
+        {
+            return;
+        }
+
         _movement.LockForEducation();
-        ShowEducation(Type.Pohui, () => {
-            ShowEducation(Type.Ahui, () => {
-                _cameraSpan.ReturnBack();
-                _movement.UnlockForEducation();
+            ShowEducation(Type.Pohui, () => {
+                ShowEducation(Type.Ahui, () => {
+                    _cameraSpan.ReturnBack();
+                    _movement.UnlockForEducation();
+                });
             });
-        });
+
     }   
 
     public void OnChangeLevel(int level)
     {
+        if (!_showEducation)
+        {
+            return;
+        }
+
         if (level == 2)
         {
             _movement.LockForEducation();

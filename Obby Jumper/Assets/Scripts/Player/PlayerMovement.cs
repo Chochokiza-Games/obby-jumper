@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject _jumpButton;
     [SerializeField] private Transform _autoRunTarget;
     [SerializeField] private bool _autoRunned;
+    [SerializeField] private float _autorunSpeedFactor;
 
 
     private float _startAnimatorSpeed;
@@ -220,7 +221,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (_walkToObjectRoutine == null)
             {
-                MoveToObject(_autoRunTarget);
+                MoveToObject(_autoRunTarget, _autorunSpeedFactor);
             }
         }
     }
@@ -229,7 +230,7 @@ public class PlayerMovement : MonoBehaviour
     {   
         if (_autoRunned)
         {
-            MoveToObject(_autoRunTarget);
+            MoveToObject(_autoRunTarget, _autorunSpeedFactor);
         }
     }
 }
