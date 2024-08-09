@@ -75,21 +75,20 @@ public class RewardTrace : MonoBehaviour
             tr.center -= Vector3.forward * (_blockSize.z / 2f);
             _generate = false;
             gameObject.name = _name;
-            EditorApplication.isPaused = true;
             return;
         }
-
-        _profile = FindObjectOfType<PlayerProfile>();
-        _ragdoll = FindObjectOfType<PlayerRagdoll>();
-        _bar = FindAnyObjectByType<ProgressBar>();
-        _record = FindObjectOfType<PlayerRecord>();
-        _paletteChanger = FindObjectOfType<PaletteChanger>();
-        Init();
- 
     }
 
     public void Init()
     {
+        _profile = _profile == null ? FindObjectOfType<PlayerProfile>() : _profile;
+        _ragdoll = _ragdoll == null ? FindObjectOfType<PlayerRagdoll>() : _ragdoll;
+        _bar = _bar == null ? FindObjectOfType<ProgressBar>() : _bar;
+        _record = _record == null ? FindObjectOfType<PlayerRecord>() : _record;
+        _paletteChanger = _paletteChanger == null ? FindObjectOfType<PaletteChanger>() : _paletteChanger;
+        _voidVelocityTrigger.gameObject.SetActive(true);
+        _fallProtectorTrigger.gameObject.SetActive(true);
+
         for (int i = 0; i < _generatedBlocks.Count; i++)
         {   
             if (i == _generatedBlocks.Count - 1)
