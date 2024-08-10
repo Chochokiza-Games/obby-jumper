@@ -14,7 +14,8 @@ public class RewardPreview : MonoBehaviour
     [SerializeField] private float _showDuration;
     [SerializeField] private float _pauseDuration;
     [SerializeField] private GameObject _previewBase;
-    [SerializeField] private UnityEvent _rewardShowed;
+    [SerializeField] private UnityEvent _rewardStarted;
+    [SerializeField] private UnityEvent _rewardFinished;
 
     private void Start()
     {
@@ -38,7 +39,7 @@ public class RewardPreview : MonoBehaviour
 
     private IEnumerator ShowRoutine()
     {
-        _rewardShowed.Invoke();
+        _rewardStarted.Invoke();
 
         float timeElapsed = 0;
         Vector3 startPosition = _previewBase.transform.position;
@@ -63,5 +64,7 @@ public class RewardPreview : MonoBehaviour
             yield return null;
         }
         //gameObject.SetActive(false);
+        _rewardFinished.Invoke();
+
     }
 }
