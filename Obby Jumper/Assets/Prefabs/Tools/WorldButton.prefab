@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b29af51fa80c609b4f2e6a6cd44b08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _translator: {fileID: 0}
   _buttonClicked:
     m_PersistentCalls:
       m_Calls:
@@ -61,10 +62,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5830679448603335182}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _worldButtonObject: {fileID: 0}
   _worldButton: {fileID: 0}
   _worldButtonLabel: {fileID: 0}
-  _label: sosite
+  _ruLabel: 
+  _enLabel: 
   _camera: {fileID: 0}
 --- !u!1001 &5309548582951826277
 PrefabInstance:

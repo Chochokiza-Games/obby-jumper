@@ -78,7 +78,7 @@ public class IncreaseEffect : MonoBehaviour
     {
         float timeElapsed = 0;
         Vector3 startScale = preview.localScale;
-        while (timeElapsed < _flyDuration + _delayBeforeFly && gameObject != null)
+        while (timeElapsed < _flyDuration + _delayBeforeFly && preview != null)
         {
             preview.localScale = startScale * _scaleCurve.Evaluate(timeElapsed / (_flyDuration + _delayBeforeFly));
 
