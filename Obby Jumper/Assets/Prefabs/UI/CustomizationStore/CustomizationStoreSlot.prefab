@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -24.5, y: 9.299999}
+  m_AnchoredPosition: {x: -24.45, y: 10.5}
   m_SizeDelta: {x: 48.9, y: 21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1033285512346632398
@@ -489,7 +489,7 @@ MonoBehaviour:
   _bgPickedColor: {r: 0.13605526, g: 1, b: 0.043137252, a: 1}
   _innerBgPickedColor: {r: 0.21063398, g: 0.8301887, b: 0.19188325, a: 1}
   _topPatternPickedColor: {r: 0.31719476, g: 0.8301887, b: 0.32103056, a: 1}
-  _bottomPatternPickedColor: {r: 0.12543428, g: 0.754717, b: 0.010679938, a: 1}
+  _bottomPatternPickedColor: {r: 0.31764707, g: 0.83137256, b: 0.32156864, a: 1}
   _innerLinePickedColor: {r: 0.34078056, g: 0.9433962, b: 0.29814878, a: 1}
   _bgNotPickedColor: {r: 1, g: 0.8627451, b: 0.043137256, a: 1}
   _innerBgNotPickedColor: {r: 0.94509804, g: 0.7411765, b: 0.12156863, a: 1}
@@ -540,8 +540,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.7257, y: -9.178}
-  m_SizeDelta: {x: 261.17, y: 306.7261}
+  m_AnchoredPosition: {x: 5.5, y: -15.1}
+  m_SizeDelta: {x: 242.2389, y: 306.7261}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1119734427178365686
 CanvasRenderer:
@@ -571,7 +571,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 810ca5a3c582f874ca4896084ccfd3ef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 025a2d35955aba5e598deec26be20fa9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

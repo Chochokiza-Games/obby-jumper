@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pet Item 4
   m_EditorClassIdentifier: 
   _itemId: 4
-  _icon: {fileID: 21300000, guid: e5407ec1e6bc56649978137f4f3db962, type: 3}
+  _icon: {fileID: 21300000, guid: 8c3170b2030147e2d8922b5d17c5d85d, type: 3}
   _ruLabel: "\u0422\u044B\u043A\u043E\u0432\u043A\u0430"
   _enLabel: Pumkin
   _prefab: {fileID: 1674280011326683403, guid: d1ceeb17c65da414f89038a4497f035c, type: 3}

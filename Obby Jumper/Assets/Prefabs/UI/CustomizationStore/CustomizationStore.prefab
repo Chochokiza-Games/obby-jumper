@@ -589,8 +589,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 22, y: 23.5245}
-  m_SizeDelta: {x: 124.3121, y: 137.997}
+  m_AnchoredPosition: {x: 30, y: 0.0000019073486}
+  m_SizeDelta: {x: 109.8046, y: 137.997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9057048266334958973
 CanvasRenderer:
@@ -620,7 +620,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 810ca5a3c582f874ca4896084ccfd3ef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 025a2d35955aba5e598deec26be20fa9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1775,7 +1775,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2248642018609837115
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4407,7 +4407,6 @@ MonoBehaviour:
   _text: {fileID: 5676965564057120832}
   _ru: "\u041C\u0430\u0433\u0430\u0437\u0438\u043D"
   _en: Shop
-  _tu: 
 --- !u!1 &8355069343834540356
 GameObject:
   m_ObjectHideFlags: 0
