@@ -14,9 +14,13 @@ public class Inventory : MonoBehaviour
     [SerializeField] private GameObject _popup;
     [SerializeField] private GameObject _closeButton;
     [SerializeField] private Vector2 _popupOffsetPercent;
-    [SerializeField] private bool _canDeleteAllItems;
     [SerializeField] private GameObject _errorToastPrefab;
     [SerializeField] private TextMeshProUGUI _sizeInfo;
+    
+    [Header("Deleting items")]
+    [SerializeField] private GameObject _deleteButton;
+    [SerializeField] private bool _canDeleteItems;
+    [SerializeField] private bool _canDeleteAllItems;
 
 
     private Dictionary<int, InventorySlot> _slots = new Dictionary<int, InventorySlot>();
@@ -29,6 +33,11 @@ public class Inventory : MonoBehaviour
         if (_popup != null)
         {
             _popupOffset = new Vector2(_rTransform.rect.width * -(_popupOffsetPercent.x / 100f), _rTransform.rect.height * (_popupOffsetPercent.y / 100f));
+        }
+
+        if (!_canDeleteItems)
+        {
+            _deleteButton.SetActive(false);
         }
 
         UpdateSizeInfo();
@@ -65,7 +74,7 @@ public class Inventory : MonoBehaviour
             slot.PickedId.AddListener(OnItemPicked);
         }
         
-        slot.Initialize(id, item.Icon);
+        slot.Initialize(id, item.Icon, _canDeleteItems);
 
         _slots[id] = slot;
     }

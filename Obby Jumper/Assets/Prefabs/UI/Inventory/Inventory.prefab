@@ -839,9 +839,11 @@ MonoBehaviour:
   _popup: {fileID: 0}
   _closeButton: {fileID: 2129390876981417844}
   _popupOffsetPercent: {x: 10, y: 30}
-  _canDeleteAllItems: 1
   _errorToastPrefab: {fileID: 0}
   _sizeInfo: {fileID: 2555682051923938918}
+  _deleteButton: {fileID: 674832082746068859}
+  _canDeleteItems: 0
+  _canDeleteAllItems: 1
 --- !u!1 &3910881186803514969
 GameObject:
   m_ObjectHideFlags: 0
