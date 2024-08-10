@@ -37,9 +37,11 @@ public class InventorySlot : MonoBehaviour
     private UnityEvent<int> _pickedId = new UnityEvent<int>();
     private bool _picked = false;
     private int _id;
+    private bool _canDelete;
 
-    public void Initialize(int id, Sprite preview)
+    public void Initialize(int id, Sprite preview, bool canDelete = true)
     {
+        _canDelete = canDelete;
         _icon.sprite = preview;
         _id = id;
         _additionalInfoLabel?.gameObject.SetActive(false);
@@ -57,9 +59,12 @@ public class InventorySlot : MonoBehaviour
     
     public void OnPick()
     {
-        _picked = !_picked;
+        if (_canDelete)
+        {
+            _picked = !_picked;
+            _mark.gameObject.SetActive(_picked);
+        }
         _pickedId.Invoke(_id);
-        _mark.gameObject.SetActive(_picked);
     }
 
     public void MarkAsPicked()
