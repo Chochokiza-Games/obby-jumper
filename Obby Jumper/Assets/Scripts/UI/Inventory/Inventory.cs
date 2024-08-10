@@ -12,10 +12,12 @@ public class Inventory : MonoBehaviour
     [SerializeField] private PlayerInventory _linkedInventory;
     [SerializeField] private UnityEvent<int> _itemPickedFromPopup;
     [SerializeField] private GameObject _popup;
+    [SerializeField] private GameObject _closeButton;
     [SerializeField] private Vector2 _popupOffsetPercent;
     [SerializeField] private bool _canDeleteAllItems;
     [SerializeField] private GameObject _errorToastPrefab;
     [SerializeField] private TextMeshProUGUI _sizeInfo;
+
 
     private Dictionary<int, InventorySlot> _slots = new Dictionary<int, InventorySlot>();
     private InventorySlot _pickedSlot;
@@ -39,11 +41,14 @@ public class Inventory : MonoBehaviour
             _popup.SetActive(false);
         }
 
+        _closeButton.SetActive(true);
+
         foreach (var slot in _slots)
         {
             slot.Value.Picked = false;
         }
     }
+
 
     private void UpdateSizeInfo()
     {
@@ -143,5 +148,10 @@ public class Inventory : MonoBehaviour
     public void Show()
     {
         gameObject.SetActive(true);
+    }
+
+    public void HideCloseButton()
+    {
+        _closeButton.SetActive(false);
     }
 }
