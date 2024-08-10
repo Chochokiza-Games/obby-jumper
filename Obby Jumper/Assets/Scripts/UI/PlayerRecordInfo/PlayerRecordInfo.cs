@@ -33,7 +33,7 @@ public class PlayerRecordInfo : MonoBehaviour
 
     private void OnDisable()
     {
-        StopAllCoroutines();
+        Hide();
     }
     
     public void Hide()

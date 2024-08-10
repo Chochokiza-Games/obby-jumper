@@ -20,6 +20,11 @@ public class Education : MonoBehaviour
         AccessoriesStore
 
     }
+    public bool EducationInProgress
+    {
+        get => _educationInProgress;
+    }
+
 
     [SerializeField] private LanguageTranslator _language;
     [SerializeField] private PlayerMovement _movement;
@@ -37,8 +42,9 @@ public class Education : MonoBehaviour
 
     private Dictionary<Type, EducationViewPoint> _viewPointsMapped;
     private string[] _currentEducationPopupText;
-    
-    private bool _isEducationShowing = false;
+
+    private bool _educationInProgress;
+
     private bool _isSpinWheelShowed = false;
 
     private void Start()
@@ -50,7 +56,7 @@ public class Education : MonoBehaviour
         {
             _viewPointsMapped[p.Type] = p;
         }
-        
+
         // _isEducationShowing = true;
         // _movement.Lock();
         // _teacher.SetActive(true);
@@ -118,6 +124,7 @@ public class Education : MonoBehaviour
     {
         if (!_isSpinWheelShowed && _isEducationShowing)
         {
+        _educationInProgress
             ShowEducation(Type.Spinwheel, () => {
                 _cameraBrain.ReturnBack();
                 _movement.Unlock();
