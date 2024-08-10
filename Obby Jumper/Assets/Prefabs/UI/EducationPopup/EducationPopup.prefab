@@ -154,7 +154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2721176757699153039
 RectTransform:
   m_ObjectHideFlags: 0
@@ -317,12 +317,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7541128231517370970, guid: cbdba7200bbc140338d765239ceff61b, type: 3}
       propertyPath: m_fontSize
-      value: 72.75
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 7541128231517370970, guid: cbdba7200bbc140338d765239ceff61b, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 2eefbd0f43002ef45a24cdc993eaf09f, type: 2}
+      objectReference: {fileID: 11400000, guid: 80c6c48f3d1c5a945908dfc8aed5e88b, type: 2}
     - target: {fileID: 7541128231517370970, guid: cbdba7200bbc140338d765239ceff61b, type: 3}
       propertyPath: m_fontColor.b
       value: 0.20754719
@@ -337,11 +337,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7541128231517370970, guid: cbdba7200bbc140338d765239ceff61b, type: 3}
       propertyPath: m_fontSizeMax
-      value: 500
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 7541128231517370970, guid: cbdba7200bbc140338d765239ceff61b, type: 3}
       propertyPath: m_fontSizeMin
-      value: 30
+      value: 29.79
       objectReference: {fileID: 0}
     - target: {fileID: 7541128231517370970, guid: cbdba7200bbc140338d765239ceff61b, type: 3}
       propertyPath: m_fontSizeBase
@@ -350,7 +350,7 @@ PrefabInstance:
     - target: {fileID: 7541128231517370970, guid: cbdba7200bbc140338d765239ceff61b, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 8027057956419821520, guid: 2eefbd0f43002ef45a24cdc993eaf09f, type: 2}
+      objectReference: {fileID: 8027057956419821520, guid: 80c6c48f3d1c5a945908dfc8aed5e88b, type: 2}
     - target: {fileID: 7541128231517370970, guid: cbdba7200bbc140338d765239ceff61b, type: 3}
       propertyPath: m_enableAutoSizing
       value: 1
@@ -494,28 +494,52 @@ PrefabInstance:
       value: 2.883
       objectReference: {fileID: 0}
     - target: {fileID: 2684132643887776047, guid: 8086d0d0157cc48959ac3c399d0bb1fd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.98650897
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684132643887776047, guid: 8086d0d0157cc48959ac3c399d0bb1fd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684132643887776047, guid: 8086d0d0157cc48959ac3c399d0bb1fd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684132643887776047, guid: 8086d0d0157cc48959ac3c399d0bb1fd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.16370714
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684132643887776047, guid: 8086d0d0157cc48959ac3c399d0bb1fd, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -3.5
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2684132643887776047, guid: 8086d0d0157cc48959ac3c399d0bb1fd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 192
+      value: 188
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684132643887776047, guid: 8086d0d0157cc48959ac3c399d0bb1fd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 18.844
       objectReference: {fileID: 0}
     - target: {fileID: 2684132644169263170, guid: 8086d0d0157cc48959ac3c399d0bb1fd, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 2.70834
       objectReference: {fileID: 0}
     - target: {fileID: 2684132644169263170, guid: 8086d0d0157cc48959ac3c399d0bb1fd, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2.70834
       objectReference: {fileID: 0}
     - target: {fileID: 2684132644169263170, guid: 8086d0d0157cc48959ac3c399d0bb1fd, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 2.70834
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684132644169263170, guid: 8086d0d0157cc48959ac3c399d0bb1fd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -87
       objectReference: {fileID: 0}
     - target: {fileID: 2684132644169263170, guid: 8086d0d0157cc48959ac3c399d0bb1fd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -134
+      value: -111
       objectReference: {fileID: 0}
     - target: {fileID: 2684132644169263170, guid: 8086d0d0157cc48959ac3c399d0bb1fd, type: 3}
       propertyPath: m_ConstrainProportionsScale

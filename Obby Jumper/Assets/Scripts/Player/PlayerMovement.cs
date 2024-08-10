@@ -16,6 +16,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public bool OnRamp
+    {
+        get => _onRamp;
+    }
+
     public Vector3 CameraForwardDirection
     {
         set => transform.forward = value;
@@ -36,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform _autoRunTarget;
     [SerializeField] private bool _autoRunned;
     [SerializeField] private float _autorunSpeedFactor;
+    
+    private bool _onRamp;
 
 
     private float _startAnimatorSpeed;
@@ -71,6 +78,11 @@ public class PlayerMovement : MonoBehaviour
         StopAllCoroutines();
         _locked = true;
         _walkToObjectRoutine = StartCoroutine(MoveToObjectRoutine(target, speedFactor));
+    }
+
+    public void OnRampEnter()
+    {
+        _onRamp = true;
     }
 
     private IEnumerator MoveToObjectRoutine(Transform target, float speedFactor)
@@ -224,10 +236,20 @@ public class PlayerMovement : MonoBehaviour
                 MoveToObject(_autoRunTarget, _autorunSpeedFactor);
             }
         }
+        else
+        {
+            if (_walkToObjectRoutine != null && !_onRamp)
+            {
+                _locked = false;
+                StopCoroutine(_walkToObjectRoutine);
+                _walkToObjectRoutine = null;
+            }
+        }
     }
 
     public void OnLoadingScreenEnded()
     {   
+        _onRamp = false;
         if (_autoRunned)
         {
             MoveToObject(_autoRunTarget, _autorunSpeedFactor);

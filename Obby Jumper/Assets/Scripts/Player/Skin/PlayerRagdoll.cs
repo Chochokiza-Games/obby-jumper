@@ -103,7 +103,7 @@ public class PlayerRagdoll : MonoBehaviour
     {
         yield return new WaitForSeconds(_delayBeforeTeleport);
         _teleporter.TeleportStarted.AddListener(OnTeleportStarted);
-        _teleporter.Teleport(Vector3.zero);
+        _teleporter.Teleport();
     }
 
     public void PushToFinish()

@@ -22,9 +22,6 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private BaseInventoryItem[] _references;
     [SerializeField] private UnityEvent<int, BaseInventoryItem> _itemAdded; //id, scriptable object
     [SerializeField] private UnityEvent<int, BaseInventoryItem> _itemRemoved; //id, scriptable object
-    [SerializeField] private GameObject _errorToastPrefab;
-    [SerializeField] private Transform _errorField;
-    [SerializeField] private bool _shouldSpawnToast;
 
     private GameObject _errorToast;
     private Dictionary<int, BaseInventoryItem> _bucket = new Dictionary<int, BaseInventoryItem>();
@@ -67,10 +64,6 @@ public class PlayerInventory : MonoBehaviour
                 bucketDump += $"{kv.Key} -> {kv.Value}\n";
             }
             Debug.Log($"PlayerInventory: pushed item {itemId}\nBucket dump:\n{bucketDump}");
-        }
-        if (_errorToast == null && _shouldSpawnToast && _bucket.Count == _bucketSizeCap - 1)
-        {
-            _errorToast = Instantiate(_errorToastPrefab, _errorField);
         }
 
         return id;

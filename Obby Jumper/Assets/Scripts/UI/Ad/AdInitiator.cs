@@ -9,6 +9,7 @@ public class AdInitiator : MonoBehaviour
     [SerializeField] private int _adDelay;
     [SerializeField] private GameObject _adInitiatorWindow;
     [SerializeField] private TextMeshProUGUI _text;
+    [SerializeField] private UnityEvent _fullscreenEnded;
     [SerializeField] private UnityEvent<int> _rewardAdShowed;
     [SerializeField] private int _adShowdelay;
     [SerializeField] private PlayerMovement _movement;
@@ -55,6 +56,7 @@ public class AdInitiator : MonoBehaviour
                 yield return null;
             }
 
+            _movement.LockForEducation();
             _movement.Locked = true;
             _pivot.Locked = true;
             _composer.OpeningSomeUI();
@@ -78,6 +80,7 @@ public class AdInitiator : MonoBehaviour
 
             _adInitiatorWindow.SetActive(false);
             _movement.Locked = false;
+            _movement.UnlockForEducation();
             _pivot.Locked = false;
             _composer.ClosingSomeUI();
             if(_joystick.gameObject)
@@ -86,6 +89,7 @@ public class AdInitiator : MonoBehaviour
             }
             EnableBots();
             _petStation.EnablePets();
+            _fullscreenEnded.Invoke();
         }
     }
 

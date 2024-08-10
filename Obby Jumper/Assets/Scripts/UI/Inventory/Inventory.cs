@@ -14,7 +14,6 @@ public class Inventory : MonoBehaviour
     [SerializeField] private GameObject _popup;
     [SerializeField] private GameObject _closeButton;
     [SerializeField] private Vector2 _popupOffsetPercent;
-    [SerializeField] private GameObject _errorToastPrefab;
     [SerializeField] private TextMeshProUGUI _sizeInfo;
     
     [Header("Deleting items")]
@@ -141,10 +140,6 @@ public class Inventory : MonoBehaviour
 
         if ((_slots.Count == 1 || idsToDelete.Count == _slots.Count) && !_canDeleteAllItems)
         {
-            if (_errorToastPrefab != null) 
-            {
-                _toast = Instantiate(_errorToastPrefab, transform);
-            }
             return;
         }
 
