@@ -38,7 +38,6 @@ public class Education : MonoBehaviour
     [SerializeField] private Inventory _eggInventory;
     [SerializeField] private CustomizationStore _skinStore;
     [SerializeField] private CustomizationStore _accessoriesStore;
-    [SerializeField] private float _windowDemonstrationTime;
 
     private Dictionary<Type, EducationViewPoint> _viewPointsMapped;
     private string[] _currentEducationPopupText;
@@ -57,39 +56,17 @@ public class Education : MonoBehaviour
             _viewPointsMapped[p.Type] = p;
         }
 
-        // _isEducationShowing = true;
-        // _movement.Lock();
-        // _teacher.SetActive(true);
-        // ShowEducation(Type.Start, () => {
-        //     ShowEducation(Type.Ramp, () => {
-        //         _teacher.SetActive(false);
-        //         ShowEducation(Type.Trace, () => {
-        //             _cameraBrain.ReturnBack();
-        //             _movement.Unlock();
-        //             _isEducationShowing = false;
-        //         });
-        //     });
-        // });
-
-        // _isEducationShowing = true;
-        // _movement.Lock();
-        // _teacher.SetActive(true);
-        // ShowEducation(Type.SecondLevel, () => {
-        //     ShowEducation(Type.PetOpening, () => {
-        //         _teacher.SetActive(false);
-        //         _eggInventory.Show();
-        //         _eggInventory.HideCloseButton();
-        //     });
-        // });
-
-
-        _isEducationShowing = true;
+        _educationInProgress = true;
         _movement.Lock();
         _teacher.SetActive(true);
-         ShowEducation(Type.Memes, () => {
-            StartCoroutine(WaitSkinStoreEducation());
-            ShowEducation(Type.SkinStore, () => {
-            _teacher.SetActive(false);
+        ShowEducation(Type.Start, () => {
+            ShowEducation(Type.Ramp, () => {
+                _teacher.SetActive(false);
+                ShowEducation(Type.Trace, () => {
+                    _cameraBrain.ReturnBack();
+                    _movement.Unlock();
+                    _educationInProgress = false;
+                });
             });
         });
     }   
@@ -117,25 +94,49 @@ public class Education : MonoBehaviour
         _accessoriesStore.Close();
         _cameraBrain.ReturnBack();
         _movement.Unlock();
-        _isEducationShowing = false;
+        _educationInProgress = false;
         
     }
     public void SpinwheelEducation()
     {
-        if (!_isSpinWheelShowed && _isEducationShowing)
+        if (!_isSpinWheelShowed && _educationInProgress)
         {
-        _educationInProgress
             ShowEducation(Type.Spinwheel, () => {
                 _cameraBrain.ReturnBack();
                 _movement.Unlock();
-                _isEducationShowing = false;
+                _educationInProgress = false;
                 _isSpinWheelShowed = true;
             });
         }
     }
     public void OnChangeLevel(int level)
     {
+        if (level == 2)
+        {
+            _educationInProgress = true;
+            _movement.Lock();
+            _teacher.SetActive(true);
+            ShowEducation(Type.SecondLevel, () => {
+                ShowEducation(Type.PetOpening, () => {
+                    _teacher.SetActive(false);
+                    _eggInventory.Show();
+                    _eggInventory.HideCloseButton();
+                });
+            });
+        }
 
+        if (level == 3)
+        {
+            _educationInProgress = true;
+            _movement.Lock();
+            _teacher.SetActive(true);
+            ShowEducation(Type.Memes, () => {
+                StartCoroutine(WaitSkinStoreEducation());
+                ShowEducation(Type.SkinStore, () => {
+                _teacher.SetActive(false);
+                });
+            });
+        }
     }
 
 

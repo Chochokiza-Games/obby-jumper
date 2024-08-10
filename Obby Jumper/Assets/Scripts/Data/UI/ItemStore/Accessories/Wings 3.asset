@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab3a70d48dc8fec0788900941b5c72ca, type: 3}
+  m_Name: Wings 3
+  m_EditorClassIdentifier: 
+  _itemId: 3
+  _price: 20000
+  _iconPreview: {fileID: 0}
+  _type: 2
+  _prefab: {fileID: 770726196090950403, guid: c41288ab3b0f6e84a8bee1b22d65f4c4, type: 3}
+  _accessoryType: 1
