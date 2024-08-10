@@ -212,7 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movement: {fileID: 7365889371364522994}
   _speedFactor: 3
-  _target: {fileID: 0}
+  _target: {fileID: 871002773}
   _cameraPivot: {fileID: 1943136427}
   _damping: 2
 --- !u!4 &186447168 stripped
@@ -422,7 +422,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7638003668823649700, guid: 36bc54dd65902324ba07b942a509f8a6, type: 3}
       propertyPath: m_Size.x
-      value: 6.6910086
+      value: 18.99
       objectReference: {fileID: 0}
     - target: {fileID: 7638003668823649700, guid: 36bc54dd65902324ba07b942a509f8a6, type: 3}
       propertyPath: m_Size.y
@@ -449,6 +449,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36bc54dd65902324ba07b942a509f8a6, type: 3}
+--- !u!4 &871002773 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2917583123093500532, guid: 36bc54dd65902324ba07b942a509f8a6, type: 3}
+  m_PrefabInstance: {fileID: 871002772}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &924398118
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -734,7 +739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2917583123093500532, guid: 36bc54dd65902324ba07b942a509f8a6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 21.349998
+      value: 26.28
       objectReference: {fileID: 0}
     - target: {fileID: 2917583123093500532, guid: 36bc54dd65902324ba07b942a509f8a6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -798,7 +803,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7638003668823649700, guid: 36bc54dd65902324ba07b942a509f8a6, type: 3}
       propertyPath: m_Size.x
-      value: 13.55
+      value: 24.14
       objectReference: {fileID: 0}
     - target: {fileID: 7638003668823649700, guid: 36bc54dd65902324ba07b942a509f8a6, type: 3}
       propertyPath: m_Size.y
