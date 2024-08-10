@@ -8,7 +8,6 @@ public class TranslatedText : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private string _ru;
     [SerializeField] private string _en;
-    [SerializeField] private string _tu;
 
     private void Start()
     {
@@ -21,9 +20,6 @@ public class TranslatedText : MonoBehaviour
                 break;
             case LanguageTranslator.Languages.Russian:
                 _text.text = _ru;
-                break;
-            case LanguageTranslator.Languages.Turkish:
-                _text.text = _tu;
                 break;
         }
     }
