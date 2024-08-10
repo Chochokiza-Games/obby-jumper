@@ -30,6 +30,9 @@ public class PlayerRagdoll : MonoBehaviour
     [SerializeField] private Vector3 _ejectDirectionMin;
     [SerializeField] private Vector3 _ejectDirectionMax;
     [SerializeField] private float _pushToFinishForceFactor;
+    [Header("Effects")]
+    [SerializeField] private float _effectsGroundCheckDistance;
+    [SerializeField] private UnityEvent _nearGround;
 
     private Vector3 _ejectDirection;
     private int _jumpsCount;
@@ -72,6 +75,9 @@ public class PlayerRagdoll : MonoBehaviour
         Gizmos.DrawLine(_hips.position, _hips.position + _ejectDirectionMax * 25f);
         Gizmos.color = Color.cyan;
         Gizmos.DrawLine(_hips.position, _hips.position + _ejectDirection * 25f);
+
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawLine(transform.position, transform.position + (-transform.up * _effectsGroundCheckDistance));
     }
 
     private void Start()
@@ -103,7 +109,7 @@ public class PlayerRagdoll : MonoBehaviour
     {
         yield return new WaitForSeconds(_delayBeforeTeleport);
         _teleporter.TeleportStarted.AddListener(OnTeleportStarted);
-        _teleporter.Teleport(Vector3.zero);
+        _teleporter.Teleport();
     }
 
     public void PushToFinish()
@@ -162,9 +168,27 @@ public class PlayerRagdoll : MonoBehaviour
         _hips.AddForce(_ejectDirection * force, ForceMode.Impulse);
         _ejected.Invoke();
         StartCoroutine(CheckVelocityRoutine());
+        bool nearGround = false;
+        bool fuckup = false;
         while (true)
         {
             transform.position = _hips.transform.position + _ejectOffset;
+            if (!nearGround)
+            {
+                if (Physics.Raycast(transform.position, -transform.up, _effectsGroundCheckDistance, ~(LayerMask.GetMask("Trigger") + LayerMask.GetMask("Coin") + LayerMask.GetMask("Ramp") + LayerMask.GetMask("PlayerSkin") + LayerMask.GetMask("PlayerSkinSkeleton"))) )
+                {
+                    nearGround = true;
+                    _nearGround.Invoke();
+                }
+            }
+
+            if (transform.position.y <= -50 && !fuckup)
+            {
+                fuckup = true;
+                _nearGround.Invoke();
+                OnGroundReached();
+            }
+
             yield return new WaitForFixedUpdate();
         }
     }
@@ -181,8 +205,6 @@ public class PlayerRagdoll : MonoBehaviour
 
     private void OnTeleportStarted() 
     {
-        // _camera.LookAt = _movement.transform;
-        // _camera.Follow = _movement.transform;
         StopAllCoroutines();
         DisableRagdoll();
         _movement.Locked = false;

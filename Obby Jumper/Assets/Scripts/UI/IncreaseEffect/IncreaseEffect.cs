@@ -14,6 +14,8 @@ public class IncreaseEffect : MonoBehaviour
     [SerializeField] private AnimationCurve _scaleCurve;
     [SerializeField] private int _maxEffectsOnScreen;
 
+    private int _oldValue = -1;
+
     public void ShowEffect()
     {
         StartCoroutine(ShowEffectRoutine());
@@ -21,11 +23,12 @@ public class IncreaseEffect : MonoBehaviour
 
     public void ShowEffect(int count)
     {
-        if (count == 0)
+        if (count == 0 || count == _oldValue)
         {
-            ShowEffect();
             return;
         }
+
+        _oldValue = count;
 
         if (count > _maxEffectsOnScreen)
         {
@@ -46,7 +49,7 @@ public class IncreaseEffect : MonoBehaviour
         float randomTime = Random.Range(_minDelayBeforeSpawn, _maxDelayBeforeSpawn);
         yield return new WaitForSeconds(randomTime);
         Transform t = Instantiate(_previewPrefab, randomPos, Quaternion.identity, transform).transform;
-        StartCoroutine(
+    StartCoroutine(
             FlyRoutine(
                 t
             ));
@@ -75,7 +78,7 @@ public class IncreaseEffect : MonoBehaviour
     {
         float timeElapsed = 0;
         Vector3 startScale = preview.localScale;
-        while (timeElapsed < _flyDuration + _delayBeforeFly)
+        while (timeElapsed < _flyDuration + _delayBeforeFly && preview != null)
         {
             preview.localScale = startScale * _scaleCurve.Evaluate(timeElapsed / (_flyDuration + _delayBeforeFly));
 

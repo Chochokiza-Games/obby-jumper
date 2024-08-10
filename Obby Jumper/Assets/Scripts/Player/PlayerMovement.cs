@@ -16,6 +16,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public bool OnRamp
+    {
+        get => _onRamp;
+    }
+
     public Vector3 CameraForwardDirection
     {
         set => transform.forward = value;
@@ -35,11 +40,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject _jumpButton;
     [SerializeField] private Transform _autoRunTarget;
     [SerializeField] private bool _autoRunned;
+    [SerializeField] private float _autorunSpeedFactor;
+    
+    private bool _onRamp;
 
 
     private float _startAnimatorSpeed;
     private Vector3 _moveDirection;
     private bool _locked;
+    private bool _lockedForEducation;
     private bool _isGrounded = true;
     private Vector3 _playerVelocity;
     private bool _jump;
@@ -71,11 +80,21 @@ public class PlayerMovement : MonoBehaviour
         _walkToObjectRoutine = StartCoroutine(MoveToObjectRoutine(target, speedFactor));
     }
 
+    public void OnRampEnter()
+    {
+        _onRamp = true;
+    }
+
     private IEnumerator MoveToObjectRoutine(Transform target, float speedFactor)
     {
         _a.speed = speedFactor / 2;
         while(Vector3.Distance(transform.position, target.position) > .2f)
         {
+            while(_lockedForEducation)
+            {
+                yield return null;
+            }
+
             Vector3 dir = (target.position - transform.position).normalized * _speed * speedFactor;
             dir.y = transform.position.y;
             Debug.DrawLine(transform.position, target.transform.position);
@@ -94,6 +113,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         _a.speed = _startAnimatorSpeed;
+        _walkToObjectRoutine = null;
     }
 
     private void FixedUpdate()
@@ -113,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
 
         _isGrounded = Physics.BoxCast(transform.position + transform.up / 2, _boxcastSize / 2, -transform.up, transform.rotation, _groundCheckDistance, ~(LayerMask.GetMask("Trigger") + LayerMask.GetMask("Coin") + LayerMask.GetMask("PlayerSkin") + LayerMask.GetMask("PlayerSkinSkeleton")));
 
-        if (_locked)
+        if (_locked || _lockedForEducation)
         {
             return;
         }
@@ -156,7 +176,7 @@ public class PlayerMovement : MonoBehaviour
             _animator.PlayState(PlayerAnimator.States.Jumping);
         }
 
-        Debug.Log(_isGrounded);
+        //Debug.Log(_isGrounded);
 
         if ((Input.GetButton("Jump") || _jump) && _isGrounded)
         {
@@ -195,6 +215,17 @@ public class PlayerMovement : MonoBehaviour
         Locked = false;
     }
 
+    public void LockForEducation()
+    {
+        _lockedForEducation = true;
+    }
+
+    public void UnlockForEducation()
+    {
+        _lockedForEducation = false;
+    }
+
+
     public void SetAutoRun(bool enabled)
     {
         _autoRunned = enabled;
@@ -202,16 +233,26 @@ public class PlayerMovement : MonoBehaviour
         {
             if (_walkToObjectRoutine == null)
             {
-                MoveToObject(_autoRunTarget);
+                MoveToObject(_autoRunTarget, _autorunSpeedFactor);
+            }
+        }
+        else
+        {
+            if (_walkToObjectRoutine != null && !_onRamp)
+            {
+                _locked = false;
+                StopCoroutine(_walkToObjectRoutine);
+                _walkToObjectRoutine = null;
             }
         }
     }
 
     public void OnLoadingScreenEnded()
     {   
+        _onRamp = false;
         if (_autoRunned)
         {
-            MoveToObject(_autoRunTarget);
+            MoveToObject(_autoRunTarget, _autorunSpeedFactor);
         }
     }
 }

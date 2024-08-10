@@ -12,10 +12,15 @@ public class Inventory : MonoBehaviour
     [SerializeField] private PlayerInventory _linkedInventory;
     [SerializeField] private UnityEvent<int> _itemPickedFromPopup;
     [SerializeField] private GameObject _popup;
+    [SerializeField] private GameObject _closeButton;
     [SerializeField] private Vector2 _popupOffsetPercent;
-    [SerializeField] private bool _canDeleteAllItems;
-    [SerializeField] private GameObject _errorToastPrefab;
     [SerializeField] private TextMeshProUGUI _sizeInfo;
+    
+    [Header("Deleting items")]
+    [SerializeField] private GameObject _deleteButton;
+    [SerializeField] private bool _canDeleteItems;
+    [SerializeField] private bool _canDeleteAllItems;
+
 
     private Dictionary<int, InventorySlot> _slots = new Dictionary<int, InventorySlot>();
     private InventorySlot _pickedSlot;
@@ -29,6 +34,11 @@ public class Inventory : MonoBehaviour
             _popupOffset = new Vector2(_rTransform.rect.width * -(_popupOffsetPercent.x / 100f), _rTransform.rect.height * (_popupOffsetPercent.y / 100f));
         }
 
+        if (!_canDeleteItems)
+        {
+            _deleteButton.SetActive(false);
+        }
+
         UpdateSizeInfo();
     }
 
@@ -39,11 +49,14 @@ public class Inventory : MonoBehaviour
             _popup.SetActive(false);
         }
 
+        _closeButton.SetActive(true);
+
         foreach (var slot in _slots)
         {
             slot.Value.Picked = false;
         }
     }
+
 
     private void UpdateSizeInfo()
     {
@@ -60,7 +73,7 @@ public class Inventory : MonoBehaviour
             slot.PickedId.AddListener(OnItemPicked);
         }
         
-        slot.Initialize(id, item.Icon);
+        slot.Initialize(id, item.Icon, _canDeleteItems);
 
         _slots[id] = slot;
     }
@@ -127,10 +140,6 @@ public class Inventory : MonoBehaviour
 
         if ((_slots.Count == 1 || idsToDelete.Count == _slots.Count) && !_canDeleteAllItems)
         {
-            if (_errorToastPrefab != null) 
-            {
-                _toast = Instantiate(_errorToastPrefab, transform);
-            }
             return;
         }
 
@@ -143,5 +152,10 @@ public class Inventory : MonoBehaviour
     public void Show()
     {
         gameObject.SetActive(true);
+    }
+
+    public void HideCloseButton()
+    {
+        _closeButton.SetActive(false);
     }
 }

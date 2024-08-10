@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -24,7 +25,7 @@ public class CustomizationStore : MonoBehaviour
     [SerializeField] private PlayerProfile _profile;
     [SerializeField] private GameObject _buyButton;
     [SerializeField] private GameObject _equipButton;
-
+    [SerializeField] private GameObject _closeButton;
     [Header("Changers")]
     [SerializeField] private SkinChanger _skinChanger;
     [SerializeField] private TrailChanger _trailChanger;
@@ -81,6 +82,11 @@ public class CustomizationStore : MonoBehaviour
         OnItemPicked(_pickedSlotInfo);
     }
 
+    private void OnEnable()
+    {
+        _closeButton.SetActive(true);
+    }
+    
     public void OnItemPicked(ItemInfo info)
     {
         _pickedSlotInfo = info;
@@ -176,5 +182,20 @@ public class CustomizationStore : MonoBehaviour
         {
             _toastComposer.ToastSpawn(ToastComposer.Type.StoreErr);
         }
+    }
+
+    public void Show()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void HideCloseButton()
+    {
+        _closeButton.SetActive(false);
+    }
+
+    public void Close()
+    {
+        gameObject.SetActive(false);
     }
 }

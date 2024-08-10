@@ -6,24 +6,29 @@ using UnityEngine;
 public class JumpRocksHolder : MonoBehaviour
 {
     [SerializeField] private GameObject[] _jumpRocksPrefabs;
-    [SerializeField] private Transform _jumpRocksHolder;
     [SerializeField] private GameObject _checkPoint;
     private GameObject _jumpRocks;
     private int _currentPrefabId = 0;
+    private int _currentLevel = 0;
 
     public void SpawnRocks()
     {
-        if (_jumpRocks != null) 
-        {
-            Destroy(_jumpRocks);
+        if (_currentLevel >= 3)
+        {  
+            if (_jumpRocks != null) 
+            {
+                Destroy(_jumpRocks);
+            }
+            _jumpRocks = Instantiate(_jumpRocksPrefabs[_currentPrefabId], transform);
+            _currentPrefabId = _currentPrefabId == _jumpRocksPrefabs.Length - 1 ?  0 : _currentPrefabId + 1;
+            _checkPoint.SetActive(true);
         }
-        _jumpRocks = Instantiate(_jumpRocksPrefabs[_currentPrefabId], _jumpRocksHolder);
-        _currentPrefabId = _currentPrefabId == _jumpRocksPrefabs.Length - 1 ?  0 : _currentPrefabId + 1;
-        _checkPoint.SetActive(true);
     }
 
-    public void Start()
+    public void OnChangeLevel(int lvl)
     {
+        _currentLevel = lvl;
         SpawnRocks();
+
     }
 }

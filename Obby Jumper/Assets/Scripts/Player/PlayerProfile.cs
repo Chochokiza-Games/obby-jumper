@@ -41,16 +41,6 @@ public class PlayerProfile : MonoBehaviour
         }
     }
 
-    public int EducationShowCountCurrent
-    {
-        get => _educationShowCountCurrent;
-    }
-
-    public int EducationShowCountMax
-    {
-        get => _educationShowCountMax;
-    }
-
     [SerializeField] private UnityEvent<int> _moneyChanged;
     [SerializeField] private UnityEvent<int> _powerChanged;
     [SerializeField] private int _powerCap;
@@ -59,12 +49,7 @@ public class PlayerProfile : MonoBehaviour
     [SerializeField] private PlayerInventory _petEggsInventory;
     [SerializeField] private UnityEvent _saveEvent;
     [SerializeField] private UnityEvent _loadEvent;
-    [SerializeField] private int _educationShowCountMax;
     [SerializeField] private float _saveDelay = 20f;
-   //[SerializeField] private GameObject _skinStoreToastEducationPrefab;
-    [SerializeField] private UnityEvent _skinStoreToastOpened;
-    [SerializeField] private Transform _field;
-    [SerializeField] private ItemInfo _firstSkin;
     [SerializeField] private UnityEvent<int> _levelChanged;
 
     private int _currentSkinId = 0;
@@ -78,12 +63,6 @@ public class PlayerProfile : MonoBehaviour
     private bool[] _openedAccessories;
 
     private int _petDropOrderCurrentId = 0;
-    private int _educationShowCountCurrent = 0;
-
-    private GameObject _skinStoreToastEducation;
-    private GameObject _storeToastEducation;
-    private bool _skinStoreToastEducationShowed = false;
-    private bool _storeToastEducationShowed = false;
     private bool _shouldChangeLevel = false;
 
 
@@ -126,13 +105,9 @@ public class PlayerProfile : MonoBehaviour
         _money = YandexGame.savesData.money = 0;
         _power = YandexGame.savesData.power;
 
-        _currentLevel = YandexGame.savesData.level;
+        _currentLevel = YandexGame.savesData.level = 1;
 
         _petDropOrderCurrentId = YandexGame.savesData.petDropOrderCurrentId;
-
-        _educationShowCountCurrent = YandexGame.savesData.educationPassedCount;
-        _skinStoreToastEducationShowed = YandexGame.savesData.skinStoreToastEducationShowed;
-        _storeToastEducationShowed = YandexGame.savesData.storeToastEducationShowed;
 
         _moneyChanged.Invoke(_money);
         _powerChanged.Invoke(_power);
@@ -171,10 +146,6 @@ public class PlayerProfile : MonoBehaviour
         YandexGame.savesData.openedSkins = _openedSkins;
         YandexGame.savesData.openedAccessories = _openedAccessories;
         YandexGame.savesData.openedTrails = _openedTrails;
-
-        YandexGame.savesData.educationPassedCount = _educationShowCountCurrent;
-        YandexGame.savesData.skinStoreToastEducationShowed = _skinStoreToastEducationShowed;
-        YandexGame.savesData.storeToastEducationShowed = _storeToastEducationShowed;
 
         SaveInventory(_petInventory, ref YandexGame.savesData.petInventoryItems);
         SaveInventory(_petEggsInventory, ref YandexGame.savesData.petEggsInventoryItems);
@@ -282,16 +253,6 @@ public class PlayerProfile : MonoBehaviour
     {
         _money += amount;
         _moneyChanged.Invoke(_money);
-
-        if (_money >= _firstSkin.Price && !_skinStoreToastEducationShowed)
-        {
-            // if (_skinStoreToastEducation == null)
-            // {
-            //     _skinStoreToastEducation = Instantiate(_skinStoreToastEducationPrefab, _field);
-            //     _skinStoreToastOpened.Invoke();
-            //     _skinStoreToastEducationShowed = true;
-            // }
-        }
     }
 
     public void IncreasePower(int amount)
@@ -303,25 +264,6 @@ public class PlayerProfile : MonoBehaviour
         }
         _powerChanged.Invoke(_power);
     }
-
-    public void DeleteSkinStoreEducationTost()
-    {
-        if (_skinStoreToastEducation != null)
-        {
-            Destroy(_skinStoreToastEducation);
-            _skinStoreToastEducation = null;
-        }
-    }
-
-    public void DeleteStoreEducationTost()
-    {
-        if (_storeToastEducation != null)
-        {
-            Destroy(_storeToastEducation);
-            _storeToastEducation = null;
-        }
-    }
-
     public void DecreaseMoney(int amount)
     {
         _money -= amount;
@@ -367,11 +309,5 @@ public class PlayerProfile : MonoBehaviour
     public void IncreasePetDropOrderCurrentId()
     {
         _petDropOrderCurrentId += 1;
-    }
-
-
-    public void IncreaseEducationShowCount()
-    {
-        _educationShowCountCurrent += 1;
     }
 }
