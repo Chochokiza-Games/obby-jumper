@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 086a2070fb50d724ebf993597cdb3ae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _toastComposer: {fileID: 0}
   _slotsInformation:
   - {fileID: 11400000, guid: b1da61f55f243d144867bffedcc3678c, type: 2}
   - {fileID: 11400000, guid: 42f0c9eb361cecf44869a55330415e04, type: 2}
@@ -133,6 +134,7 @@ MonoBehaviour:
   _profile: {fileID: 0}
   _buyButton: {fileID: 4358445699373655846}
   _equipButton: {fileID: 96610731436895559}
+  _closeButton: {fileID: 6348376081834576352}
   _skinChanger: {fileID: 0}
   _trailChanger: {fileID: 0}
   _accessoryStation: {fileID: 0}

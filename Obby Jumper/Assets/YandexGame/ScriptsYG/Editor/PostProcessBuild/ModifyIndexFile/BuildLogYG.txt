@@ -1,2 +1,2 @@
-Build path: H:/Github/miner-obby/Export
-Build number: 22
+Build path: /home/zxcussia/Repo/obby-jumper/Export/Export/Export
+Build number: 23

@@ -749,7 +749,6 @@ GameObject:
   - component: {fileID: 1321996930125860772}
   - component: {fileID: 5827303465966844319}
   - component: {fileID: 7547208673384268497}
-  - component: {fileID: 1389230841283399200}
   - component: {fileID: 1385954569437543625}
   m_Layer: 5
   m_Name: Inventory
@@ -818,19 +817,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1389230841283399200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3128789651998696640}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63cb0e4de7c392b49a7e853f94b5d8f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _shouldInactiveOnStart: 1
 --- !u!114 &1385954569437543625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -851,6 +837,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _popup: {fileID: 0}
+  _closeButton: {fileID: 2129390876981417844}
   _popupOffsetPercent: {x: 10, y: 30}
   _canDeleteAllItems: 1
   _errorToastPrefab: {fileID: 0}
