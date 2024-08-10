@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -16,20 +17,29 @@ public class Education : MonoBehaviour
         
         Memes,
         SkinStore,
-        Store
+        AccessoriesStore
 
     }
 
     [SerializeField] private LanguageTranslator _language;
     [SerializeField] private PlayerMovement _movement;
+    [SerializeField] private PlayerProfile _profile;
     [SerializeField] private CameraSpan _cameraBrain;
     [SerializeField] private EducationPopup _popUp;
     [SerializeField] private EducationViewPoint[] _viewPoints;
     [SerializeField] private GameObject _teacher;
+    [SerializeField] private int _moneyGift;
+    [Header("———————  Windows  ———————")]
+    [SerializeField] private Inventory _eggInventory;
+    [SerializeField] private CustomizationStore _skinStore;
+    [SerializeField] private CustomizationStore _accessoriesStore;
+    [SerializeField] private float _windowDemonstrationTime;
 
     private Dictionary<Type, EducationViewPoint> _viewPointsMapped;
     private string[] _currentEducationPopupText;
-
+    
+    private bool _isEducationShowing = false;
+    private bool _isSpinWheelShowed = false;
 
     private void Start()
     {
@@ -41,71 +51,87 @@ public class Education : MonoBehaviour
             _viewPointsMapped[p.Type] = p;
         }
         
-        _movement.Lock();
-        _teacher.SetActive(true);
-        ShowEducation(Type.Start, () => {
-            ShowEducation(Type.Ramp, () => {
-                _teacher.SetActive(false);
-                ShowEducation(Type.Trace, () => {
-                    _cameraBrain.ReturnBack();
-                    _movement.Unlock();
-                });
-            });
-        });
+        // _isEducationShowing = true;
+        // _movement.Lock();
+        // _teacher.SetActive(true);
+        // ShowEducation(Type.Start, () => {
+        //     ShowEducation(Type.Ramp, () => {
+        //         _teacher.SetActive(false);
+        //         ShowEducation(Type.Trace, () => {
+        //             _cameraBrain.ReturnBack();
+        //             _movement.Unlock();
+        //             _isEducationShowing = false;
+        //         });
+        //     });
+        // });
 
+        // _isEducationShowing = true;
         // _movement.Lock();
         // _teacher.SetActive(true);
         // ShowEducation(Type.SecondLevel, () => {
         //     ShowEducation(Type.PetOpening, () => {
         //         _teacher.SetActive(false);
-        //         ShowEducation(Type.Spinwheel, () => {
-        //             _cameraBrain.ReturnBack();
-        //             _movement.Unlock();
-        //         });
+        //         _eggInventory.Show();
+        //         _eggInventory.HideCloseButton();
         //     });
         // });
 
-        //         _movement.Lock();
-        // ShowEducation(Type.Memes, () => {
-        //     ShowEducation(Type.SkinStore, () => {
-        //         ShowEducation(Type.Store, () => {
-        //             _cameraBrain.ReturnBack();
-        //             _movement.Unlock();
-        //         });
-        //     });
-        // });
+
+        _isEducationShowing = true;
+        _movement.Lock();
+        _teacher.SetActive(true);
+         ShowEducation(Type.Memes, () => {
+            StartCoroutine(WaitSkinStoreEducation());
+            ShowEducation(Type.SkinStore, () => {
+            _teacher.SetActive(false);
+            });
+        });
     }   
-
-    public void OnChangeLevel(int level)
+    
+    private IEnumerator WaitSkinStoreEducation()
     {
-        if (level == 2)
-        {
-            _movement.Lock();
-            ShowEducation(Type.SecondLevel, () => {
-                ShowEducation(Type.PetOpening, () => {
-                    ShowEducation(Type.Spinwheel, () => {
-                        _cameraBrain.ReturnBack();
-                        _movement.Unlock();
-                    });
-                });
-            });
-        }
-        
-        if (level == 3)
-        {
-            _movement.Lock();
-            ShowEducation(Type.Memes, () => {
-                ShowEducation(Type.SkinStore, () => {
-                    ShowEducation(Type.Store, () => {
-                        _cameraBrain.ReturnBack();
-                        _movement.Unlock();
-                    });
-                });
-            });
-        }
 
+        yield return new WaitForSeconds(2f);
+        _skinStore.Show();
+        _skinStore.HideCloseButton();
+        _profile.IncreaseMoney(_moneyGift);
+        yield return new WaitForSeconds(7f);
+        _skinStore.Close();
+        StartCoroutine(WaitAccessoriesStoreEducation());
+        ShowEducation(Type.AccessoriesStore, () => {
+            
+        });
+    }
+    private IEnumerator WaitAccessoriesStoreEducation()
+    {
+        yield return new WaitForSeconds(2f);
+        _accessoriesStore.Show();
+        _accessoriesStore.HideCloseButton();
+        yield return new WaitForSeconds(7f);
+        _accessoriesStore.Close();
+        _cameraBrain.ReturnBack();
+        _movement.Unlock();
+        _isEducationShowing = false;
         
     }
+    public void SpinwheelEducation()
+    {
+        if (!_isSpinWheelShowed && _isEducationShowing)
+        {
+            ShowEducation(Type.Spinwheel, () => {
+                _cameraBrain.ReturnBack();
+                _movement.Unlock();
+                _isEducationShowing = false;
+                _isSpinWheelShowed = true;
+            });
+        }
+    }
+    public void OnChangeLevel(int level)
+    {
+
+    }
+
+
 
     private void ShowEducation(Type type, UnityAction callback)
     {   
@@ -142,15 +168,15 @@ public class Education : MonoBehaviour
                     {
                         _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "О НЕЕЕТ... ТЫ РЕАЛЬНО ДОПРЫГНУЛ ДО КОНЦА???" : "OH NOOO...DID YOU REALLY JUMP TO THE END???",
                         _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ВОЗМОЖНО ТЫ ПРАВДА В БУДУЩЕМ СТАНЕШЬ СИГМОЙ" : "MAYBE YOU WILL ACTUALLY BECOME SIGMA IN THE FUTURE",
-                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "НО ТРАССЫ БУДУТ ДЛИННЕЕ С КАЖДЫМ ЛЕВЕЛОМ..." : "BUT THAT'S NOT ALL, NOW THE TRAILS WILL BE LONGER",
+                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "НО ТРАССЫ БУДУТ ДЛИННЕЕ С КАЖДЫМ УРОВНЕМ..." : "BUT THAT'S NOT ALL, NOW THE TRAILS WILL BE LONGER",
                     };
                 break;
             case Type.PetOpening:
                 _currentEducationPopupText = new string[] 
                     {
-                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "Я БУДУ ДАВАТЬ ТЕБЕ ЯЙЦО С РАЗНЫМИ ПИТОМЦАМИ КАЖДЫЙ ЛЕВЕЛ" : "MOVE ON, AND AFTER EACH LEVEL, I WILL GIVE YOU AN EGG WITH A PET",
+                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "Я БУДУ ДАВАТЬ ТЕБЕ ЯЙЦО С РАЗНЫМИ ПИТОМЦАМИ КАЖДЫЙ УРОВЕНЬ" : "MOVE ON, AND AFTER EACH LEVEL, I WILL GIVE YOU AN EGG WITH A PET",
                         _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ОНИ БУДУТ ПОМОГАТЬ ТЕБЕ" : "DIFFERENT PETS THAT WILL HELP YOU CAN FALL FROM THE EGG",
-                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ОТКРОЙ И ПОЛУЧИ ЕГО ВПЕРВЫЕ!" : "OPEN AND GET YOUR FIRST PET",
+                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ОТКРОЙ ЯЙЦО И ПОЛУЧИ ЕГО ВПЕРВЫЕ!" : "OPEN AND GET YOUR FIRST PET",
                     };
                 break;
             case Type.Spinwheel:
@@ -167,22 +193,22 @@ public class Education : MonoBehaviour
             case Type.Memes:
                 _currentEducationPopupText = new string[] 
                     {
-                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ТЫ НЕВЕОРЯТЕН! НИ У КОГО ЕЩЕ НЕ ПОЛУЧАЛОСЬ ВЫЗВАТЬ ТАЙНУЮ КОМНАТУ" : "YOU ARE INCREDIBLE! NO ONE HAS BEEN ABLE TO CALL THE CHAMBER OF SECRETS",
-                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ПО СЛУХАМ, В НЕЙ МЕМЫ" : "ACCORDING TO RUMOR, IT CONTAINS MEMES",
-                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "КАЖДЫЙ ЛЕВЕЛ, КОМНАТА МЕНЯЕТСЯ, НО ЗАПАРКУРИТЬ ТУДА СТАНОВИТСЯ СЛОЖНЕЕ!" : "EACH LEVEL ROOM CHANGES, BUT PARKOURING THERE BECOMES MORE DIFFICULT",
+                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ТЫ НЕВЕОРЯТЕН! НИ У КОГО ЕЩЕ НЕ ПОЛУЧАЛОСЬ ВЫЗВАТЬ ОСТРОВОК ТАЙН" : "YOU ARE INCREDIBLE! NO ONE HAS BEEN ABLE TO CALL THE CHAMBER OF SECRETS",
+                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ПО СЛУХАМ, НА НЕМ РАЗНЫЕ ПАСХАЛКИ И МОНЕТКИ" : "ACCORDING TO RUMOR, IT CONTAINS MEMES",
+                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "КАЖДЫЙ УРОВЕНЬ ОСТРОВОК МЕНЯЕТСЯ, НО ЗАПАРКУРИТЬ ТУДА СТАНОВИТСЯ СЛОЖНЕЕ!" : "EACH LEVEL ROOM CHANGES, BUT PARKOURING THERE BECOMES MORE DIFFICULT",
                         _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "В СВОБОДНОЕ ВРЕМЯ ЗАБИРАЙСЯ ТУДА, ЗАРАБАТЫВАЙ ДЕНЬГИ" : "IN YOUR FREE TIME, GO THERE AND MAKE MONEY",
                     };
                 break;  
             case Type.SkinStore:
                 _currentEducationPopupText = new string[] 
                     {
-                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ЧТО У ТЕБЯ ЗА СКИН? КУПИ СЕБЕ НОРМАЛЬНЫЙ В МАГАЗИНЕ СКИНОВ, ЧТОБЫ ВЫГЛЯДЕТЬ КРУТО" : "WHAT IS YOUR SKIN? BUY YOURSELF A NORMAL ONE IN THE SKIN STORE TO LOOK COOL",
+                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ЧТО У ТЕБЯ ЗА СКИН? ДЕРЖИ ДЕНЕГ, КУПИ СЕБЕ НОРМАЛЬНЫЙ В МАГАЗИНЕ СКИНОВ" : "WHAT IS YOUR SKIN? BUY YOURSELF A NORMAL ONE IN THE SKIN STORE TO LOOK COOL",
                     };
                 break;
-            case Type.Store:
+            case Type.AccessoriesStore:
                 _currentEducationPopupText = new string[] 
                     {
-                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "МОЖЕШЬ КУПИТЬ СЕБЕ ШЛЯПЫ, КРЫЛЬЯ И МНОГО ЧЕГО ЕЩЕ В МАГАЗИНЕ АКСЕССУАРОВ" : "YOU CAN ALSO BUY YOURSELF HATS, WINGS AND MUCH MORE IN THE ACCESSORIES STORE",
+                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ПОКУПАЙ ШЛЯПЫ, КРЫЛЬЯ И МНОГО ЧЕГО ЕЩЕ В МАГАЗИНЕ АКСЕССУАРОВ" : "YOU CAN ALSO BUY YOURSELF HATS, WINGS AND MUCH MORE IN THE ACCESSORIES STORE",
                     };
                 break;  
         }
