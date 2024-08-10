@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -17,9 +16,8 @@ public class AdInitiator : MonoBehaviour
     [SerializeField] private UIComposer _composer;
     [SerializeField] private BotMovement[] _bots;
     [SerializeField] private PetStation _petStation;
-    [SerializeField] private LoadingScreen _loadingScreen;
     [SerializeField] private Joystick _joystick;
-    [SerializeField] private Education _education;
+    [SerializeField] private DistractionFromGameplayChecker _distractFromGameplay;
 
     private bool _playerInHub = true;
 
@@ -38,16 +36,6 @@ public class AdInitiator : MonoBehaviour
         }
     }
 
-    public void OnFlyStarted()
-    {
-        _playerInHub = false;
-    }
-
-    public void OnFlyEnded()
-    {
-        _playerInHub = true;
-    }
-
     private void EnableBots()
     {
         foreach(BotMovement bot in _bots) 
@@ -62,7 +50,7 @@ public class AdInitiator : MonoBehaviour
         {
             yield return new WaitForSeconds(_adDelay);
 
-            while (_loadingScreen.Opened || _composer.IsSomeUIOpened || _education.EducationInProgress || !_playerInHub)
+            while (!_distractFromGameplay.CanDistractFromGameplay())
             {
                 yield return null;
             }
