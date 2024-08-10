@@ -16,6 +16,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public bool OnRamp
+    {
+        get => _onRamp;
+    }
+
     public Vector3 CameraForwardDirection
     {
         set => transform.forward = value;
@@ -75,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
         _walkToObjectRoutine = StartCoroutine(MoveToObjectRoutine(target, speedFactor));
     }
 
-    public void OnRamp()
+    public void OnRampEnter()
     {
         _onRamp = true;
     }
