@@ -33,6 +33,7 @@ public class Education : MonoBehaviour
     [SerializeField] private EducationPopup _popUp;
     [SerializeField] private EducationViewPoint[] _viewPoints;
     [SerializeField] private GameObject _teacher;
+    [SerializeField] private bool _shouldEducate = true;
     [SerializeField] private int _moneyGift;
     [Header("———————  Windows  ———————")]
     [SerializeField] private Inventory _eggInventory;
@@ -55,16 +56,20 @@ public class Education : MonoBehaviour
         {
             _viewPointsMapped[p.Type] = p;
         }
+        if (!_shouldEducate)
+        {
+            return;
+        }
 
         _educationInProgress = true;
-        _movement.Lock();
+        _movement.LockForEducation();
         _teacher.SetActive(true);
         ShowEducation(Type.Start, () => {
             ShowEducation(Type.Ramp, () => {
                 _teacher.SetActive(false);
                 ShowEducation(Type.Trace, () => {
                     _cameraBrain.ReturnBack();
-                    _movement.Unlock();
+                    _movement.UnlockForEducation();
                     _educationInProgress = false;
                 });
             });
@@ -93,7 +98,7 @@ public class Education : MonoBehaviour
         yield return new WaitForSeconds(7f);
         _accessoriesStore.Close();
         _cameraBrain.ReturnBack();
-        _movement.Unlock();
+        _movement.UnlockForEducation();
         _educationInProgress = false;
         
     }
@@ -103,7 +108,7 @@ public class Education : MonoBehaviour
         {
             ShowEducation(Type.Spinwheel, () => {
                 _cameraBrain.ReturnBack();
-                _movement.Unlock();
+                _movement.UnlockForEducation();
                 _educationInProgress = false;
                 _isSpinWheelShowed = true;
             });
@@ -111,10 +116,15 @@ public class Education : MonoBehaviour
     }
     public void OnChangeLevel(int level)
     {
+        if (!_shouldEducate)
+        {
+            return;
+        }
+
         if (level == 2)
         {
             _educationInProgress = true;
-            _movement.Lock();
+            _movement.LockForEducation();
             _teacher.SetActive(true);
             ShowEducation(Type.SecondLevel, () => {
                 ShowEducation(Type.PetOpening, () => {
@@ -128,7 +138,7 @@ public class Education : MonoBehaviour
         if (level == 3)
         {
             _educationInProgress = true;
-            _movement.Lock();
+            _movement.LockForEducation();
             _teacher.SetActive(true);
             ShowEducation(Type.Memes, () => {
                 StartCoroutine(WaitSkinStoreEducation());
