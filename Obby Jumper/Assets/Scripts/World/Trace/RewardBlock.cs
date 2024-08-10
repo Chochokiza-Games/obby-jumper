@@ -22,11 +22,11 @@ public class RewardBlock : MonoBehaviour
     protected int _id;
     protected int _humanId;
 
-    public void Init(int id, RewardTrace trace, int level, Color color)
+    public void Init(int id, RewardTrace trace, int blocksCount, int level, Color color)
     {
         
         _id = id - 1;
-        _humanId = id * Mathf.RoundToInt(Mathf.Pow(_startOfCountingValue, level));
+        _humanId = (id * 100) + (blocksCount * 100 * (level - 1)); //id * Mathf.RoundToInt(Mathf.Pow(_startOfCountingValue, level));
         _trace = trace;
         _3dLabel.text = HumanId.ToString();
         _renderer.material = Instantiate(_renderer.material);

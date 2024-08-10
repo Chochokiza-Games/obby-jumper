@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class RewardTrace : MonoBehaviour
 {
+    [SerializeField] private string _name;
     [SerializeField] private List<RewardBlock> _generatedBlocks;
     [SerializeField] private PlayerProfile _profile;
     [SerializeField] private PlayerRagdoll _ragdoll;
@@ -16,11 +17,16 @@ public class RewardTrace : MonoBehaviour
     [Space]
     [Header("Generating Prefabs")]
     [SerializeField] private Transform _voidVelocityTrigger;
+    [SerializeField] private Transform _fallProtectorTrigger;
     [SerializeField] private bool _generate;
     [SerializeField] private int _generatedCount;
     [SerializeField] private GameObject _blockPrefab;
     [SerializeField] private GameObject _finishBlockPrefab;
     [SerializeField] private Vector3 _blockSize;
+    [Header("Rewarding")]
+    [SerializeField] private AnimationCurve _rewardScaleCurve;
+
+    private int _lastColorId = -1;
 
     private void OnDrawGizmos() 
     {
@@ -63,42 +69,53 @@ public class RewardTrace : MonoBehaviour
             BoxCollider tr = _voidVelocityTrigger.GetComponent<BoxCollider>();
             tr.size = new Vector3(_blockSize.x, 1000, 20);
             tr.center = new Vector3(0, 500, (_blockSize.z * _generatedCount) - (_blockSize.z / 2));
+            tr = _fallProtectorTrigger.GetComponent<BoxCollider>();
+            tr.size = new Vector3(_blockSize.x * 10, 50, (_blockSize.z * _generatedCount) * 1.5f);
+            tr.center = new Vector3(0, -60, (_blockSize.z * _generatedCount) / 2f);
+            tr.center -= Vector3.forward * (_blockSize.z / 2f);
             _generate = false;
-            gameObject.name = "BlockTrack";
+            gameObject.name = _name;
             return;
         }
-
-        _profile = FindObjectOfType<PlayerProfile>();
-        _ragdoll = FindObjectOfType<PlayerRagdoll>();
-        _bar = FindAnyObjectByType<ProgressBar>();
-        _record = FindObjectOfType<PlayerRecord>();
-        _paletteChanger = FindObjectOfType<PaletteChanger>();
-        Init();
- 
     }
 
     public void Init()
     {
+        _profile = _profile == null ? FindObjectOfType<PlayerProfile>() : _profile;
+        _ragdoll = _ragdoll == null ? FindObjectOfType<PlayerRagdoll>() : _ragdoll;
+        _bar = _bar == null ? FindObjectOfType<ProgressBar>() : _bar;
+        _record = _record == null ? FindObjectOfType<PlayerRecord>() : _record;
+        _paletteChanger = _paletteChanger == null ? FindObjectOfType<PaletteChanger>() : _paletteChanger;
+        _voidVelocityTrigger.gameObject.SetActive(true);
+        _fallProtectorTrigger.gameObject.SetActive(true);
+
         for (int i = 0; i < _generatedBlocks.Count; i++)
         {   
             if (i == _generatedBlocks.Count - 1)
             {
-                (_generatedBlocks[i] as RewardFinishBlock).Init(i + 1, this, _profile.CurrentLevel);
+                (_generatedBlocks[i] as RewardFinishBlock).Init(i + 1, this, _generatedBlocks.Count, _profile.CurrentLevel);
             }
             else
             {
-                _generatedBlocks[i].Init(i + 1, this, _profile.CurrentLevel, _paletteChanger.CurrentPalette.Colors[Random.Range(3, _paletteChanger.CurrentPalette.Colors.Length)]);
+                int colorId = -1;
+                do 
+                {
+                    colorId = Random.Range(3, _paletteChanger.CurrentPalette.Colors.Length);
+                } while(colorId == _lastColorId);
+                _lastColorId = colorId;
+                _generatedBlocks[i].Init(i + 1, this, _generatedBlocks.Count, _profile.CurrentLevel, _paletteChanger.CurrentPalette.Colors[colorId]);
             }
         }
     }
 
     public void PlayerEntered(int id, int humanId, float baseMoney, float basePower)
     {
-        float money = ((id + 1) * baseMoney) * _profile.CurrentLevel;
-        float power = ((id + 1) * basePower);
+        float rewardFactor = _rewardScaleCurve.Evaluate((float)((float)(id) / (float)(_generatedBlocks.Count - 1)));
+        float money = (((id + 1) * baseMoney) * _profile.CurrentLevel);
+        float power = ((id + 1) * basePower) * rewardFactor;
         _profile.IncreaseMoney(Mathf.RoundToInt(money));
         _profile.IncreasePower(Mathf.RoundToInt(power));
-        if (_record.TryUpdateRecord(_generatedBlocks[id].HumanId))
+        if (_record.TryUpdateRecord(humanId))
         {
             _bar.RefreshBar((float)((float)(id) / (float)(_generatedBlocks.Count - 1)));
         }

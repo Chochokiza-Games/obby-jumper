@@ -126,7 +126,7 @@ public class PlayerProfile : MonoBehaviour
         _money = YandexGame.savesData.money = 0;
         _power = YandexGame.savesData.power;
 
-        _currentLevel = YandexGame.savesData.level;
+        _currentLevel = YandexGame.savesData.level = 1;
 
         _petDropOrderCurrentId = YandexGame.savesData.petDropOrderCurrentId;
 

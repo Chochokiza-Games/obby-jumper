@@ -23,9 +23,11 @@ public class PlayerRecordInfo : MonoBehaviour
     [SerializeField] private LoadingScreen _loadingScreen;
 
     private LanguageTranslator.Languages _currentLanguage;
+    private Vector3 _startScale;
 
     private void Start()
     {
+        _startScale = transform.localScale;
         _currentLanguage = FindObjectOfType<LanguageTranslator>().CurrentLangunage;
     }
 
@@ -65,15 +67,15 @@ public class PlayerRecordInfo : MonoBehaviour
     private IEnumerator ShowRoutine()
     {
         float timeElapsed = 0;
-        Vector3 startScale = transform.localScale;
         while(timeElapsed < _duration)
         {
-            transform.localScale = startScale * _sizeCurve.Evaluate(timeElapsed / _duration);
+            transform.localScale = _startScale * _sizeCurve.Evaluate(timeElapsed / _duration);
             _label.alpha = _alphaCurve.Evaluate(timeElapsed / _duration);
             timeElapsed += Time.deltaTime;
             yield return null;
         }
 
+        transform.localScale = _startScale;
         _label.alpha = 0;
     }
 

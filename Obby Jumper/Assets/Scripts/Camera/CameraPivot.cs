@@ -26,6 +26,7 @@ public class CameraPivot : MonoBehaviour
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private CinemachineFreeLook _camera;
     [SerializeField] private EventSystem _eventSystem;
+    [SerializeField] private Vector2 _defaultValues;
 
     private bool _locked;
     private bool _isMobile = false;
@@ -44,6 +45,12 @@ public class CameraPivot : MonoBehaviour
 
         _camera.m_YAxis.m_MaxSpeed = 0;
         _camera.m_XAxis.m_MaxSpeed = 0;
+    }
+
+    public void ReturnToDefault()
+    {
+        _camera.m_XAxis.Value = _defaultValues.x;
+        _camera.m_YAxis.Value = _defaultValues.y;
     }
 
     public void SetSensetivityCoef(float value)
