@@ -1,12 +1,12 @@
 {
-    "idSave": 2654,
+    "idSave": 2664,
     "isFirstSession": false,
     "language": "en",
     "promptDone": false,
     "money": 1000,
     "power": 10,
     "bagUpgradesBought": 0,
-    "petDropOrderCurrentId": 0,
+    "petDropOrderCurrentId": 1,
     "openedSkins": [
         true,
         true,

@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 0ff23603c187cd146bc65bf76e851175, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: eaccfa7a5c7b47f44adb8fb5be4e6df1, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -1109,6 +1109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf1dadd0a800f974ebc4acf4f7ff6855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _debug: 1
   _paletteChanger: {fileID: 521337959}
 --- !u!114 &521337959
 MonoBehaviour:
@@ -1122,6 +1123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f0ca89c3a123714484a130fd16c1447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _debugId: 0
   _palettes:
   - {fileID: 11400000, guid: fefe0542c3c7ad0459bd291c03f859ca, type: 2}
   - {fileID: 11400000, guid: 83796690fedd1174b8e5856982c78f53, type: 2}
@@ -2295,7 +2297,7 @@ Transform:
   m_GameObject: {fileID: 1174727756}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 46.8}
+  m_LocalPosition: {x: 0, y: 0, z: 42.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2680,6 +2682,10 @@ PrefabInstance:
       propertyPath: _buttonClicked.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1240953087461862191, guid: 93b5fbb489aea5741881feb70ff6d11b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e5b403b6e289538838f46b7bda58b725, type: 2}
     - target: {fileID: 1535763567662342293, guid: 93b5fbb489aea5741881feb70ff6d11b, type: 3}
       propertyPath: m_Layer
       value: 11
@@ -2770,7 +2776,7 @@ PrefabInstance:
       objectReference: {fileID: 1770356984}
     - target: {fileID: 4231291776687980131, guid: 93b5fbb489aea5741881feb70ff6d11b, type: 3}
       propertyPath: _shouldEducate
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4231291776687980131, guid: 93b5fbb489aea5741881feb70ff6d11b, type: 3}
       propertyPath: _accessoriesStore

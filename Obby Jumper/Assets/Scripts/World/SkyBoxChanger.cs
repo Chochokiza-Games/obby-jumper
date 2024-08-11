@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SkyBoxChanger : MonoBehaviour
 {   
+    [SerializeField] private bool _debug;
     [SerializeField] private PaletteChanger _paletteChanger;
     private Material _skyBox;
 
@@ -16,6 +17,7 @@ public class SkyBoxChanger : MonoBehaviour
 
     private void PaintSkyboxFromPalette()
     {
+        Debug.Log(_paletteChanger.CurrentPalette.Colors[0]);
         _skyBox.SetColor("_SkyColor", _paletteChanger.CurrentPalette.Colors[0]);
         _skyBox.SetColor("_EquatorColor", _paletteChanger.CurrentPalette.Colors[1]);
         _skyBox.SetColor("_GroundColor", _paletteChanger.CurrentPalette.Colors[2]);
@@ -25,5 +27,13 @@ public class SkyBoxChanger : MonoBehaviour
     {
         _skyBox = RenderSettings.skybox;
         PaintSkyboxFromPalette();    
+    }
+
+    public void Update()
+    {
+        if (_debug)
+        {
+            PaintSkyboxFromPalette();
+        }
     }
 }

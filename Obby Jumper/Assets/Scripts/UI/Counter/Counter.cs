@@ -54,8 +54,6 @@ public class Counter : MonoBehaviour
             }
             _moneyIncreaseInfoCoroutine = StartCoroutine(MoneyIncreaseInfoRoutine());
         }
-        Debug.Log($"current {_currentValue}");
-        Debug.Log($"needed {_neededValue}");
         float currentValue = _currentValue;
         float endValue = _neededValue;
         _currentValue = _neededValue;
