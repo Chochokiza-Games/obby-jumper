@@ -33,6 +33,8 @@ public class PlayerRagdoll : MonoBehaviour
     [Header("Effects")]
     [SerializeField] private float _effectsGroundCheckDistance;
     [SerializeField] private UnityEvent _nearGround;
+    [SerializeField] private float _fallEffectsGroundCheckDistance;
+    [SerializeField] private GameObject _fallEffectPrefab;
 
     private Vector3 _ejectDirection;
     private int _jumpsCount;
@@ -169,6 +171,7 @@ public class PlayerRagdoll : MonoBehaviour
         _ejected.Invoke();
         StartCoroutine(CheckVelocityRoutine());
         bool nearGround = false;
+        bool fallEffectSpawned = false;
         bool fuckup = false;
         while (true)
         {
@@ -181,6 +184,17 @@ public class PlayerRagdoll : MonoBehaviour
                     _nearGround.Invoke();
                 }
             }
+
+            if (!fallEffectSpawned)
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, -transform.up,  out hit, _fallEffectsGroundCheckDistance, ~(LayerMask.GetMask("Trigger") + LayerMask.GetMask("Coin") + LayerMask.GetMask("Ramp") + LayerMask.GetMask("PlayerSkin") + LayerMask.GetMask("PlayerSkinSkeleton"))) )
+                {
+                    fallEffectSpawned = true;
+                    Instantiate(_fallEffectPrefab, hit.point, Quaternion.identity);
+                }
+            }
+
 
             if (transform.position.y <= -50 && !fuckup)
             {
