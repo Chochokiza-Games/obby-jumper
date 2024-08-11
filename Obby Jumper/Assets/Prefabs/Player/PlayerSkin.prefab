@@ -12,7 +12,7 @@ GameObject:
   m_Layer: 8
   m_Name: HatHolder
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -421,9 +421,17 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -8016412588606473749, guid: b66ba40c271b7a94c8cfe2c69e42feee, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8016412588606473749, guid: b66ba40c271b7a94c8cfe2c69e42feee, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8016412588606473749, guid: b66ba40c271b7a94c8cfe2c69e42feee, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d160bcdefae928049bab750b617b5826, type: 2}
+      objectReference: {fileID: 2100000, guid: a5c44359cbe1af24e8fe01273adce0a6, type: 2}
     - target: {fileID: -7774620517717459388, guid: b66ba40c271b7a94c8cfe2c69e42feee, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -481,17 +489,33 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -1526964690268444965, guid: b66ba40c271b7a94c8cfe2c69e42feee, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1526964690268444965, guid: b66ba40c271b7a94c8cfe2c69e42feee, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1526964690268444965, guid: b66ba40c271b7a94c8cfe2c69e42feee, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d160bcdefae928049bab750b617b5826, type: 2}
+      objectReference: {fileID: 2100000, guid: a5c44359cbe1af24e8fe01273adce0a6, type: 2}
     - target: {fileID: -1033859536177898853, guid: b66ba40c271b7a94c8cfe2c69e42feee, type: 3}
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -809828480950454423, guid: b66ba40c271b7a94c8cfe2c69e42feee, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -809828480950454423, guid: b66ba40c271b7a94c8cfe2c69e42feee, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -809828480950454423, guid: b66ba40c271b7a94c8cfe2c69e42feee, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d160bcdefae928049bab750b617b5826, type: 2}
+      objectReference: {fileID: 2100000, guid: a5c44359cbe1af24e8fe01273adce0a6, type: 2}
     - target: {fileID: -799340755243943320, guid: b66ba40c271b7a94c8cfe2c69e42feee, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -561,9 +585,17 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5742066667910392887, guid: b66ba40c271b7a94c8cfe2c69e42feee, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742066667910392887, guid: b66ba40c271b7a94c8cfe2c69e42feee, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742066667910392887, guid: b66ba40c271b7a94c8cfe2c69e42feee, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d160bcdefae928049bab750b617b5826, type: 2}
+      objectReference: {fileID: 2100000, guid: a5c44359cbe1af24e8fe01273adce0a6, type: 2}
     - target: {fileID: 6291965730131614953, guid: b66ba40c271b7a94c8cfe2c69e42feee, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -806,18 +838,18 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -73.98883
+    limit: -12.626185
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 65.429474
+    limit: -1.1088867
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
     spring: 0
     damper: 0
   m_Swing1Limit:
-    limit: 3
+    limit: 12.753174
     bounciness: 0
     contactDistance: 0
   m_Swing2Limit:
@@ -928,11 +960,11 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -80
+    limit: 2.6398976
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 2.5043654
+    limit: 102.49093
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
@@ -1135,18 +1167,18 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -132.73117
+    limit: -76.77157
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: -61.180603
+    limit: 27.409916
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
     spring: 0
     damper: 0
   m_Swing1Limit:
-    limit: 11.219855
+    limit: 14.700157
     bounciness: 0
     contactDistance: 0
   m_Swing2Limit:
@@ -1297,11 +1329,11 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -53.448357
+    limit: 3.2436514
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 120.18789
+    limit: 40.913372
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
@@ -1343,18 +1375,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _materials:
   - {fileID: 2100000, guid: 5945aec515b53064895db2307b14f206, type: 2}
-  - {fileID: 2100000, guid: 87591f086d456bb48b4471ebd8754ea0, type: 2}
-  - {fileID: 2100000, guid: 365f49d01c239bb4ea4230c33650aee4, type: 2}
   - {fileID: 2100000, guid: eb3a9ab391826c54fa1b3ade07f019db, type: 2}
-  - {fileID: 2100000, guid: 266e77cdd171830498d4ed64cc7a80a7, type: 2}
+  - {fileID: 2100000, guid: 365f49d01c239bb4ea4230c33650aee4, type: 2}
+  - {fileID: 2100000, guid: 87591f086d456bb48b4471ebd8754ea0, type: 2}
   - {fileID: 2100000, guid: fa34aefc3dbc79e42acc8af6cacf20f9, type: 2}
   - {fileID: 2100000, guid: 1efd15e01da63fb4f809018e967da0f3, type: 2}
   - {fileID: 2100000, guid: a04c90f8100fb6243bf1d9e18295c6e3, type: 2}
   - {fileID: 2100000, guid: 1695739e0789c7d48b41e5a2e249961b, type: 2}
-  - {fileID: 2100000, guid: fe46ed1e5a41404479b54a21157b36c4, type: 2}
-  - {fileID: 2100000, guid: 834bee35c535af548a906c8e6efe7046, type: 2}
   - {fileID: 2100000, guid: bdfad33020abbe842b0675c207cb1d41, type: 2}
   - {fileID: 2100000, guid: a5c44359cbe1af24e8fe01273adce0a6, type: 2}
+  - {fileID: 2100000, guid: 834bee35c535af548a906c8e6efe7046, type: 2}
   - {fileID: 2100000, guid: 9a2d2258e15ba4344a70e48133675c12, type: 2}
   - {fileID: 2100000, guid: 323fa6a08296656499531556dbd0c407, type: 2}
   - {fileID: 2100000, guid: cd987634b000d58448a0087ce86136e3, type: 2}
@@ -1501,33 +1531,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DistractionFromGameplayChecker, Assembly-CSharp
+        m_MethodName: OnFlyStarted
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _flyEnded:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CameraSpeedEffect, Assembly-CSharp
-        m_MethodName: Hide
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CameraFishEye, Assembly-CSharp
-        m_MethodName: DisableFishEye
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _collider: {fileID: 1331416752121890250}
   _animator: {fileID: 5717530596674397969}
   _skin: {fileID: 2477346616126608597}
@@ -1546,6 +1564,34 @@ MonoBehaviour:
   _ejectDirectionMin: {x: 0, y: 0.3, z: 1}
   _ejectDirectionMax: {x: 0, y: 0.4, z: 1}
   _pushToFinishForceFactor: 2
+  _effectsGroundCheckDistance: 5
+  _nearGround:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: CameraFishEye, Assembly-CSharp
+        m_MethodName: DisableFishEye
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: CameraSpeedEffect, Assembly-CSharp
+        m_MethodName: Hide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!54 &53640726057243441
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1586,10 +1632,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _debugWings: {fileID: 0}
-  _debugHat: {fileID: 0}
+  _debugHat: {fileID: 11400000, guid: 5d8a4ca71801bc347a8f6a4234a55852, type: 2}
   _info:
-  - {fileID: 11400000, guid: a4e585477a8b2ed63ba55adcb78f069e, type: 2}
-  - {fileID: 11400000, guid: 4a0f22c156cc7fb36a31b529d36ef797, type: 2}
+  - {fileID: 11400000, guid: c48764649040cb847a71549fce709d00, type: 2}
+  - {fileID: 11400000, guid: 638a3c4cfe3565545976771a946d1413, type: 2}
+  - {fileID: 11400000, guid: 75524452a37f76640b2905ae4ec291f1, type: 2}
+  - {fileID: 11400000, guid: 686c00f611794a4448ebb6fac09c6639, type: 2}
+  - {fileID: 11400000, guid: 289df9f486fe9c0459bb955793a98692, type: 2}
+  - {fileID: 11400000, guid: 0b28fa1a04b0c7b418bd4918c097ac57, type: 2}
+  - {fileID: 11400000, guid: a806871b5608f0242b24e61e05941614, type: 2}
+  - {fileID: 11400000, guid: 0c411a31fce5bb845931792ebb54bc06, type: 2}
+  - {fileID: 11400000, guid: 5d8a4ca71801bc347a8f6a4234a55852, type: 2}
   _hatPlaceholder: {fileID: 5297729347093685072}
   _wingsPlaceholder: {fileID: 4656695029330458836}
 --- !u!1 &4290636154109732567 stripped
@@ -1666,18 +1719,18 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: 43.89103
+    limit: -5.5802293
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 148.56525
+    limit: 60
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
     spring: 0
     damper: 0
   m_Swing1Limit:
-    limit: 24.872591
+    limit: 37.19881
     bounciness: 0
     contactDistance: 0
   m_Swing2Limit:
@@ -1763,31 +1816,31 @@ CharacterJoint:
   m_ConnectedBody: {fileID: 6116998576195153530}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
-  m_Axis: {x: 0, y: 1, z: 0}
+  m_Axis: {x: -1, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: -0.44378674, y: 0.30352038, z: -0.054948047}
   serializedVersion: 2
-  m_SwingAxis: {x: 1, y: 0, z: 0}
+  m_SwingAxis: {x: -1, y: 0, z: 1}
   m_TwistLimitSpring:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -70.6954
+    limit: -161.77519
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 10
+    limit: -52.17829
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
     spring: 0
     damper: 0
   m_Swing1Limit:
-    limit: 50
+    limit: 40.921585
     bounciness: 0
     contactDistance: 0
   m_Swing2Limit:
-    limit: 0
+    limit: 3
     bounciness: 0
     contactDistance: 0
   m_EnableProjection: 1
@@ -1990,27 +2043,27 @@ CharacterJoint:
   m_ConnectedBody: {fileID: 2275264742375798530}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
-  m_Axis: {x: 1, y: 0, z: 0}
+  m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000007450578, y: 0.45073026, z: -0.00000014901163}
+  m_ConnectedAnchor: {x: 0.23264392, y: -0.2433163, z: 1.1203928}
   serializedVersion: 2
-  m_SwingAxis: {x: 0, y: -1, z: 0}
+  m_SwingAxis: {x: 0, y: 0, z: 0}
   m_TwistLimitSpring:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -111.276505
+    limit: -40.00769
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: -64.0447
+    limit: 98.151115
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
     spring: 0
     damper: 0
   m_Swing1Limit:
-    limit: 48.841057
+    limit: 3
     bounciness: 0
     contactDistance: 0
   m_Swing2Limit:
@@ -2091,31 +2144,31 @@ CharacterJoint:
   m_ConnectedBody: {fileID: 6116998576195153530}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
-  m_Axis: {x: 0, y: -1, z: 0}
+  m_Axis: {x: -1, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0.41937125, y: 0.30008698, z: 0.13081089}
   serializedVersion: 2
-  m_SwingAxis: {x: -1, y: 0, z: 0}
+  m_SwingAxis: {x: 0, y: 0, z: 0}
   m_TwistLimitSpring:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -69.19046
+    limit: -103.52507
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 10
+    limit: -103.52507
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
     spring: 0
     damper: 0
   m_Swing1Limit:
-    limit: 50
+    limit: 25.058187
     bounciness: 0
     contactDistance: 0
   m_Swing2Limit:
-    limit: 0
+    limit: 3
     bounciness: 0
     contactDistance: 0
   m_EnableProjection: 1
