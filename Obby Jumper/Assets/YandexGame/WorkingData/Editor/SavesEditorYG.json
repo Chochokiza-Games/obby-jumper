@@ -1,10 +1,10 @@
 {
-    "idSave": 2723,
+    "idSave": 2818,
     "isFirstSession": false,
     "language": "en",
     "promptDone": false,
-    "money": 450800,
-    "power": 70,
+    "money": 1672450,
+    "power": 1169,
     "bagUpgradesBought": 0,
     "petDropOrderCurrentId": 1,
     "openedSkins": [
@@ -65,6 +65,10 @@
         0,
         0,
         0,
+        0,
+        0,
+        0,
+        0,
         0
     ],
     "shopPrices": [
@@ -75,9 +79,9 @@
     "storeToastEducationShowed": false,
     "lastSkinId": 0,
     "lastTrailId": 0,
-    "progressBarAmount": 0.06122449040412903,
-    "playerRecord": 60400,
-    "level": 13,
+    "progressBarAmount": 0.2857142984867096,
+    "playerRecord": 81500,
+    "level": 17,
     "startEducationCompleted": true,
     "secondLevelEducationCompleted": false,
     "thirdLevelEducationCompleted": false
