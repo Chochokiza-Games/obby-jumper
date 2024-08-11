@@ -112,8 +112,8 @@ public class PlayerProfile : MonoBehaviour
         _moneyChanged.Invoke(_money);
         _powerChanged.Invoke(_power);
 
-        LoadInventory(_petInventory, ref YandexGame.savesData.petInventoryItems);
-        LoadInventory(_petEggsInventory, ref YandexGame.savesData.petEggsInventoryItems);
+        //LoadInventory(_petInventory, ref YandexGame.savesData.petInventoryItems);
+        //LoadInventory(_petEggsInventory, ref YandexGame.savesData.petEggsInventoryItems);
 
         FindObjectOfType<LanguageTranslator>().InitLanguage(YandexGame.lang = "ru");
 
@@ -123,7 +123,7 @@ public class PlayerProfile : MonoBehaviour
         _petInventory.PushItem(BaseInventoryItem.ItemId.PetPumkin);
         _petInventory.PushItem(BaseInventoryItem.ItemId.PetBurger);
         _petInventory.PushItem(BaseInventoryItem.ItemId.PetDemon);
-        _petEggsInventory.PushItem(BaseInventoryItem.ItemId.Egg);
+        //_petEggsInventory.PushItem(BaseInventoryItem.ItemId.Egg);
     }
 
     private void LoadInventory(PlayerInventory inventory, ref int[] array)

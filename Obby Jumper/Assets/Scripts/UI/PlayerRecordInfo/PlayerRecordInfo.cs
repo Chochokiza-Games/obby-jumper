@@ -44,9 +44,12 @@ public class PlayerRecordInfo : MonoBehaviour
 
     public void Show(int record)
     {
-        gameObject.SetActive(true);
         _label.text = $"{(_currentLanguage == LanguageTranslator.Languages.Russian ? _ruTemplate : _enTemplate)} {record}!";
-        StartCoroutine(ShowRoutine());
+
+        if (gameObject.activeInHierarchy)
+        {
+            StartCoroutine(ShowRoutine());
+        }
     }
 
     public void ShowLevel(int level)
