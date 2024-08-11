@@ -9,7 +9,7 @@ public class TrackHolder : MonoBehaviour
     
     int _currentTraceId = -1;
 
-    private void Awake()
+    private void Start()
     {
         int level = FindObjectOfType<PlayerProfile>().CurrentLevel;
         _currentTraceId = InitCurrentTraceIdFromLevel(level);
