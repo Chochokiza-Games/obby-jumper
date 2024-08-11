@@ -27,7 +27,6 @@ public class PlayerSkin : MonoBehaviour
         {
             return;
         }
-
         transform.position = _playerMovement.transform.position;
         Vector3 direction = (_playerMovementDirection
             + _playerMovement.transform.position) - transform.position;

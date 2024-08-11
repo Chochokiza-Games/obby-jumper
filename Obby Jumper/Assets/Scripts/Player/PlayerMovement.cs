@@ -138,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        
+        Debug.Log("A");
 
         //Debug.Log(_isGrounded);
 

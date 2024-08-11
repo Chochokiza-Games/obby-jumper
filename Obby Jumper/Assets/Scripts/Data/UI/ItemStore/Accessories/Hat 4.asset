@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemId: 9
   _price: 5000
-  _iconPreview: {fileID: 0}
+  _iconPreview: {fileID: 21300000, guid: ad0b221127fd3df1d9d28544fcee972d, type: 3}
   _type: 2
   _prefab: {fileID: 5639970657617031486, guid: d6202d5712fb76d4cbeba7b260658ae0, type: 3}
   _accessoryType: 0

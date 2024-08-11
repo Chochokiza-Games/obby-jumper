@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pet Item 1
   m_EditorClassIdentifier: 
   _itemId: 1
-  _icon: {fileID: 21300000, guid: 93f18dbe54ab8d5488757a59b3c3a922, type: 3}
+  _icon: {fileID: 21300000, guid: a2f0d7032231bb6b3ab90c4de4a857a2, type: 3}
   _ruLabel: "\u0417\u0430\u0439\u0447\u0438\u043A"
   _enLabel: Bunny
   _prefab: {fileID: 1674280011326683403, guid: 4f0bcb8dc031eea4f8ee6a764d985b28, type: 3}

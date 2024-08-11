@@ -102,7 +102,7 @@ public class PlayerProfile : MonoBehaviour
 
         _loadEvent.Invoke();
 
-        _money = YandexGame.savesData.money = 0;
+        _money = YandexGame.savesData.money = 13333300;
         _power = YandexGame.savesData.power;
 
         _currentLevel = YandexGame.savesData.level = 1;
@@ -118,13 +118,11 @@ public class PlayerProfile : MonoBehaviour
         FindObjectOfType<LanguageTranslator>().InitLanguage(YandexGame.lang = "ru");
 
         _petInventory.PushItem(BaseInventoryItem.ItemId.PetCat);
-        _petInventory.PushItem(BaseInventoryItem.ItemId.PetCat);
-        _petInventory.PushItem(BaseInventoryItem.ItemId.PetCat);
-        _petInventory.PushItem(BaseInventoryItem.ItemId.PetCat);
-        _petInventory.PushItem(BaseInventoryItem.ItemId.PetCat);
-        _petInventory.PushItem(BaseInventoryItem.ItemId.PetCat);
-        _petEggsInventory.PushItem(BaseInventoryItem.ItemId.Egg);
-        _petEggsInventory.PushItem(BaseInventoryItem.ItemId.Egg);
+        _petInventory.PushItem(BaseInventoryItem.ItemId.PetBear);
+        _petInventory.PushItem(BaseInventoryItem.ItemId.PetBunny);
+        _petInventory.PushItem(BaseInventoryItem.ItemId.PetPumkin);
+        _petInventory.PushItem(BaseInventoryItem.ItemId.PetBurger);
+        _petInventory.PushItem(BaseInventoryItem.ItemId.PetDemon);
         _petEggsInventory.PushItem(BaseInventoryItem.ItemId.Egg);
     }
 
