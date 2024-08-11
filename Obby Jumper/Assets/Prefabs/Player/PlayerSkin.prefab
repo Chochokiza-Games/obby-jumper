@@ -1320,7 +1320,7 @@ CharacterJoint:
   m_ConnectedBody: {fileID: 5126909544238527762}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
-  m_Axis: {x: 1, y: 0, z: 0}
+  m_Axis: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: -0.0045559644, y: 0.35634655, z: 0.018067816}
   serializedVersion: 2
@@ -1348,7 +1348,7 @@ CharacterJoint:
     bounciness: 0
     contactDistance: 0
   m_EnableProjection: 1
-  m_ProjectionDistance: 0.1
+  m_ProjectionDistance: 1.52
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -1592,6 +1592,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _fallEffectsGroundCheckDistance: 0.2
+  _fallEffectPrefab: {fileID: 1159970587636746, guid: e7473d9620ab29341b98bf21b400e598, type: 3}
 --- !u!54 &53640726057243441
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1631,8 +1633,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b1174a316a13d0c98efdd4bb4eeddd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _debugWings: {fileID: 11400000, guid: 686c00f611794a4448ebb6fac09c6639, type: 2}
-  _debugHat: {fileID: 11400000, guid: 0b28fa1a04b0c7b418bd4918c097ac57, type: 2}
+  _debugWings: {fileID: 11400000, guid: 638a3c4cfe3565545976771a946d1413, type: 2}
+  _debugHat: {fileID: 11400000, guid: 5d8a4ca71801bc347a8f6a4234a55852, type: 2}
   _info:
   - {fileID: 11400000, guid: c48764649040cb847a71549fce709d00, type: 2}
   - {fileID: 11400000, guid: 638a3c4cfe3565545976771a946d1413, type: 2}
@@ -1774,7 +1776,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.112682566
   m_Height: 0.32693827
@@ -2102,7 +2104,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.11268854
   m_Height: 0.33707556

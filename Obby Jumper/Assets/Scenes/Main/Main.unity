@@ -3209,7 +3209,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3431729622209038747, guid: 8516a604d8be3f96a872d78e1ad18f7d, type: 3}
       propertyPath: m_EnableProjection
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3431729622209038747, guid: 8516a604d8be3f96a872d78e1ad18f7d, type: 3}
+      propertyPath: m_ProjectionDistance
+      value: 1.52
       objectReference: {fileID: 0}
     - target: {fileID: 3539639749993801287, guid: 8516a604d8be3f96a872d78e1ad18f7d, type: 3}
       propertyPath: _profile
