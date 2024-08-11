@@ -202,6 +202,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1479283911556714749, guid: 1cd61e614c73982e2a4cf8737041d937, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1592495948573232696, guid: 1cd61e614c73982e2a4cf8737041d937, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248905506208848038, guid: 1cd61e614c73982e2a4cf8737041d937, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2475887111832514378, guid: 1cd61e614c73982e2a4cf8737041d937, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895839399318568006, guid: 1cd61e614c73982e2a4cf8737041d937, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037112974549408280, guid: 1cd61e614c73982e2a4cf8737041d937, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3803713935505902050, guid: 1cd61e614c73982e2a4cf8737041d937, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3864913531987217210, guid: 1cd61e614c73982e2a4cf8737041d937, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4661773726201994630, guid: 1cd61e614c73982e2a4cf8737041d937, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4779436929098501013, guid: 1cd61e614c73982e2a4cf8737041d937, type: 3}
       propertyPath: _playerEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -214,9 +250,41 @@ PrefabInstance:
       propertyPath: _playerEnter.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: PlayerRagdoll, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 5428542746507450709, guid: 1cd61e614c73982e2a4cf8737041d937, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5481784260384054181, guid: 1cd61e614c73982e2a4cf8737041d937, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6067667763323818866, guid: 1cd61e614c73982e2a4cf8737041d937, type: 3}
       propertyPath: m_Name
       value: Track2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6160661893785422706, guid: 1cd61e614c73982e2a4cf8737041d937, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254980839172420215, guid: 1cd61e614c73982e2a4cf8737041d937, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837204857680978352, guid: 1cd61e614c73982e2a4cf8737041d937, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174701444324602731, guid: 1cd61e614c73982e2a4cf8737041d937, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7309122773286895464, guid: 1cd61e614c73982e2a4cf8737041d937, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7568371495473768108, guid: 1cd61e614c73982e2a4cf8737041d937, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7648909303407068193, guid: 1cd61e614c73982e2a4cf8737041d937, type: 3}
       propertyPath: _playerEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -229,6 +297,14 @@ PrefabInstance:
     - target: {fileID: 7648909303407068193, guid: 1cd61e614c73982e2a4cf8737041d937, type: 3}
       propertyPath: _playerEnter.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: PlayerRagdoll, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787563207962707129, guid: 1cd61e614c73982e2a4cf8737041d937, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918085394083413957, guid: 1cd61e614c73982e2a4cf8737041d937, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -281,6 +357,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1174727758}
     m_Modifications:
+    - target: {fileID: 2327665287483148453, guid: 9744a460fb4fc6d5b98fdc4760a7466f, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2447764310779471960, guid: 9744a460fb4fc6d5b98fdc4760a7466f, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2791872969869460658, guid: 9744a460fb4fc6d5b98fdc4760a7466f, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967865759868886389, guid: 9744a460fb4fc6d5b98fdc4760a7466f, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3210868795005823117, guid: 9744a460fb4fc6d5b98fdc4760a7466f, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3911429422622044517, guid: 9744a460fb4fc6d5b98fdc4760a7466f, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4414562301663645337, guid: 9744a460fb4fc6d5b98fdc4760a7466f, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 5268255260299626156, guid: 9744a460fb4fc6d5b98fdc4760a7466f, type: 3}
       propertyPath: _playerEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -293,6 +397,10 @@ PrefabInstance:
       propertyPath: _playerEnter.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: PlayerRagdoll, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 5465865917235602313, guid: 9744a460fb4fc6d5b98fdc4760a7466f, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 5483996439198892670, guid: 9744a460fb4fc6d5b98fdc4760a7466f, type: 3}
       propertyPath: _playerEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -304,6 +412,10 @@ PrefabInstance:
     - target: {fileID: 5483996439198892670, guid: 9744a460fb4fc6d5b98fdc4760a7466f, type: 3}
       propertyPath: _playerEnter.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: PlayerRagdoll, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5502812594697596134, guid: 9744a460fb4fc6d5b98fdc4760a7466f, type: 3}
+      propertyPath: _basePowerRewardCount
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7286767233538671892, guid: 9744a460fb4fc6d5b98fdc4760a7466f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -993,6 +1105,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4669084170648960, guid: 2b0d7f8f779c4ed4b96621647861c04c, type: 3}
   m_PrefabInstance: {fileID: 552412668}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &609784835 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5799256164196285630, guid: 1d6bdc4e9f7df2a45913a7b789e82066, type: 3}
+  m_PrefabInstance: {fileID: 4595029589354985407}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &609784839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609784835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 3, y: -3}
+  m_UseGraphicAlpha: 1
 --- !u!1 &659872573 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5700116101178264192, guid: 1d6bdc4e9f7df2a45913a7b789e82066, type: 3}
@@ -4625,7 +4757,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7127433720899164540, guid: 1d6bdc4e9f7df2a45913a7b789e82066, type: 3}
       insertIndex: -1
       addedObject: {fileID: 838380140}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5799256164196285630, guid: 1d6bdc4e9f7df2a45913a7b789e82066, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 609784839}
   m_SourcePrefab: {fileID: 100100000, guid: 1d6bdc4e9f7df2a45913a7b789e82066, type: 3}
 --- !u!114 &6148553508098419017
 MonoBehaviour:

@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _baseMoneyRewardCount: 50
-  _basePowerRewardCount: 15
+  _basePowerRewardCount: 50
   _renderer: {fileID: 1714267063092617128}
   _3dLabel: {fileID: 2535932427153836081}
   _startOfCountingValue: 10
