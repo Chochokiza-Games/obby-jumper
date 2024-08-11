@@ -53,9 +53,19 @@ public class ProgressBar : MonoBehaviour
 
     public void RefreshBar(float barPercent)
     {
-        StopAllCoroutines();
         _newAmount = barPercent;
-        StartCoroutine(RefreshBarRoutine());
+
+        if (gameObject.activeInHierarchy)
+        {        
+            StopAllCoroutines();
+            StartCoroutine(RefreshBarRoutine());
+        }
+        else
+        {
+            StopAllCoroutines();
+            _bar.fillAmount = _newAmount;
+        }
+
     }
 
     private IEnumerator RefreshBarRoutine()

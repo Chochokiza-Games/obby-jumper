@@ -262,21 +262,12 @@ MonoBehaviour:
   _showDuration: 0.5
   _pauseDuration: 3
   _previewBase: {fileID: 1976284462141257703}
-  _rewardShowed:
+  _rewardStarted:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SoundHandler, Assembly-CSharp
-        m_MethodName: PlaySound
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  _rewardFinished:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &868747745933339005
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,7 +402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -526,7 +517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -601,7 +592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -852,6 +843,10 @@ PrefabInstance:
     - target: {fileID: 2544837267772854913, guid: f82156879107b31c3877e3c0e8156d6d, type: 3}
       propertyPath: _rotationSpeed
       value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684489843988917455, guid: f82156879107b31c3877e3c0e8156d6d, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3053516077850804586, guid: f82156879107b31c3877e3c0e8156d6d, type: 3}
       propertyPath: m_Name

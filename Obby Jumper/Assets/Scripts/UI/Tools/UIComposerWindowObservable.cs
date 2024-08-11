@@ -7,12 +7,24 @@ public class UIComposerWindowObservable : MonoBehaviour
 {
     private UIComposer _uiComposer;
     
-    private void Awake()
+    // private void OnEnable()
+    // {
+    //     if (_uiComposer == null)
+    //     {
+    //         _uiComposer = FindObjectOfType<UIComposer>();
+    //     }
+
+    //     _uiComposer.OpeningSomeUI();
+    // }
+
+
+    private void Update()
     {
-        _uiComposer = FindObjectOfType<UIComposer>();
-    }
-    private void OnEnable()
-    {
+        if (_uiComposer == null)
+        {
+            _uiComposer = FindObjectOfType<UIComposer>();
+        }
+        
         _uiComposer.OpeningSomeUI();
     }
     private void OnDisable()
