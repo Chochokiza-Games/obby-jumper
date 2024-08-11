@@ -2630,7 +2630,7 @@ PrefabInstance:
       objectReference: {fileID: 1770356984}
     - target: {fileID: 4231291776687980131, guid: 93b5fbb489aea5741881feb70ff6d11b, type: 3}
       propertyPath: _shouldEducate
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4231291776687980131, guid: 93b5fbb489aea5741881feb70ff6d11b, type: 3}
       propertyPath: _accessoriesStore
@@ -2638,7 +2638,7 @@ PrefabInstance:
       objectReference: {fileID: 494114124}
     - target: {fileID: 5317168091547397299, guid: 93b5fbb489aea5741881feb70ff6d11b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6245110678685690181, guid: 93b5fbb489aea5741881feb70ff6d11b, type: 3}
       propertyPath: _camera
@@ -3017,7 +3017,7 @@ PrefabInstance:
       objectReference: {fileID: 7365889371364522994}
     - target: {fileID: 1690226426222676876, guid: 8516a604d8be3f96a872d78e1ad18f7d, type: 3}
       propertyPath: _pushForce
-      value: 600
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 1690226426222676876, guid: 8516a604d8be3f96a872d78e1ad18f7d, type: 3}
       propertyPath: _teleporter
@@ -3205,6 +3205,10 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: a5c44359cbe1af24e8fe01273adce0a6, type: 2}
     - target: {fileID: 3431729622209038747, guid: 8516a604d8be3f96a872d78e1ad18f7d, type: 3}
       propertyPath: m_Axis.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3431729622209038747, guid: 8516a604d8be3f96a872d78e1ad18f7d, type: 3}
+      propertyPath: m_EnableProjection
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3539639749993801287, guid: 8516a604d8be3f96a872d78e1ad18f7d, type: 3}
@@ -3630,6 +3634,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1632935056}
     m_Modifications:
+    - target: {fileID: 651801925150504651, guid: 8fc3a0453cc17034db4905b6c121b587, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 651801925150504651, guid: 8fc3a0453cc17034db4905b6c121b587, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 651801925150504651, guid: 8fc3a0453cc17034db4905b6c121b587, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1704458656683976067, guid: 8fc3a0453cc17034db4905b6c121b587, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -3722,10 +3738,6 @@ PrefabInstance:
       propertyPath: _checker
       value: 
       objectReference: {fileID: 4523860056063453317}
-    - target: {fileID: 8209464879868137754, guid: 8fc3a0453cc17034db4905b6c121b587, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
