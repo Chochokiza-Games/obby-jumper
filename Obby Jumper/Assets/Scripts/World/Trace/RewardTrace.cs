@@ -17,7 +17,6 @@ public class RewardTrace : MonoBehaviour
     [Space]
     [Header("Generating Prefabs")]
     [SerializeField] private Transform _voidVelocityTrigger;
-    [SerializeField] private Transform _fallProtectorTrigger;
     [SerializeField] private bool _generate;
     [SerializeField] private int _generatedCount;
     [SerializeField] private GameObject _blockPrefab;
@@ -69,10 +68,6 @@ public class RewardTrace : MonoBehaviour
             BoxCollider tr = _voidVelocityTrigger.GetComponent<BoxCollider>();
             tr.size = new Vector3(_blockSize.x, 1000, 20);
             tr.center = new Vector3(0, 500, (_blockSize.z * _generatedCount) - (_blockSize.z / 2));
-            tr = _fallProtectorTrigger.GetComponent<BoxCollider>();
-            tr.size = new Vector3(_blockSize.x * 10, 50, (_blockSize.z * _generatedCount) * 1.5f);
-            tr.center = new Vector3(0, -60, (_blockSize.z * _generatedCount) / 2f);
-            tr.center -= Vector3.forward * (_blockSize.z / 2f);
             _generate = false;
             gameObject.name = _name;
             return;
@@ -87,7 +82,6 @@ public class RewardTrace : MonoBehaviour
         _record = _record == null ? FindObjectOfType<PlayerRecord>() : _record;
         _paletteChanger = _paletteChanger == null ? FindObjectOfType<PaletteChanger>() : _paletteChanger;
         _voidVelocityTrigger.gameObject.SetActive(true);
-        _fallProtectorTrigger.gameObject.SetActive(true);
 
         for (int i = 0; i < _generatedBlocks.Count; i++)
         {   

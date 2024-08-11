@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198096858069344474, guid: 2966910701d40974c87f0338bb5694e3, type: 3}
       propertyPath: InitialModule.gravityModifier.scalar
-      value: 0.01
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 198096858069344474, guid: 2966910701d40974c87f0338bb5694e3, type: 3}
       propertyPath: EmissionModule.rateOverDistance.scalar
