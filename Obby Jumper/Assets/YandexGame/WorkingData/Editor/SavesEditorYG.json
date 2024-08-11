@@ -1,7 +1,7 @@
 {
-    "idSave": 2644,
+    "idSave": 2654,
     "isFirstSession": false,
-    "language": "ru",
+    "language": "en",
     "promptDone": false,
     "money": 1000,
     "power": 10,
@@ -66,5 +66,8 @@
     "lastTrailId": 0,
     "progressBarAmount": 0.0,
     "playerRecord": 1000,
-    "level": 2
+    "level": 2,
+    "startEducationCompleted": true,
+    "secondLevelEducationCompleted": false,
+    "thirdLevelEducationCompleted": false
 }

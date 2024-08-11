@@ -38,6 +38,11 @@ namespace YG
         public float progressBarAmount = 0;
         public int playerRecord = 0;
         public int level = 1;
+        // education
+        public bool startEducationCompleted;
+        public bool secondLevelEducationCompleted;
+        public bool thirdLevelEducationCompleted;
+
         // ...
 
         // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны

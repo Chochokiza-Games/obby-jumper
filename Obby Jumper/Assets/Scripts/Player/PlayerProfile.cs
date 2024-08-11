@@ -98,32 +98,30 @@ public class PlayerProfile : MonoBehaviour
 
     public void LoadCloud()
     {
-        YandexGame.ResetSaveProgress();
-
         _loadEvent.Invoke();
 
-        _money = YandexGame.savesData.money = 0;
+        _money = YandexGame.savesData.money;
         _power = YandexGame.savesData.power;
 
-        _currentLevel = YandexGame.savesData.level = 1;
+        _currentLevel = YandexGame.savesData.level;
 
         _petDropOrderCurrentId = YandexGame.savesData.petDropOrderCurrentId;
 
         _moneyChanged.Invoke(_money);
         _powerChanged.Invoke(_power);
 
-        //LoadInventory(_petInventory, ref YandexGame.savesData.petInventoryItems);
-        //LoadInventory(_petEggsInventory, ref YandexGame.savesData.petEggsInventoryItems);
+        LoadInventory(_petInventory, ref YandexGame.savesData.petInventoryItems);
+        LoadInventory(_petEggsInventory, ref YandexGame.savesData.petEggsInventoryItems);
 
         FindObjectOfType<LanguageTranslator>().InitLanguage(YandexGame.lang = "ru");
 
-        _petInventory.PushItem(BaseInventoryItem.ItemId.PetCat);
-        _petInventory.PushItem(BaseInventoryItem.ItemId.PetBear);
-        _petInventory.PushItem(BaseInventoryItem.ItemId.PetBunny);
-        _petInventory.PushItem(BaseInventoryItem.ItemId.PetPumkin);
-        _petInventory.PushItem(BaseInventoryItem.ItemId.PetBurger);
-        _petInventory.PushItem(BaseInventoryItem.ItemId.PetDemon);
-        //_petEggsInventory.PushItem(BaseInventoryItem.ItemId.Egg);
+        // _petInventory.PushItem(BaseInventoryItem.ItemId.PetCat);
+        // _petInventory.PushItem(BaseInventoryItem.ItemId.PetBear);
+        // _petInventory.PushItem(BaseInventoryItem.ItemId.PetBunny);
+        // _petInventory.PushItem(BaseInventoryItem.ItemId.PetPumkin);
+        // _petInventory.PushItem(BaseInventoryItem.ItemId.PetBurger);
+        // _petInventory.PushItem(BaseInventoryItem.ItemId.PetDemon);
+        // //_petEggsInventory.PushItem(BaseInventoryItem.ItemId.Egg);
     }
 
     private void LoadInventory(PlayerInventory inventory, ref int[] array)

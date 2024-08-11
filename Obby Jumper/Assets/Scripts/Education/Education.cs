@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using YG;
 
 public class Education : MonoBehaviour
 {
@@ -42,10 +43,13 @@ public class Education : MonoBehaviour
 
     private Dictionary<Type, EducationViewPoint> _viewPointsMapped;
     private string[] _currentEducationPopupText;
-
     private bool _educationInProgress;
-
     private bool _isSpinWheelShowed = false;
+
+/*--------savings-------*/
+    private bool _startEducationCompleted;
+    private bool _secondLevelEducationCompleted;
+    private bool _thirdLevelEducationCompleted;
 
     private void Start()
     {
@@ -61,20 +65,40 @@ public class Education : MonoBehaviour
             return;
         }
 
-        _educationInProgress = true;
-        _movement.LockForEducation();
-        _teacher.SetActive(true);
-        ShowEducation(Type.Start, () => {
-            ShowEducation(Type.Ramp, () => {
-                _teacher.SetActive(false);
-                ShowEducation(Type.Trace, () => {
-                    _cameraBrain.ReturnBack();
-                    _movement.UnlockForEducation();
-                    _educationInProgress = false;
+        if (!_startEducationCompleted)
+        {
+            _educationInProgress = true;
+            _movement.LockForEducation();
+            _teacher.SetActive(true);
+            ShowEducation(Type.Start, () => {
+                ShowEducation(Type.Ramp, () => {
+                    _teacher.SetActive(false);
+                    ShowEducation(Type.Trace, () => {
+                        _cameraBrain.ReturnBack();
+                        _movement.UnlockForEducation();
+                        _educationInProgress = false;
+                        _startEducationCompleted = true;
+                    });
                 });
             });
-        });
+        }
+
+        OnChangeLevel(FindObjectOfType<PlayerProfile>().CurrentLevel);
     }   
+
+    public void OnLoadEvent()
+    {
+        _startEducationCompleted = YandexGame.savesData.startEducationCompleted;
+        _secondLevelEducationCompleted = YandexGame.savesData.secondLevelEducationCompleted;
+        _thirdLevelEducationCompleted = YandexGame.savesData.thirdLevelEducationCompleted;
+    }
+
+    public void OnSaveEvent()
+    {
+        YandexGame.savesData.startEducationCompleted = _startEducationCompleted;
+        YandexGame.savesData.secondLevelEducationCompleted = _secondLevelEducationCompleted;
+        YandexGame.savesData.thirdLevelEducationCompleted = _thirdLevelEducationCompleted;
+    }
     
     private IEnumerator WaitSkinStoreEducation()
     {
@@ -104,13 +128,14 @@ public class Education : MonoBehaviour
     }
     public void SpinwheelEducation()
     {
-        if (!_isSpinWheelShowed && _educationInProgress)
+        if (!_isSpinWheelShowed && _educationInProgress && _secondLevelEducationCompleted)
         {
             ShowEducation(Type.Spinwheel, () => {
                 _cameraBrain.ReturnBack();
                 _movement.UnlockForEducation();
                 _educationInProgress = false;
                 _isSpinWheelShowed = true;
+                _secondLevelEducationCompleted = true;
             });
         }
     }
@@ -121,7 +146,7 @@ public class Education : MonoBehaviour
             return;
         }
 
-        if (level == 2)
+        if (level == 2 && !_secondLevelEducationCompleted)
         {
             _educationInProgress = true;
             _movement.LockForEducation();
@@ -135,7 +160,7 @@ public class Education : MonoBehaviour
             });
         }
 
-        if (level == 3)
+        if (level == 3 && !_thirdLevelEducationCompleted)
         {
             _educationInProgress = true;
             _movement.LockForEducation();
@@ -143,7 +168,8 @@ public class Education : MonoBehaviour
             ShowEducation(Type.Memes, () => {
                 StartCoroutine(WaitSkinStoreEducation());
                 ShowEducation(Type.SkinStore, () => {
-                _teacher.SetActive(false);
+                    _teacher.SetActive(false);
+                    _thirdLevelEducationCompleted = true;
                 });
             });
         }
@@ -163,7 +189,6 @@ public class Education : MonoBehaviour
                         _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "Я ВСЕМОГУЩИЙ СИГМА-ПРЫГУН! ХРЮ" : "I AM THE ALMIGHTY SIGMA JUMPER! OINK",
                         _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ТЫ НИКОГДА НЕ СМОЖЕШЬ СТАТЬ ТАКИМ, КАК Я!" : "YOU CAN NEVER BE LIKE ME!",
                         _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ХОТЯ МОЖЕШЬ ПОПРОБОВАТЬ..." : "ALTHOUGH YOU CAN TRY...",
-
                     };
                 break;
             case Type.Ramp:
