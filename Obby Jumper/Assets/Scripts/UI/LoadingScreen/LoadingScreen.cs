@@ -40,6 +40,11 @@ public class LoadingScreen : MonoBehaviour
     
     public void Show()
     {
+        _loadingPanel.transform.position = new Vector3(
+            _loadingPanel.transform.position.x,
+            0,
+            _loadingPanel.transform.position.z);
+        _background.transform.localScale *= 0;
         StopAllCoroutines();
         _started.Invoke();
         _opened = true;
@@ -81,6 +86,10 @@ public class LoadingScreen : MonoBehaviour
             yield return null;
         }
         StopCoroutine(wiggle);
+        _loadingPanel.transform.position = new Vector3(
+                _loadingPanel.transform.position.x,
+                0,
+                _loadingPanel.transform.position.z);
         _background.transform.localScale *= 0;
         _pattern.transform.localScale = _startPatternScale;
         _ended.Invoke();
