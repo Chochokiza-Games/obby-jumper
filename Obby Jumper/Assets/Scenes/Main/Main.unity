@@ -330,6 +330,10 @@ PrefabInstance:
       propertyPath: _basePowerRewardCount
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 7927654810077405692, guid: 1cd61e614c73982e2a4cf8737041d937, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -365,6 +369,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1174727758}
     m_Modifications:
+    - target: {fileID: 4135505067462837, guid: 9744a460fb4fc6d5b98fdc4760a7466f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1382296437567265633, guid: 9744a460fb4fc6d5b98fdc4760a7466f, type: 3}
       propertyPath: _bar
       value: 
@@ -624,6 +632,10 @@ PrefabInstance:
       propertyPath: _bar
       value: 
       objectReference: {fileID: 1049739828}
+    - target: {fileID: 8188941062644984114, guid: af9a93e6628b843f1a90947a28401a80, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8927186043051722801, guid: af9a93e6628b843f1a90947a28401a80, type: 3}
       propertyPath: _playerEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -660,6 +672,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1174727758}
     m_Modifications:
+    - target: {fileID: 589208937175173794, guid: d290c09ff6d14fcb392a06e706163209, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2087392801633523814, guid: d290c09ff6d14fcb392a06e706163209, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1697,6 +1713,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 698366164}
     - target: {fileID: 4231291776687980131, guid: 93b5fbb489aea5741881feb70ff6d11b, type: 3}
+      propertyPath: _shouldEducate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4231291776687980131, guid: 93b5fbb489aea5741881feb70ff6d11b, type: 3}
       propertyPath: _accessoriesStore
       value: 
       objectReference: {fileID: 494114124}
@@ -1808,6 +1828,10 @@ PrefabInstance:
     - target: {fileID: 6262430266728685222, guid: 8c239d81ccb4702c6ac7545a58df499e, type: 3}
       propertyPath: _playerEnter.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: PlayerRagdoll, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308145521797432171, guid: 8c239d81ccb4702c6ac7545a58df499e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6501423529356530874, guid: 8c239d81ccb4702c6ac7545a58df499e, type: 3}
       propertyPath: _colors
@@ -2202,7 +2226,7 @@ PrefabInstance:
       objectReference: {fileID: 7365889371364522994}
     - target: {fileID: 1690226426222676876, guid: 8516a604d8be3f96a872d78e1ad18f7d, type: 3}
       propertyPath: _pushForce
-      value: 5000
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 1690226426222676876, guid: 8516a604d8be3f96a872d78e1ad18f7d, type: 3}
       propertyPath: _teleporter
@@ -3452,6 +3476,10 @@ PrefabInstance:
       propertyPath: _petInventory
       value: 
       objectReference: {fileID: 2479745679488372167}
+    - target: {fileID: 4825306087367618143, guid: 1d6bdc4e9f7df2a45913a7b789e82066, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -39.999756
+      objectReference: {fileID: 0}
     - target: {fileID: 5012625466355377316, guid: 1d6bdc4e9f7df2a45913a7b789e82066, type: 3}
       propertyPath: _pivot
       value: 
@@ -3468,6 +3496,10 @@ PrefabInstance:
       propertyPath: _distractFromGameplay
       value: 
       objectReference: {fileID: 4523860056063453317}
+    - target: {fileID: 6506899067772205392, guid: 1d6bdc4e9f7df2a45913a7b789e82066, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 18.58667
+      objectReference: {fileID: 0}
     - target: {fileID: 6829818988700772469, guid: 1d6bdc4e9f7df2a45913a7b789e82066, type: 3}
       propertyPath: _linkedInventory
       value: 
@@ -3592,6 +3624,14 @@ PrefabInstance:
       propertyPath: _movement
       value: 
       objectReference: {fileID: 7365889371364522994}
+    - target: {fileID: 7798653128470881482, guid: 1d6bdc4e9f7df2a45913a7b789e82066, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586257276903680768, guid: 1d6bdc4e9f7df2a45913a7b789e82066, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
