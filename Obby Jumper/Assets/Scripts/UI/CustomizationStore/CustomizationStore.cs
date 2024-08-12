@@ -51,7 +51,7 @@ public class CustomizationStore : MonoBehaviour
             slot.InitFrom(itemInfo);
             slot.ItemPicked.AddListener(OnItemPicked);
             _slots[itemInfo] = slot;
-            switch (_pickedSlotInfo.Type)
+            switch (itemInfo.Type)
             {
                 case Type.Skin:
                     if (_profile.IsSkinOpened(itemInfo.ItemId))
