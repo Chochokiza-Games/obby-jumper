@@ -3230,6 +3230,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4870645118607516180}
     m_Modifications:
+    - target: {fileID: 367426287820294957, guid: 8353995e426a13748be28cd1df705c05, type: 3}
+      propertyPath: _en
+      value: SETTINGS
+      objectReference: {fileID: 0}
+    - target: {fileID: 367426287820294957, guid: 8353995e426a13748be28cd1df705c05, type: 3}
+      propertyPath: _ru
+      value: "\u041D\u0410\u0421\u0422\u0420\u041E\u0419\u041A\u0418"
+      objectReference: {fileID: 0}
     - target: {fileID: 695030635683692639, guid: 8353995e426a13748be28cd1df705c05, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0.5
@@ -3244,7 +3252,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 695030635683692639, guid: 8353995e426a13748be28cd1df705c05, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -374
+      value: 95
+      objectReference: {fileID: 0}
+    - target: {fileID: 1163232239577033837, guid: 8353995e426a13748be28cd1df705c05, type: 3}
+      propertyPath: m_text
+      value: "\u041D\u0410\u0421\u0422\u0420\u041E\u0419\u041A\u0418"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1163232239577033837, guid: 8353995e426a13748be28cd1df705c05, type: 3}
+      propertyPath: m_fontSize
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1163232239577033837, guid: 8353995e426a13748be28cd1df705c05, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1163232239577033837, guid: 8353995e426a13748be28cd1df705c05, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1163232239577033837, guid: 8353995e426a13748be28cd1df705c05, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1677484216013326597, guid: 8353995e426a13748be28cd1df705c05, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3304,7 +3332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4488501683271958004, guid: 8353995e426a13748be28cd1df705c05, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 26
+      value: -305
       objectReference: {fileID: 0}
     - target: {fileID: 4580841191063800878, guid: 8353995e426a13748be28cd1df705c05, type: 3}
       propertyPath: m_IsActive
@@ -3336,7 +3364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4741555916458876568, guid: 8353995e426a13748be28cd1df705c05, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -171
+      value: -105
       objectReference: {fileID: 0}
     - target: {fileID: 6175673711255152876, guid: 8353995e426a13748be28cd1df705c05, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -3397,6 +3425,22 @@ PrefabInstance:
     - target: {fileID: 6175673711255152876, guid: 8353995e426a13748be28cd1df705c05, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229788139992797807, guid: 8353995e426a13748be28cd1df705c05, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 260.7022
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229788139992797807, guid: 8353995e426a13748be28cd1df705c05, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229788139992797807, guid: 8353995e426a13748be28cd1df705c05, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229788139992797807, guid: 8353995e426a13748be28cd1df705c05, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 6235500605922736830, guid: 8353995e426a13748be28cd1df705c05, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
