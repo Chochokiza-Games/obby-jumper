@@ -38,6 +38,8 @@ namespace YG
         public float progressBarAmount = 0;
         public int playerRecord = 0;
         public int level = 1;
+        public float sensitivityCoef = 1.2f;
+        public float audioVolume = 1.0f;
         // education
         public bool startEducationCompleted;
         public bool secondLevelEducationCompleted;

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8381313572419506877}
   - component: {fileID: 6063390274263288975}
+  - component: {fileID: 1925938670769376747}
   m_Layer: 0
   m_Name: Teleport
   m_TagString: Untagged
@@ -128,3 +129,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1925938670769376747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652578642875647896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c657a3269dac93408e2a0dc81fee5b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lifetime: 1

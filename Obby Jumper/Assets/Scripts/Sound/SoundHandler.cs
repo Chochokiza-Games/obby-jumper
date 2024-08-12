@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using YG;
 
 public class SoundHandler : MonoBehaviour
 {
@@ -32,14 +33,25 @@ public class SoundHandler : MonoBehaviour
         AudioListener.volume = 1;
     }
 
+
+    private void SpawnSound(GameObject go)
+    {
+        Instantiate(go, transform);
+    }
+
     public void SetVolume(float value)
     {
         AudioListener.volume = Mathf.Clamp(value, 0, 1);
     }
 
-    private void SpawnSound(GameObject go)
+    public void OnSaveEvent()
     {
-        Instantiate(go, transform);
+        YandexGame.savesData.audioVolume = AudioListener.volume;
+    }
+
+    public void OnLoadEvent()
+    {
+        AudioListener.volume = YandexGame.savesData.audioVolume;
     }
 
     public void PlaySound(int soundId)

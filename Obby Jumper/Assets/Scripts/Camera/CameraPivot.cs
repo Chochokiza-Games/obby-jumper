@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using YG;
 
 public class CameraPivot : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class CameraPivot : MonoBehaviour
     [SerializeField] private CinemachineFreeLook _camera;
     [SerializeField] private EventSystem _eventSystem;
     [SerializeField] private Vector2 _defaultValues;
-    [SerializeField] private float _sensitivityCoef  = 1.0f;
+    [SerializeField] private float _sensitivityCoef  = 1.2f;
 
     private bool _locked;
     private bool _isMobile = false;
@@ -67,6 +68,15 @@ public class CameraPivot : MonoBehaviour
             _camera.GetRig(i).GetCinemachineComponent<CinemachineTransposer>().m_YDamping = value;
             _camera.GetRig(i).GetCinemachineComponent<CinemachineTransposer>().m_ZDamping = value;
         }
+    }
+    public void OnSaveEvent()
+    {
+        YandexGame.savesData.sensitivityCoef = _sensitivityCoef;
+    }
+
+    public void OnLoadEvent()
+    {
+        _sensitivityCoef = YandexGame.savesData.sensitivityCoef;
     }
 
     private void Update()
