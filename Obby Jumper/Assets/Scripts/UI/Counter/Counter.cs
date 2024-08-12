@@ -18,29 +18,29 @@ public class Counter : MonoBehaviour
 
     public void OnValueChange(int value)
     {
+        _neededValue = value;
         if (_changeSteps > 0 && gameObject.activeInHierarchy)
         {
-            _neededValue = value;
             StopAllCoroutines();
             StartCoroutine(SmoothChangeValue());
         }
         else
         {
-            _label.text = value.ToString();
+            _label.text = ((int)_neededValue).ToString();
         }
     }
 
     public void OnValueChange(float value)
     {
+        _neededValue = value;
         if (_changeSteps > 0 && gameObject.activeInHierarchy) 
         {
-            _neededValue = value;
             StopAllCoroutines();
             StartCoroutine(SmoothChangeValue());
         }
         else
         {
-            _label.text = value.ToString();
+            _label.text = ((int)_neededValue).ToString();
         }
     }
 

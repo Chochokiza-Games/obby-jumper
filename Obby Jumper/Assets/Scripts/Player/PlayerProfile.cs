@@ -75,7 +75,7 @@ public class PlayerProfile : MonoBehaviour
 #if !UNITY_EDITOR && UNITY_WEBGL
             return IsMobile();
 #endif
-        return false;
+        return true;
     }
 
 
@@ -98,11 +98,11 @@ public class PlayerProfile : MonoBehaviour
 
     public void LoadCloud()
     {
-        //YandexGame.ResetSaveProgress();
+        YandexGame.ResetSaveProgress();
 
         _loadEvent.Invoke();
 
-        _money = YandexGame.savesData.money;
+        _money = YandexGame.savesData.money = 13337;
         _power = YandexGame.savesData.power;
 
         _currentLevel = YandexGame.savesData.level;
@@ -195,7 +195,6 @@ public class PlayerProfile : MonoBehaviour
             {
                 _openedAccessories[i] = false;
             }
-            _openedAccessories[0] = true;
         }
     }
 

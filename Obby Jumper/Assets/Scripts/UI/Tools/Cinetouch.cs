@@ -23,7 +23,7 @@ public class Cinetouch : MonoBehaviour
 
     private void Update()
     {
-        if (_isMobile)
+        if (_isMobile && _touchField.MinThresholdReached())
         {
             _cinecam.m_XAxis.Value += _touchField.TouchDist.x * 200 * _sensivity.x * Time.deltaTime;
             _cinecam.m_YAxis.Value -= _touchField.TouchDist.y * _sensivity.y * Time.deltaTime;
