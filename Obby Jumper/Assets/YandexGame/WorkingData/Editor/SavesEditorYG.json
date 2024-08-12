@@ -1,12 +1,12 @@
 {
-    "idSave": 3031,
+    "idSave": 3042,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
-    "money": 1000,
+    "money": 0,
     "power": 10,
     "bagUpgradesBought": 0,
-    "petDropOrderCurrentId": 1,
+    "petDropOrderCurrentId": 0,
     "openedSkins": [
         true,
         true,
@@ -46,12 +46,9 @@
         true
     ],
     "petInventoryItems": [
-        0,
         0
     ],
-    "petEggsInventoryItems": [
-        0
-    ],
+    "petEggsInventoryItems": [],
     "shopPrices": [
         0
     ],
@@ -61,8 +58,8 @@
     "lastSkinId": 0,
     "lastTrailId": 0,
     "progressBarAmount": 0.0,
-    "playerRecord": 1000,
-    "level": 2,
+    "playerRecord": 0,
+    "level": 1,
     "startEducationCompleted": false,
     "secondLevelEducationCompleted": false,
     "thirdLevelEducationCompleted": false

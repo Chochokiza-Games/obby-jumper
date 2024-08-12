@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 098ce344fcac83848b3a6447de532d83, type: 3}
   m_Name: Spin Wheel Reward 6
   m_EditorClassIdentifier: 
-  _icon: {fileID: 21300000, guid: ded229614c6ea174bad0a21a58e1a539, type: 3}
-  _ruName: 5000
-  _enName: 7
-  _type: 0
-  _amount: 5000
+  _icon: {fileID: 21300000, guid: b18c49546983a4d4eb97789f92bb2318, type: 3}
+  _ruName: "\u041F\u0438\u0442\u043E\u043C\u0435\u0446"
+  _enName: PET
+  _type: 1
+  _amount: 0
