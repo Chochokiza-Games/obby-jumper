@@ -54,7 +54,10 @@ public class PlayerRecordInfo : MonoBehaviour
 
     public void ShowLevel(int level)
     {
-        StartCoroutine(ShowLevelRoutine(level));
+        if (gameObject.activeInHierarchy)
+        {
+            StartCoroutine(ShowLevelRoutine(level));
+        }
     }
 
     private IEnumerator ShowLevelRoutine(int level)

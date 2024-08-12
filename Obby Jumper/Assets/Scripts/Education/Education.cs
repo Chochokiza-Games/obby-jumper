@@ -201,7 +201,7 @@ public class Education : MonoBehaviour
                 _currentEducationPopupText = new string[] 
                     {
                         _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ПОПРОБУЙ ДОПРЫГНУТЬ ДО КОНЦА" : "TRY TO JUMP TO THE END",
-                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "КОГДА ПРЫГАЕШЬ, УВЕЛИЧИВАЕТСЯ ТВОЯ СИЛА" : "WHEN YOU JUMP, YOUR POWER INCREASES, OINK",
+                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "С ПРЫЖКАМИ УВЕЛИЧИВАЕТСЯ ТВОЯ СИЛА" : "JUMPING INCREASES YOUR POWER, OINK",
                         _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ПРЫГАЙ, ПОКА НЕ ДОБЕРЕШЬСЯ ДО КОНЦА" : "JUMP AS MUCH UNTIL YOU JUMP TO THE END",
                     };
 
@@ -219,7 +219,7 @@ public class Education : MonoBehaviour
                     {
                         _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "Я БУДУ ДАВАТЬ ТЕБЕ ЯЙЦО С РАЗНЫМИ ПИТОМЦАМИ КАЖДЫЙ УРОВЕНЬ" : "MOVE ON, AND AFTER EACH LEVEL, I WILL GIVE YOU AN EGG WITH A PET",
                         _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ОНИ БУДУТ ПОМОГАТЬ ТЕБЕ" : "DIFFERENT PETS THAT WILL HELP YOU CAN FALL FROM THE EGG",
-                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ОТКРОЙ ЯЙЦО И ПОЛУЧИ ЕГО ВПЕРВЫЕ!" : "OPEN AND GET YOUR FIRST PET",
+                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "НАЖМИ НА ЯЙЦО ЧТОБ ОТКРЫТЬ ЕГО!" : "CLICK ON THE EGG TO OPEN IT!",
                     };
                 break;
             case Type.Spinwheel:
@@ -238,7 +238,7 @@ public class Education : MonoBehaviour
                     {
                         _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ТЫ НЕВЕОРЯТЕН! НИ У КОГО ЕЩЕ НЕ ПОЛУЧАЛОСЬ ВЫЗВАТЬ ОСТРОВОК ТАЙН" : "YOU ARE INCREDIBLE! NO ONE HAS BEEN ABLE TO CALL THE CHAMBER OF SECRETS",
                         _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ПО СЛУХАМ, НА НЕМ РАЗНЫЕ ПАСХАЛКИ И МОНЕТКИ" : "ACCORDING TO RUMOR, IT CONTAINS MEMES",
-                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "КАЖДЫЙ УРОВЕНЬ ОСТРОВОК МЕНЯЕТСЯ, НО ЗАПАРКУРИТЬ ТУДА СТАНОВИТСЯ СЛОЖНЕЕ!" : "EACH LEVEL ROOM CHANGES, BUT PARKOURING THERE BECOMES MORE DIFFICULT",
+                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "КАЖДЫЙ УРОВЕНЬ ОСТРОВОК МЕНЯЕТСЯ, НО ЗАПРЫГНУТЬ ТУДА СТАНОВИТСЯ СЛОЖНЕЕ!" : "EACH LEVEL THE ISLANDS CHANGE, BUT IT BECOMES MORE DIFFICULT TO JUMP IN THERE!",
                         _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "В СВОБОДНОЕ ВРЕМЯ ЗАБИРАЙСЯ ТУДА, ЗАРАБАТЫВАЙ ДЕНЬГИ" : "IN YOUR FREE TIME, GO THERE AND MAKE MONEY",
                     };
                 break;  
