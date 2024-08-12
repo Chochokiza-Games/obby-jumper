@@ -98,7 +98,7 @@ public class PlayerProfile : MonoBehaviour
 
     public void LoadCloud()
     {
-        YandexGame.ResetSaveProgress();
+        //YandexGame.ResetSaveProgress();
 
         _loadEvent.Invoke();
 
@@ -115,15 +115,7 @@ public class PlayerProfile : MonoBehaviour
         LoadInventory(_petInventory, ref YandexGame.savesData.petInventoryItems);
         LoadInventory(_petEggsInventory, ref YandexGame.savesData.petEggsInventoryItems);
 
-        FindObjectOfType<LanguageTranslator>().InitLanguage(YandexGame.lang = "ru");
-
-        // _petInventory.PushItem(BaseInventoryItem.ItemId.PetCat);
-        // _petInventory.PushItem(BaseInventoryItem.ItemId.PetBear);
-        // _petInventory.PushItem(BaseInventoryItem.ItemId.PetBunny);
-        // _petInventory.PushItem(BaseInventoryItem.ItemId.PetPumkin);
-        // _petInventory.PushItem(BaseInventoryItem.ItemId.PetBurger);
-        // _petInventory.PushItem(BaseInventoryItem.ItemId.PetDemon);
-        // //_petEggsInventory.PushItem(BaseInventoryItem.ItemId.Egg);
+        FindObjectOfType<LanguageTranslator>().InitLanguage(YandexGame.lang);
     }
 
     private void LoadInventory(PlayerInventory inventory, ref int[] array)

@@ -2256,8 +2256,8 @@ MonoBehaviour:
   - {fileID: 6886003674136339794}
   - {fileID: 7318720757516151404}
   _teacher: {fileID: 3753783595417055934}
-  _shouldEducate: 1
-  _moneyGift: 1000
+  _shouldEducate: 0
+  _moneyGift: 10000
   _eggInventory: {fileID: 0}
   _skinStore: {fileID: 0}
   _accessoriesStore: {fileID: 0}
@@ -4427,11 +4427,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3697907869947045265, guid: 36bc54dd65902324ba07b942a509f8a6, type: 3}
       propertyPath: _playerEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
-      value: 500
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 3697907869947045265, guid: 36bc54dd65902324ba07b942a509f8a6, type: 3}
       propertyPath: _playerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3697907869947045265, guid: 36bc54dd65902324ba07b942a509f8a6, type: 3}
       propertyPath: _playerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
