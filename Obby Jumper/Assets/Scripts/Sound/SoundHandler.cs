@@ -7,9 +7,10 @@ public class SoundHandler : MonoBehaviour
     public enum Sounds
     {
         Upgrade = 0,
-        Teleport,
         Reward,
-        BlockDestroy,
+        Speedup,
+        Fall,
+        Teleport,
         Egg,
         Cut
     }
@@ -17,9 +18,10 @@ public class SoundHandler : MonoBehaviour
     [SerializeField] private AudioListener _listener;
     [SerializeField] private AudioSource _soundtrack;
     [SerializeField] private GameObject _upgrade;
-    [SerializeField] private GameObject _teleport;
     [SerializeField] private GameObject _reward;
-    [SerializeField] private GameObject _blockDestroy;
+    [SerializeField] private GameObject _speedup;
+    [SerializeField] private GameObject _fall;
+    [SerializeField] private GameObject _teleport;
     [SerializeField] private GameObject _egg;
     [SerializeField] private GameObject _cut;
 
@@ -49,14 +51,17 @@ public class SoundHandler : MonoBehaviour
             case Sounds.Upgrade:
                 SpawnSound(_upgrade);
                 break;
-            case Sounds.Teleport:
-                SpawnSound(_teleport);
-                break;
             case Sounds.Reward:
                 SpawnSound(_reward);
                 break;
-            case Sounds.BlockDestroy:
-                SpawnSound(_blockDestroy);
+            case Sounds.Speedup:
+                SpawnSound(_speedup);
+                break;
+            case Sounds.Fall:
+                SpawnSound(_fall);
+                break;
+            case Sounds.Teleport:
+                SpawnSound(_teleport);
                 break;
             case Sounds.Egg:
                 SpawnSound(_egg);
@@ -65,7 +70,6 @@ public class SoundHandler : MonoBehaviour
             case Sounds.Cut:
                 SpawnSound(_cut);
                 break;
-
         }
     }
 
