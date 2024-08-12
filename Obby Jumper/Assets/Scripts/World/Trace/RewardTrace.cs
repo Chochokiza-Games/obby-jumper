@@ -57,11 +57,11 @@ public class RewardTrace : MonoBehaviour
             _generatedBlocks.Add(Instantiate(_finishBlockPrefab, currentPos, Quaternion.identity, transform).GetComponent<RewardBlock>());
 
             BoxCollider left = gameObject.AddComponent(typeof(BoxCollider)) as BoxCollider;
-            left.size = new Vector3(1, 1000, _blockSize.z * _generatedCount);
-            left.center = new Vector3(-(_blockSize.x / 2), 500, (_blockSize.z * _generatedCount) / 2 - (_blockSize.z / 2));
+            left.size = new Vector3(5, 1000, _blockSize.z * _generatedCount);
+            left.center = new Vector3(-(_blockSize.x / 2) - 2.5f, 500, (_blockSize.z * _generatedCount) / 2 - (_blockSize.z / 2));
             BoxCollider right = gameObject.AddComponent(typeof(BoxCollider)) as BoxCollider;
-            right.size = new Vector3(1, 1000, _blockSize.z * _generatedCount);
-            right.center = new Vector3((_blockSize.x / 2), 500, (_blockSize.z * _generatedCount) / 2 - (_blockSize.z / 2));
+            right.size = new Vector3(5, 1000, _blockSize.z * _generatedCount);
+            right.center = new Vector3((_blockSize.x / 2) + 2.5f, 500, (_blockSize.z * _generatedCount) / 2 - (_blockSize.z / 2));
             BoxCollider forward = gameObject.AddComponent(typeof(BoxCollider)) as BoxCollider;
             forward.size = new Vector3(_blockSize.x, 1000, 3);
             forward.center = new Vector3(0, 500, (_blockSize.z * _generatedCount) - (_blockSize.z / 2) + 1f);
