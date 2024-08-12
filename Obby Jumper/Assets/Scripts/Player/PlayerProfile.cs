@@ -75,7 +75,7 @@ public class PlayerProfile : MonoBehaviour
 #if !UNITY_EDITOR && UNITY_WEBGL
             return IsMobile();
 #endif
-        return true;
+        return false;
     }
 
 
@@ -116,6 +116,8 @@ public class PlayerProfile : MonoBehaviour
         LoadInventory(_petEggsInventory, ref YandexGame.savesData.petEggsInventoryItems);
 
         FindObjectOfType<LanguageTranslator>().InitLanguage(YandexGame.lang);
+
+        _petEggsInventory.PushItem(BaseInventoryItem.ItemId.Egg);
     }
 
     private void LoadInventory(PlayerInventory inventory, ref int[] array)
