@@ -128,7 +128,7 @@ public class Education : MonoBehaviour
     }
     public void SpinwheelEducation()
     {
-        if (!_isSpinWheelShowed && _educationInProgress && _secondLevelEducationCompleted)
+        if (!_isSpinWheelShowed && _educationInProgress && !_secondLevelEducationCompleted)
         {
             ShowEducation(Type.Spinwheel, () => {
                 _cameraBrain.ReturnBack();

@@ -619,7 +619,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4dc4370fb8c86384a99c6c017c518e24, type: 2}
+  - {fileID: 2100000, guid: bdfad33020abbe842b0675c207cb1d41, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -771,7 +771,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4dc4370fb8c86384a99c6c017c518e24, type: 2}
+  - {fileID: 2100000, guid: bdfad33020abbe842b0675c207cb1d41, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1710,7 +1710,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4dc4370fb8c86384a99c6c017c518e24, type: 2}
+  - {fileID: 2100000, guid: bdfad33020abbe842b0675c207cb1d41, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2478,7 +2478,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4dc4370fb8c86384a99c6c017c518e24, type: 2}
+  - {fileID: 2100000, guid: bdfad33020abbe842b0675c207cb1d41, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2711,7 +2711,6 @@ MonoBehaviour:
   _text: {fileID: 8882853891523903447}
   _ru: "\u0421\u041A\u0418\u041D\u042B"
   _en: SKINS
-  _tu: 
 --- !u!114 &8882853891523903447 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6248565142203518998, guid: 6afb6d5e2fa0c4341aca1ead2edff465, type: 3}

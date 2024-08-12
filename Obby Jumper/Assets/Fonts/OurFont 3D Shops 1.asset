@@ -58,11 +58,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: OurFont 3D Shops
+  m_Name: OurFont 3D Shops 1
   m_EditorClassIdentifier: 
-  hashCode: -1184421893
+  hashCode: -1345251606
   material: {fileID: 8027057956419821520}
-  materialHashCode: -955062661
+  materialHashCode: 916711178
   m_Version: 1.1.0
   m_SourceFontFileGUID: 93366c239d79c6e41ab141e237f52f83
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 93366c239d79c6e41ab141e237f52f83, type: 3}
@@ -3929,7 +3929,7 @@ Material:
     - _GlowInner: 0.228
     - _GlowOffset: 0.25
     - _GlowOuter: 0.614
-    - _GlowPower: 0.358
+    - _GlowPower: 0.19
     - _GradientScale: 10
     - _LightAngle: 3.1416
     - _MaskSoftnessX: 0
@@ -3937,7 +3937,7 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0.413
+    - _OutlineWidth: 0.362
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.9
@@ -3967,9 +3967,9 @@ Material:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
     - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GlowColor: {r: 0.8980392, g: 0.8222067, b: 0.3333334, a: 0.6862745}
+    - _GlowColor: {r: 0.8980392, g: 0.81245, b: 0.3333334, a: 0.6862745}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
-    - _OutlineColor: {r: 0.9559735, g: 0.70837605, b: 0.046665095, a: 1}
+    - _OutlineColor: {r: 0.83, g: 0.60889345, b: 0.04081967, a: 1}
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
