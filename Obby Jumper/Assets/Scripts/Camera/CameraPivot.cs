@@ -32,6 +32,7 @@ public class CameraPivot : MonoBehaviour
     [SerializeField] private EventSystem _eventSystem;
     [SerializeField] private Vector2 _defaultValues;
     [SerializeField] private float _sensitivityCoef  = 1.2f;
+    [SerializeField] private Slider _slider;
 
     private bool _locked;
     private bool _isMobile = false;
@@ -77,6 +78,7 @@ public class CameraPivot : MonoBehaviour
     public void OnLoadEvent()
     {
         _sensitivityCoef = YandexGame.savesData.sensitivityCoef;
+        _slider.value = _sensitivityCoef;
     }
 
     private void Update()

@@ -1,10 +1,10 @@
 {
-    "idSave": 3108,
+    "idSave": 3119,
     "isFirstSession": false,
-    "language": "ru",
+    "language": "en",
     "promptDone": false,
-    "money": 13337,
-    "power": 10,
+    "money": 13437,
+    "power": 109,
     "bagUpgradesBought": 0,
     "petDropOrderCurrentId": 1,
     "openedSkins": [
@@ -59,8 +59,10 @@
     "lastSkinId": 0,
     "lastTrailId": 0,
     "progressBarAmount": 0.0,
-    "playerRecord": 0,
+    "playerRecord": 200,
     "level": 1,
+    "sensitivityCoef": 2.5114316940307619,
+    "audioVolume": 0.06972496956586838,
     "startEducationCompleted": false,
     "secondLevelEducationCompleted": false,
     "thirdLevelEducationCompleted": false

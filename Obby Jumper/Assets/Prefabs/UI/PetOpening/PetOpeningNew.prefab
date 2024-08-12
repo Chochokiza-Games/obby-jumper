@@ -563,7 +563,6 @@ MonoBehaviour:
   _text: {fileID: 1881960106027298726}
   _ru: "\u0421\u0432\u0430\u0439\u043F\u0430\u0439!"
   _en: Swipe!
-  _tu: 
 --- !u!1 &4474536527937371321
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,7 +1000,6 @@ GameObject:
   - component: {fileID: 1327633951227456001}
   - component: {fileID: 5080548994433964664}
   - component: {fileID: 760955750349123403}
-  - component: {fileID: 7957954106105537844}
   m_Layer: 5
   m_Name: PetOpeningNew
   m_TagString: Untagged
@@ -1118,7 +1116,6 @@ MonoBehaviour:
   _base: {fileID: 4620597118473888806}
   _petInventory: {fileID: 0}
   _rewardPreview: {fileID: 0}
-  _hider: {fileID: 0}
   _translator: {fileID: 0}
   _eggWiggleCurve:
     serializedVersion: 2
@@ -1262,19 +1259,6 @@ MonoBehaviour:
   _swipeMinLenght: 30
   _swipeThreshold: 30
   _cutPrefab: {fileID: 6401518569280124983, guid: e8ce8b63a0c6f594c94b647550682bc4, type: 3}
---- !u!114 &7957954106105537844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9142851470265843050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63cb0e4de7c392b49a7e853f94b5d8f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _shouldInactiveOnStart: 1
 --- !u!1001 &7623688912479433395
 PrefabInstance:
   m_ObjectHideFlags: 0

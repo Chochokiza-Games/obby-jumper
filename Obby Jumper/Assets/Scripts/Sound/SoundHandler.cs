@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using YG;
 
 public class SoundHandler : MonoBehaviour
@@ -25,13 +26,15 @@ public class SoundHandler : MonoBehaviour
     [SerializeField] private GameObject _teleport;
     [SerializeField] private GameObject _egg;
     [SerializeField] private GameObject _cut;
+    [Header("UI")]
+    [SerializeField] private Slider _slider;
 
     private bool _muted = false;
 
-    private void Start()
-    {
-        AudioListener.volume = 1;
-    }
+    // private void Start()
+    // {
+    //     AudioListener.volume = 1;
+    // }
 
 
     private void SpawnSound(GameObject go)
@@ -52,6 +55,7 @@ public class SoundHandler : MonoBehaviour
     public void OnLoadEvent()
     {
         AudioListener.volume = YandexGame.savesData.audioVolume;
+        _slider.value = AudioListener.volume;
     }
 
     public void PlaySound(int soundId)

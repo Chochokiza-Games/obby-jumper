@@ -98,11 +98,11 @@ public class PlayerProfile : MonoBehaviour
 
     public void LoadCloud()
     {
-        YandexGame.ResetSaveProgress();
+        //YandexGame.ResetSaveProgress();
 
         _loadEvent.Invoke();
 
-        _money = YandexGame.savesData.money = 13337;
+        _money = YandexGame.savesData.money; //= 13337;
         _power = YandexGame.savesData.power;
 
         _currentLevel = YandexGame.savesData.level;
@@ -117,7 +117,7 @@ public class PlayerProfile : MonoBehaviour
 
         FindObjectOfType<LanguageTranslator>().InitLanguage(YandexGame.lang);
 
-        _petEggsInventory.PushItem(BaseInventoryItem.ItemId.Egg);
+        //_petEggsInventory.PushItem(BaseInventoryItem.ItemId.Egg);
     }
 
     private void LoadInventory(PlayerInventory inventory, ref int[] array)
