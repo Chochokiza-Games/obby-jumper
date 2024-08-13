@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198955616953408736, guid: 3ccd54180d4b3e54eaf3027dcaf14742, type: 3}
       propertyPath: moveWithTransform
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 199077260094889934, guid: 3ccd54180d4b3e54eaf3027dcaf14742, type: 3}
       propertyPath: m_Materials.Array.size

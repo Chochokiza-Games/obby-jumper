@@ -198,7 +198,7 @@ public class PlayerRagdoll : MonoBehaviour
             }
 
 
-            if (transform.position.y <= -50 && !fuckup)
+            if ((transform.position.y <= -50 || transform.position.y <= -50) && !fuckup)
             {
                 fuckup = true;
                 _nearGround.Invoke();

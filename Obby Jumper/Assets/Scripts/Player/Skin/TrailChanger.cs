@@ -17,7 +17,6 @@ public class TrailChanger : MonoBehaviour
 
     private void Awake()
     {
-        SetTrail(_profile.CurrentTrailId);
         _profile.InitTrails(_trailsInfo.Length);
     }
 
@@ -40,12 +39,13 @@ public class TrailChanger : MonoBehaviour
 
     public void OnSaveEvent()
     {
-        YandexGame.savesData.lastSkinId = _profile.CurrentTrailId;
+        YandexGame.savesData.lastTrailId = _profile.CurrentTrailId;
     }
 
     public void OnLoadEvent()
     {
-        _profile.CurrentSkinId = YandexGame.savesData.lastSkinId;
+        _profile.CurrentTrailId = YandexGame.savesData.lastTrailId;
+        SetTrail(YandexGame.savesData.lastTrailId);
     }
 
 

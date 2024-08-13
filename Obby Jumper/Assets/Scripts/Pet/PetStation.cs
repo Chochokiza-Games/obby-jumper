@@ -10,10 +10,10 @@ public class PetStation : MonoBehaviour
 
     private void Start()
     {
-        if (_linkedInventory.BucketSize == 0)
-        {
-            _linkedInventory.PushItem(BaseInventoryItem.ItemId.PetCat);
-        }
+        // if (_linkedInventory.BucketSize == 0)
+        // {
+        //     _linkedInventory.PushItem(BaseInventoryItem.ItemId.PetCat);
+        // }
     }
     
     public void OnPetAdded(int id, BaseInventoryItem item)

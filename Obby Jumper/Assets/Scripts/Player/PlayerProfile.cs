@@ -33,6 +33,19 @@ public class PlayerProfile : MonoBehaviour
         set => _currentTrailId = value;
     }
 
+    public int CurrentAccessoryHatId
+    {
+        get => _currentAccessoryHatId;
+        set => _currentAccessoryHatId = value;
+    }
+
+    public int CurrentAccessoryWingsId
+    {
+        get => _currentAccessoryWingsId;
+        set => _currentAccessoryWingsId = value;
+    }
+
+
     public int Power
     {
         get 
@@ -54,6 +67,8 @@ public class PlayerProfile : MonoBehaviour
 
     private int _currentSkinId = 0;
     private int _currentTrailId = 0;
+    private int _currentAccessoryHatId = 0;
+    private int _currentAccessoryWingsId = 0;
     private int _money = 0;
     private int _power = 500;
     private int _currentLevel = 1;
@@ -98,8 +113,6 @@ public class PlayerProfile : MonoBehaviour
 
     public void LoadCloud()
     {
-        //YandexGame.ResetSaveProgress();
-
         _loadEvent.Invoke();
 
         _money = YandexGame.savesData.money; //= 13337;

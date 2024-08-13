@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hat 2
   m_EditorClassIdentifier: 
   _itemId: 7
-  _price: 5000
+  _price: 100000
   _iconPreview: {fileID: 21300000, guid: 8edf7cdd5cc08acf89fc89413f1075b2, type: 3}
   _type: 2
   _prefab: {fileID: 2624083159729071404, guid: bf0e450afa5532e4ab00b87be218cb05, type: 3}

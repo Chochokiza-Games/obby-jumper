@@ -31,7 +31,7 @@ public class CameraPivot : MonoBehaviour
     [SerializeField] private CinemachineFreeLook _camera;
     [SerializeField] private EventSystem _eventSystem;
     [SerializeField] private Vector2 _defaultValues;
-    [SerializeField] private float _sensitivityCoef  = 1.2f;
+    [SerializeField] private float _sensitivityCoef  = 1.0f;
     [SerializeField] private Slider _slider;
 
     private bool _locked;

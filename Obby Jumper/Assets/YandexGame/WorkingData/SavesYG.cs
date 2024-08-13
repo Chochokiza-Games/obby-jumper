@@ -35,10 +35,12 @@ namespace YG
         public bool storeToastEducationShowed = false;
         public int lastSkinId = 0;
         public int lastTrailId = 0;
+        public int lastAccessoryHatId = -1;
+        public int lastAccessoryWingsId = -1;
         public float progressBarAmount = 0;
         public int playerRecord = 0;
         public int level = 1;
-        public float sensitivityCoef = 1.2f;
+        public float sensitivityCoef = 1.0f;
         public float audioVolume = 1.0f;
         // education
         public bool startEducationCompleted;

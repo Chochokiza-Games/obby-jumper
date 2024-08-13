@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wings 3
   m_EditorClassIdentifier: 
   _itemId: 3
-  _price: 20000
+  _price: 125000
   _iconPreview: {fileID: 21300000, guid: 730064f84aaabed8ba0e7ed5fdb40670, type: 3}
   _type: 2
   _prefab: {fileID: 770726196090950403, guid: c41288ab3b0f6e84a8bee1b22d65f4c4, type: 3}

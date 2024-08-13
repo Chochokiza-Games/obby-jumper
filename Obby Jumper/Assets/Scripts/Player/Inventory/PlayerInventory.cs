@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -22,9 +23,29 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private BaseInventoryItem[] _references;
     [SerializeField] private UnityEvent<int, BaseInventoryItem> _itemAdded; //id, scriptable object
     [SerializeField] private UnityEvent<int, BaseInventoryItem> _itemRemoved; //id, scriptable object
+    [SerializeField] private bool _shouldCallPopup; 
+    [SerializeField] private float _callPopupDelay; 
+    [SerializeField] private ReminderPopup _reminderPopup;
 
     private GameObject _errorToast;
     private Dictionary<int, BaseInventoryItem> _bucket = new Dictionary<int, BaseInventoryItem>();
+
+    private void Start()
+    {
+        StartCoroutine(ReminderRoutine());
+    }
+
+    private IEnumerator ReminderRoutine()
+    {
+        while (_shouldCallPopup)
+        {
+            yield return new WaitForSeconds(_callPopupDelay);
+            if (_bucket.Count != 0)
+            {
+                _reminderPopup.Show();
+            }
+        }
+    }
 
     private BaseInventoryItem ConvertItemIdToItem(BaseInventoryItem.ItemId itemId)
     {

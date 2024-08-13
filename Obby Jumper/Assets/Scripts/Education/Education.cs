@@ -201,7 +201,7 @@ public class Education : MonoBehaviour
                 _currentEducationPopupText = new string[] 
                     {
                         _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ПОПРОБУЙ ДОПРЫГНУТЬ ДО КОНЦА" : "TRY TO JUMP TO THE END",
-                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "С ПРЫЖКАМИ УВЕЛИЧИВАЕТСЯ ТВОЯ СИЛА" : "JUMPING INCREASES YOUR POWER, OINK",
+                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "С КАЖДЫМ ПРЫЖКОМ УВЕЛИЧИВАЕТСЯ ТВОЯ СИЛА" : "JUMPING INCREASES YOUR POWER, OINK",
                         _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ПРЫГАЙ, ПОКА НЕ ДОБЕРЕШЬСЯ ДО КОНЦА" : "JUMP AS MUCH UNTIL YOU JUMP TO THE END",
                     };
 

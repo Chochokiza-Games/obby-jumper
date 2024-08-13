@@ -11,6 +11,11 @@ public class JumpRocksHolder : MonoBehaviour
     private int _currentPrefabId = 0;
     private int _currentLevel = 0;
 
+    private void Start()
+    {
+        OnChangeLevel(FindObjectOfType<PlayerProfile>().CurrentLevel);
+    }
+
     public void SpawnRocks()
     {
         if (_currentLevel >= 3)

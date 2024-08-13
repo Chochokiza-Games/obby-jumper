@@ -24,7 +24,6 @@ public class SkinChanger : MonoBehaviour
 
         if (!_isBot)
         {
-            SetSkin(_profile.CurrentSkinId);
             _profile.InitSkins(_materials.Length);
         }
         else
@@ -55,6 +54,7 @@ public class SkinChanger : MonoBehaviour
     public void OnLoadEvent()
     {
         _profile.CurrentSkinId = YandexGame.savesData.lastSkinId;
+        SetSkin(YandexGame.savesData.lastSkinId);
     }
 
 

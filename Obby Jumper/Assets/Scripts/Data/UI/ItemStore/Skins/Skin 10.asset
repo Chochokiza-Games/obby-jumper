@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Skin 10
   m_EditorClassIdentifier: 
   _itemId: 10
-  _price: 150000
+  _price: 350000
   _iconPreview: {fileID: 21300000, guid: f041b1686c5f169b49d40ebc5e3773d0, type: 3}
   _type: 0

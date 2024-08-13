@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using YG;
 
 public class AccessoryStation : MonoBehaviour
 {
@@ -18,12 +19,15 @@ public class AccessoryStation : MonoBehaviour
     [SerializeField] private AccessoryInfo[] _info;
     [SerializeField] private Transform _hatPlaceholder;
     [SerializeField] private Transform _wingsPlaceholder;
+    [SerializeField] private PlayerProfile _profile;
+
+
     private GameObject _currentHat;
     private GameObject _currentWings;
 
     private void Start() 
     {
-        FindObjectOfType<PlayerProfile>().InitAccessories(_info.Length);
+        _profile.InitAccessories(_info.Length);
         if (Debug.isDebugBuild)
         {
             if (_debugHat != null)
@@ -37,6 +41,28 @@ public class AccessoryStation : MonoBehaviour
             }
         }
     }
+
+    public void OnSaveEvent()
+    {
+        YandexGame.savesData.lastAccessoryHatId = _profile.CurrentAccessoryHatId;
+        YandexGame.savesData.lastAccessoryWingsId = _profile.CurrentAccessoryWingsId;
+    }
+
+    public void OnLoadEvent()
+    {
+        _profile.CurrentAccessoryHatId = YandexGame.savesData.lastAccessoryHatId;
+        _profile.CurrentAccessoryWingsId = YandexGame.savesData.lastAccessoryWingsId;
+        if (_profile.CurrentAccessoryHatId != -1)
+        {
+            SetAccessory(_profile.CurrentAccessoryHatId);
+        }
+
+        if (_profile.CurrentAccessoryWingsId != -1)
+        {
+            SetAccessory(_profile.CurrentAccessoryWingsId);
+        }
+    }
+
 
 
     public void SetAccessory(int id)
@@ -54,12 +80,14 @@ public class AccessoryStation : MonoBehaviour
         switch (info.AccessoryType)
         {
             case AccessoryType.Hat:
+                _profile.CurrentAccessoryHatId = info.ItemId;
                 SetAccessory(
                     info.Prefab,
                     ref _currentHat,
                     _hatPlaceholder);
                 break;
             case AccessoryType.Wings:
+                _profile.CurrentAccessoryWingsId = info.ItemId;
                 SetAccessory(
                     info.Prefab,
                     ref _currentWings,
