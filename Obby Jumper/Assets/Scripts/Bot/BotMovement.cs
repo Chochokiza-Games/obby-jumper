@@ -29,7 +29,6 @@ public class BotMovement : MonoBehaviour
     [SerializeField] private float _minPause;
     [SerializeField] private float _maxPause;
     [SerializeField] private PlayerAnimator _animator;
-
     private bool _locked;
 
     private Vector3 _point;
@@ -53,7 +52,7 @@ public class BotMovement : MonoBehaviour
         {
             while (_agent.remainingDistance <= _agent.stoppingDistance)
             {
-                if (RandomPoint(_centrePoint.position, _radius, out _point))
+				if (RandomPoint(_centrePoint.position, _radius, out _point))
                 {
                     _agent.SetDestination(_point);
                     yield return null;

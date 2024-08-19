@@ -19,7 +19,7 @@ public class Store : MonoBehaviour
     private StoreProduct _pickedProduct;
     private GameObject _toast;
 
-    private void OnDisable()
+	private void OnDisable()
     {
         if (_toast != null)
         {

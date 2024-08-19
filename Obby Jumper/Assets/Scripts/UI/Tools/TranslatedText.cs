@@ -11,7 +11,6 @@ public class TranslatedText : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(gameObject);
         LanguageTranslator translator = FindObjectOfType<LanguageTranslator>();
         switch (translator.CurrentLangunage)
         {
