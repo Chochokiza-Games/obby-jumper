@@ -128,7 +128,7 @@ public class PlayerProfile : MonoBehaviour
         LoadInventory(_petInventory, ref YandexGame.savesData.petInventoryItems);
         LoadInventory(_petEggsInventory, ref YandexGame.savesData.petEggsInventoryItems);
 
-        FindObjectOfType<LanguageTranslator>().InitLanguage(YandexGame.lang = "ru");
+        FindObjectOfType<LanguageTranslator>().InitLanguage(YandexGame.lang);
 
         //_petEggsInventory.PushItem(BaseInventoryItem.ItemId.Egg);
     }

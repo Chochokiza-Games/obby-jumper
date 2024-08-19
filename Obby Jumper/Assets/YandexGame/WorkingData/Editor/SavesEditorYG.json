@@ -1,9 +1,9 @@
 {
-    "idSave": 409,
+    "idSave": 431,
     "isFirstSession": false,
     "language": "en",
     "promptDone": false,
-    "money": 249500,
+    "money": 379500,
     "power": 10,
     "bagUpgradesBought": 0,
     "petDropOrderCurrentId": 0,
@@ -53,6 +53,7 @@
         0,
         0,
         0,
+        0,
         0
     ],
     "shopPrices": [
@@ -66,8 +67,8 @@
     "lastAccessoryHatId": 9,
     "lastAccessoryWingsId": 1,
     "progressBarAmount": 0.0,
-    "playerRecord": 60000,
-    "level": 13,
+    "playerRecord": 65000,
+    "level": 14,
     "sensitivityCoef": 1.0216275453567505,
     "audioVolume": 1.0,
     "startEducationCompleted": false,
