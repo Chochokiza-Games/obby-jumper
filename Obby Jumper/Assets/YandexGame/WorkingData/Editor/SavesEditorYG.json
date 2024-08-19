@@ -1,9 +1,9 @@
 {
-    "idSave": 288,
+    "idSave": 409,
     "isFirstSession": false,
     "language": "en",
     "promptDone": false,
-    "money": 130950,
+    "money": 249500,
     "power": 10,
     "bagUpgradesBought": 0,
     "petDropOrderCurrentId": 0,
@@ -25,7 +25,7 @@
     ],
     "openedAccessories": [
         false,
-        false,
+        true,
         false,
         false,
         false,
@@ -33,7 +33,7 @@
         true,
         false,
         false,
-        false
+        true
     ],
     "openedTrails": [
         true,
@@ -49,6 +49,10 @@
         0,
         0,
         0,
+        0,
+        0,
+        0,
+        0,
         0
     ],
     "shopPrices": [
@@ -59,12 +63,12 @@
     "storeToastEducationShowed": false,
     "lastSkinId": 6,
     "lastTrailId": 0,
-    "lastAccessoryHatId": 6,
-    "lastAccessoryWingsId": -1,
+    "lastAccessoryHatId": 9,
+    "lastAccessoryWingsId": 1,
     "progressBarAmount": 0.0,
-    "playerRecord": 40000,
-    "level": 9,
-    "sensitivityCoef": 0.8016745448112488,
+    "playerRecord": 60000,
+    "level": 13,
+    "sensitivityCoef": 1.0216275453567505,
     "audioVolume": 1.0,
     "startEducationCompleted": false,
     "secondLevelEducationCompleted": false,

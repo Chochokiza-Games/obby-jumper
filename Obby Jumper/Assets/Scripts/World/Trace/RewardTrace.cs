@@ -24,7 +24,8 @@ public class RewardTrace : MonoBehaviour
     [SerializeField] private Vector3 _blockSize;
     [Header("Rewarding")]
     [SerializeField] private AnimationCurve _rewardScaleCurve;
-
+	[SerializeField] private GameObject _continuePopup;
+	
     private int _colorId = -1;
 
     private void OnDrawGizmos() 
@@ -101,7 +102,7 @@ public class RewardTrace : MonoBehaviour
         }
     }
 
-    public void PlayerEntered(int id, int humanId, float baseMoney, float basePower)
+    public void PlayerEntered(int id, int humanId, float baseMoney, float basePower, bool shouldExitFromTrack = true)
     {
         float rewardFactor = _rewardScaleCurve.Evaluate((float)((float)(id) / (float)(_generatedBlocks.Count - 1)));
         float money = (((id + 1) * baseMoney) * _profile.CurrentLevel);
@@ -112,14 +113,26 @@ public class RewardTrace : MonoBehaviour
         {
             _bar.RefreshBar((float)((float)(id) / (float)(_generatedBlocks.Count - 1)));
         }
-        _ragdoll.OnGroundReached();
+		if (shouldExitFromTrack)
+		{
+        	_ragdoll.OnGroundReached();
+		}
     } 
 
     public void PlayerEnteredFinish(int id, int humanId, float baseMoney, float basePower)
     {
-        PlayerEntered(id, humanId, baseMoney, basePower);
-        _profile.ShouldChangeLevel();
+        PlayerEntered(id, humanId, baseMoney, basePower, false);
+		_continuePopup.SetActive(true); 
     }
+
+	public void OnContinueButtonPressed()
+	{
+		if (gameObject.activeInHierarchy)
+		{
+			_ragdoll.OnGroundReached();
+		    _profile.ShouldChangeLevel();
+		}
+	}
 
     public void Alert()
     {
