@@ -1,10 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using YG;
 using Random = UnityEngine.Random;
 
 public class SpinWheel : MonoBehaviour
@@ -16,6 +14,7 @@ public class SpinWheel : MonoBehaviour
         Other
     }
     [SerializeField] private int _delay;
+	[SerializeField] private int _delayOnFirstEnter;
     [Header("GameObjects")]
     [SerializeField] private GameObject _dimed;
     [SerializeField] private GameObject _wheelBase;
@@ -54,6 +53,7 @@ public class SpinWheel : MonoBehaviour
     private bool _locked = false;
     private Color _buttonColor;
     private LanguageTranslator.Languages _currentLanguage;
+	private bool _isFirstEnter = true;
 
     private void Awake()
     {
@@ -64,7 +64,7 @@ public class SpinWheel : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(WaitDelayRoutine());
+        StartCoroutine(WaitDelayRoutine(true));
         //_buttonColor = //_spinButton.image.color;
         _profile = FindObjectOfType<PlayerProfile>();
         for (int i = 0; i < _info.Length; i++)
@@ -170,6 +170,7 @@ public class SpinWheel : MonoBehaviour
 
     public void OnRewardSpinGet(int id)
     {
+		Debug.Log($"Reward Spin Get and id {id} and saved id {_rewardSpinId}");
         if (id == _rewardSpinId)
         {
             _spinButton.interactable = false;
@@ -179,16 +180,17 @@ public class SpinWheel : MonoBehaviour
         }
     }
 
-    private IEnumerator WaitDelayRoutine()
+    private IEnumerator WaitDelayRoutine(bool first = false)
     {
         _locked = true;
         _spinButton.interactable = false;
-        //_spinButton.image.color = _lockColor;
+		int delay = (first == false ? _delay : _delayOnFirstEnter);
+		Debug.Log($"Current Spin Wheel Delay: {delay}");
         _spinButtonText.color = _lockTextColor;
-        for (int i = 0; i < _delay; i++)
+        for (int i = 0; i < delay; i++)
         {
             yield return new WaitForSeconds(1);
-            _lockCircle.fillAmount = 1f - (float)((float)(i) / (float)(_delay));
+            _lockCircle.fillAmount = 1f - (float)((float)(i) / (float)(delay));
         }
         _lockCircle.fillAmount = 0f;
         //_spinButton.image.color = _buttonColor;

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +25,7 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private bool _shouldCallPopup; 
     [SerializeField] private float _callPopupDelay; 
     [SerializeField] private ReminderPopup _reminderPopup;
+	[SerializeField] private DistractionFromGameplayChecker _gameplayDistractChecker;
 
     private GameObject _errorToast;
     private Dictionary<int, BaseInventoryItem> _bucket = new Dictionary<int, BaseInventoryItem>();
@@ -40,6 +40,10 @@ public class PlayerInventory : MonoBehaviour
         while (_shouldCallPopup)
         {
             yield return new WaitForSeconds(_callPopupDelay);
+			if (!_gameplayDistractChecker.CanDistractFromGameplay())
+			{
+				yield return null;
+			}
             if (_bucket.Count != 0)
             {
                 _reminderPopup.Show();

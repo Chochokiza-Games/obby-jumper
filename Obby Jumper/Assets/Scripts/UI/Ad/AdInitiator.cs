@@ -30,8 +30,8 @@ public class AdInitiator : MonoBehaviour
 		if (_shouldShowAutomaticaly)
 		{
         	StartCoroutine(AdInitiatorRoutine());
-        	YG.YandexGame.RewardVideoEvent += RewardCallback;
 		}
+		YG.YandexGame.RewardVideoEvent += RewardCallback;
     }
 
     private void DisableBots() 
@@ -126,6 +126,7 @@ public class AdInitiator : MonoBehaviour
 
     private void RewardCallback(int id)
     {
+		Debug.Log("Rv showed");
         _rewardAdShowed.Invoke(id);
     	_rvInProgress = false;
 	}

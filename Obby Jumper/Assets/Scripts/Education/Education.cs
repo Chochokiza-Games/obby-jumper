@@ -210,7 +210,7 @@ public class Education : MonoBehaviour
                 _currentEducationPopupText = new string[] 
                     {
                         _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "О НЕЕЕТ... ТЫ РЕАЛЬНО ДОПРЫГНУЛ ДО КОНЦА???" : "OH NOOO...DID YOU REALLY JUMP TO THE END???",
-                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ВОЗМОЖНО ТЫ ПРАВДА В БУДУЩЕМ СТАНЕШЬ СИГМОЙ" : "MAYBE YOU WILL ACTUALLY BECOME SIGMA IN THE FUTURE",
+                        _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "ВОЗМОЖНО, ТЫ ПРАВДА В БУДУЩЕМ СТАНЕШЬ СИГМОЙ" : "MAYBE YOU WILL ACTUALLY BECOME SIGMA IN THE FUTURE",
                         _language.CurrentLangunage == LanguageTranslator.Languages.Russian ? "НО ТРАССЫ БУДУТ ДЛИННЕЕ С КАЖДЫМ УРОВНЕМ..." : "BUT THAT'S NOT ALL, NOW THE TRAILS WILL BE LONGER",
                     };
                 break;

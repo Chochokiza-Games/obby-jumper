@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -15,7 +14,8 @@ public class Inventory : MonoBehaviour
     [SerializeField] private GameObject _closeButton;
     [SerializeField] private Vector2 _popupOffsetPercent;
     [SerializeField] private TextMeshProUGUI _sizeInfo;
-    
+	[SerializeField] private DistractionFromGameplayChecker _gameplayChecker;
+
     [Header("Deleting items")]
     [SerializeField] private GameObject _deleteButton;
     [SerializeField] private bool _canDeleteItems;

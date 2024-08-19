@@ -112,10 +112,10 @@ public class PlayerProfile : MonoBehaviour
     }
 
     public void LoadCloud()
-    {
+    {	
         _loadEvent.Invoke();
 
-        _money = YandexGame.savesData.money; //= 13337;
+        _money = YandexGame.savesData.money;// = 1113337;
         _power = YandexGame.savesData.power;
 
         _currentLevel = YandexGame.savesData.level;
